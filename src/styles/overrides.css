@@ -1,5 +1,172 @@
 /* ==================== COMPLETE TAILWIND OVERRIDES - FORCE NEW DESIGN ==================== */
 
+/* ==================== ORDER TRACKING PAGE FIX ==================== */
+/* Fix order tracking page layout - add top padding and proper spacing */
+.min-h-screen.py-20 {
+  padding-top: 140px !important;
+  padding-bottom: 80px !important;
+  min-height: 100vh !important;
+}
+
+/* Close button - make it visible and positioned properly */
+button.fixed.top-24 {
+  top: 100px !important;
+  right: 32px !important;
+  width: 56px !important;
+  height: 56px !important;
+  z-index: 10000 !important;
+  background: linear-gradient(135deg, #DC2626, #F97316) !important;
+  color: white !important;
+  border: 3px solid white !important;
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.4) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+button.fixed.top-24:hover {
+  transform: scale(1.1) rotate(90deg) !important;
+  box-shadow: 0 12px 32px rgba(220, 38, 38, 0.6) !important;
+}
+
+button.fixed.top-24 svg {
+  width: 28px !important;
+  height: 28px !important;
+}
+
+/* Order tracking header */
+.min-h-screen h1 {
+  color: #1f2937 !important;
+  font-size: 42px !important;
+  font-weight: 900 !important;
+  margin-bottom: 16px !important;
+}
+
+/* Order tracking description */
+.min-h-screen .text-lg {
+  color: #4b5563 !important;
+  font-size: 18px !important;
+}
+
+/* Search input box */
+.min-h-screen input[type="text"] {
+  background: white !important;
+  color: #1f2937 !important;
+  border: 3px solid #e5e7eb !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  padding: 18px 20px 18px 56px !important;
+}
+
+.min-h-screen input[type="text"]:focus {
+  border-color: #F97316 !important;
+  box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.2) !important;
+}
+
+/* Search button */
+.min-h-screen button.bg-gradient-to-r {
+  background: linear-gradient(135deg, #DC2626, #F97316) !important;
+  padding: 18px 36px !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4) !important;
+}
+
+/* Order status cards */
+.min-h-screen .p-8.rounded-2xl {
+  background: white !important;
+  border: 3px solid #e5e7eb !important;
+  padding: 32px !important;
+}
+
+/* ==================== TEXT VISIBILITY FIXES ==================== */
+
+/* Force all text to have proper contrast */
+.text-gray-900,
+.text-black {
+  color: #111827 !important;
+}
+
+.text-gray-600 {
+  color: #4b5563 !important;
+}
+
+.text-gray-400 {
+  color: #9ca3af !important;
+}
+
+.text-white {
+  color: #ffffff !important;
+}
+
+/* Light theme text fixes */
+.bg-white .text-black,
+.bg-white .text-gray-900,
+.bg-gradient-to-br.from-gray-50 .text-gray-900 {
+  color: #111827 !important;
+}
+
+.bg-white .text-gray-600,
+.bg-gradient-to-br.from-gray-50 .text-gray-600 {
+  color: #4b5563 !important;
+}
+
+/* Dark theme text fixes */
+.bg-black .text-white,
+.bg-gray-900 .text-white,
+.bg-gradient-to-br.from-black .text-white {
+  color: #ffffff !important;
+}
+
+.bg-black .text-gray-400,
+.bg-gray-900 .text-gray-400 {
+  color: #9ca3af !important;
+}
+
+/* Menu section text */
+#menu h2,
+#menu h3,
+#menu .text-xl {
+  color: #111827 !important;
+}
+
+#menu .text-sm,
+#menu p {
+  color: #4b5563 !important;
+}
+
+/* Gallery section text */
+#gallery h2 {
+  color: #111827 !important;
+}
+
+#gallery p {
+  color: #4b5563 !important;
+}
+
+#gallery h3 {
+  color: #ffffff !important;
+}
+
+/* Contact section - force white text */
+#contact h3,
+#contact h2,
+#contact .text-3xl,
+#contact .text-lg {
+  color: #ffffff !important;
+}
+
+#contact .text-xs {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Order tracking status text */
+.min-h-screen .text-sm.font-bold {
+  color: #111827 !important;
+}
+
+/* ==================== GLOBAL OVERRIDES ==================== */
+
 /* Force all sections */
 section {
   padding: 80px 24px !important;

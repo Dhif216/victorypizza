@@ -169,16 +169,17 @@ export function OrderTracking({ language, theme, onClose }: OrderTrackingProps) 
   };
 
   return (
-    <div className={`min-h-screen py-20 ${theme === 'light' ? 'bg-gradient-to-br from-gray-50 via-amber-50/30 to-orange-50/30' : 'bg-gradient-to-br from-black via-gray-900 to-black'}`}>
+    <div className="min-h-screen py-20" style={{ background: '#fafafa' }}>
       {/* Close Button */}
       {onClose && (
         <button
           onClick={onClose}
-          className={`fixed top-24 right-8 p-3 rounded-full transition-all transform hover:scale-110 shadow-lg z-50 ${
-            theme === 'light' 
-              ? 'bg-white hover:bg-gray-100 text-gray-900 border-2 border-gray-200' 
-              : 'bg-gray-800 hover:bg-gray-700 text-white border-2 border-gray-700'
-          }`}
+          className="fixed top-24 right-8 p-3 rounded-full transition-all transform hover:scale-110 shadow-lg z-50"
+          style={{
+            background: 'linear-gradient(135deg, #DC2626, #F97316)',
+            color: 'white',
+            border: '3px solid white'
+          }}
           aria-label={language === 'fi' ? 'Sulje' : 'Close'}
         >
           <X className="w-6 h-6" />
@@ -188,10 +189,10 @@ export function OrderTracking({ language, theme, onClose }: OrderTrackingProps) 
       <div className="container mx-auto px-4 max-w-4xl">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className={`text-4xl font-bold mb-4 ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
+          <h1 className="text-4xl font-bold mb-4" style={{ color: '#111827' }}>
             {language === 'fi' ? 'Seuraa tilaustasi' : 'Track Your Order'}
           </h1>
-          <p className={`text-lg ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'}`}>
+          <p className="text-lg" style={{ color: '#4b5563' }}>
             {language === 'fi' 
               ? 'Syötä tilausnumerosi nähdäksesi tilauksen tilan'
               : 'Enter your order number to see order status'}
@@ -199,12 +200,10 @@ export function OrderTracking({ language, theme, onClose }: OrderTrackingProps) 
         </div>
 
         {/* Search Section */}
-        <div className={`p-8 rounded-2xl shadow-lg border mb-8 ${
-          theme === 'light' ? 'bg-white border-gray-200' : 'bg-gray-900 border-gray-800'
-        }`}>
+        <div className="p-8 rounded-2xl shadow-lg border mb-8" style={{ background: 'white', borderColor: '#e5e7eb' }}>
           <div className="flex gap-4">
             <div className="flex-1">
-              <label className={`block text-sm font-bold mb-3 ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
+              <label className="block text-sm font-bold mb-3" style={{ color: '#111827' }}>
                 {language === 'fi' ? 'Tilausnumero' : 'Order Number'}
               </label>
               <div className="relative">
@@ -214,11 +213,12 @@ export function OrderTracking({ language, theme, onClose }: OrderTrackingProps) 
                   value={orderNumber}
                   onChange={(e) => setOrderNumber(e.target.value.toUpperCase())}
                   onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
-                  className={`w-full pl-12 pr-4 py-4 rounded-xl border-2 transition-all focus:ring-2 focus:ring-amber-500/50 focus:outline-none uppercase ${
-                    theme === 'light'
-                      ? 'bg-white border-gray-300 text-gray-900 focus:border-amber-500'
-                      : 'bg-gray-800 border-gray-700 text-white focus:border-amber-500'
-                  }`}
+                  className="w-full pl-12 pr-4 py-4 rounded-xl border-2 transition-all focus:ring-2 focus:ring-amber-500/50 focus:outline-none uppercase"
+                  style={{
+                    background: 'white',
+                    borderColor: '#d1d5db',
+                    color: '#111827'
+                  }}
                   placeholder="VP12345"
                 />
               </div>
