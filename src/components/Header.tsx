@@ -1,5 +1,6 @@
 import { Phone, Clock, Sun, Moon, ShoppingCart, Package, LayoutDashboard } from 'lucide-react';
 import logo from './file.svg';
+import './Header.css';
 
 interface HeaderProps {
   language: 'fi' | 'en';
@@ -14,7 +15,7 @@ interface HeaderProps {
 
 export function Header({ language, onToggleLanguage, theme, onToggleTheme, cartItemCount = 0, onCartClick, onTrackOrderClick, onDashboardClick }: HeaderProps) {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg border-b border-gray-200">
+    <header id="main-navbar">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
@@ -30,20 +31,20 @@ export function Header({ language, onToggleLanguage, theme, onToggleTheme, cartI
               </div>
             </div>
             <div>
-              <h1 className="text-2xl tracking-wider text-gray-900" style={{ fontFamily: 'serif', letterSpacing: '0.1em' }}>VICTORY</h1>
-              <p className="text-xs text-amber-500 italic tracking-widest">PIZZA</p>
+              <h1 className="navbar-logo text-2xl tracking-wider" style={{ fontFamily: 'serif', letterSpacing: '0.1em' }}>VICTORY</h1>
+              <p className="navbar-logo-subtitle text-xs italic tracking-widest">PIZZA</p>
             </div>
           </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
-            <a href="#gallery" className="hover:text-amber-500 transition-colors text-sm tracking-wide uppercase text-gray-700 font-medium">
+            <a href="#gallery" className="nav-link hover:text-amber-500 transition-colors text-sm tracking-wide uppercase">
               {language === 'fi' ? 'Galleria' : 'Gallery'}
             </a>
-            <a href="#menu" className="hover:text-amber-500 transition-colors text-sm tracking-wide uppercase text-gray-700 font-medium">
+            <a href="#menu" className="nav-link hover:text-amber-500 transition-colors text-sm tracking-wide uppercase">
               Menu
             </a>
-            <a href="#contact" className="hover:text-amber-500 transition-colors text-sm tracking-wide uppercase text-gray-700 font-medium">
+            <a href="#contact" className="nav-link hover:text-amber-500 transition-colors text-sm tracking-wide uppercase">
               {language === 'fi' ? 'Yhteystiedot' : 'Contact'}
             </a>
           </nav>
@@ -52,11 +53,11 @@ export function Header({ language, onToggleLanguage, theme, onToggleTheme, cartI
           <div className="flex items-center gap-4">
             {/* Contact Info - Hidden on mobile */}
             <div className="hidden xl:flex items-center gap-6 text-sm">
-              <div className="flex items-center gap-2 hover:text-amber-500 transition-colors cursor-pointer text-gray-700">
+              <div className="contact-info flex items-center gap-2 hover:text-amber-500 transition-colors cursor-pointer">
                 <Phone className="w-4 h-4" />
                 <span className="font-medium">046 842 0302</span>
               </div>
-              <div className="flex items-center gap-2 text-gray-700">
+              <div className="contact-info flex items-center gap-2">
                 <Clock className="w-4 h-4" />
                 <span className="font-medium">11:00 - 22:00</span>
               </div>
