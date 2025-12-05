@@ -123,33 +123,33 @@ export function CartButton({
                           : 'bg-gray-800 border-gray-700 hover:border-amber-600'
                       }`}
                     >
-                      <div className="flex gap-3">
+                      <div className="flex gap-4">
                         {item.imageUrl && (
                           <div className="flex-shrink-0">
                             <img 
                               src={item.imageUrl} 
                               alt={item.nameFi}
-                              className="w-20 h-20 object-cover rounded-lg"
+                              className="w-28 h-28 object-cover rounded-xl border-2 border-amber-500/20"
                             />
                           </div>
                         )}
                         <div className="flex-1 min-w-0">
-                          <h3 className={`font-bold text-base leading-tight mb-1 ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
+                          <h3 className={`font-bold text-lg leading-tight mb-2 ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
                             {language === 'fi' ? item.nameFi : item.nameEn}
                           </h3>
                           {item.selectedSize && (
-                            <p className={`text-sm mt-1.5 ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'}`}>
-                              <span className="inline-block px-2 py-0.5 rounded bg-amber-500/20 text-amber-600 dark:text-amber-400 font-medium text-xs">
+                            <p className={`text-sm mt-2 ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'}`}>
+                              <span className="inline-block px-3 py-1 rounded-lg bg-gradient-to-r from-amber-500/20 to-orange-500/20 text-amber-600 dark:text-amber-400 font-semibold text-sm border border-amber-500/30">
                                 {item.selectedSize}
                               </span>
                             </p>
                           )}
                           {item.notes && (
-                            <p className={`text-xs mt-1.5 italic line-clamp-2 ${theme === 'light' ? 'text-gray-500' : 'text-gray-400'}`}>
+                            <p className={`text-xs mt-2 italic line-clamp-2 ${theme === 'light' ? 'text-gray-500' : 'text-gray-400'}`}>
                               "{item.notes}"
                             </p>
                           )}
-                          <p className="text-amber-500 font-bold text-base mt-2">€{item.selectedPrice.toFixed(2)}</p>
+                          <p className="text-amber-500 font-bold text-lg mt-3">€{item.selectedPrice.toFixed(2)}</p>
                         </div>
                       </div>
                       
