@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Package, Clock, User, Phone, MapPin, Mail, CreditCard, Banknote, X, RefreshCw, Filter, Lock, Settings, Trash2 } from 'lucide-react';
+import { Package, Clock, User, Phone, MapPin, Mail, CreditCard, Banknote, X, RefreshCw, Filter, Lock, Settings, Trash2, Star } from 'lucide-react';
 import { orderAPI, authAPI } from '../services/api';
 import { socketService } from '../services/socket';
 import { UserSettings } from './UserSettings';
+import { ToastContainer } from './Toast';
 
 interface DashboardProps {
   language: 'fi' | 'en';
@@ -42,6 +43,11 @@ interface Order {
     method: 'card' | 'cash';
     status: string;
   };
+  review?: {
+    rating: number;
+    comment?: string;
+    createdAt?: string;
+  };
   timestamp?: number;
 }
 
@@ -54,12 +60,23 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
   const [error, setError] = useState<string | null>(null);
   const [showSettings, setShowSettings] = useState(false);
   const [deletingCompleted, setDeletingCompleted] = useState(false);
+  const [toasts, setToasts] = useState<Array<{ id: string; message: string; type?: 'success' | 'error' | 'info' }>>([]);
   
   // Login state
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
+
+  // Toast notification helper
+  const addToast = (message: string, type: 'success' | 'error' | 'info' = 'info') => {
+    const id = Date.now().toString();
+    setToasts(prev => [...prev, { id, message, type }]);
+  };
+
+  const removeToast = (id: string) => {
+    setToasts(prev => prev.filter(toast => toast.id !== id));
+  };
 
   // Check if already logged in
   useEffect(() => {
@@ -118,6 +135,14 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
       
       // Add to orders list
       setOrders(prev => [order, ...prev]);
+      
+      // Show toast notification
+      addToast(
+        language === 'fi' 
+          ? `Uusi tilaus! ${order.orderId} - €${order.pricing?.total?.toFixed(2) || '0.00'}`
+          : `New Order! ${order.orderId} - €${order.pricing?.total?.toFixed(2) || '0.00'}`,
+        'success'
+      );
       
       // Show browser notification if permitted
       if ('Notification' in window && Notification.permission === 'granted') {
@@ -308,13 +333,41 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
   const updateOrderStatus = async (orderId: string, newStatus: Order['status']) => {
     try {
       console.log(`🔄 Updating order ${orderId} to status: ${newStatus}`);
+      
+      // Optimistic UI update - update immediately for instant feedback
+      setOrders(prev => prev.map(order => 
+        order.orderId === orderId 
+          ? { ...order, status: newStatus }
+          : order
+      ));
+      
+      // Update selected order if it's the one being changed
+      if (selectedOrder?.orderId === orderId) {
+        setSelectedOrder(prev => prev ? { ...prev, status: newStatus } : null);
+      }
+      
+      // Send update to server
       await orderAPI.updateOrderStatus(orderId, newStatus);
-      // The Socket.IO event will update the UI automatically
+      
+      // Show success toast
+      addToast(
+        language === 'fi' 
+          ? `Tilaus ${orderId} päivitetty: ${getStatusLabel(newStatus)}`
+          : `Order ${orderId} updated: ${getStatusLabel(newStatus)}`,
+        'success'
+      );
+      
+      // The Socket.IO event will sync with other clients
     } catch (error) {
       console.error('❌ Error updating order status:', error);
-      alert(language === 'fi' 
-        ? 'Tilauksen päivitys epäonnistui!' 
-        : 'Failed to update order status!');
+      // Revert on error
+      await loadOrders();
+      addToast(
+        language === 'fi' 
+          ? 'Tilauksen päivitys epäonnistui!' 
+          : 'Failed to update order status!',
+        'error'
+      );
     }
   };
 
@@ -368,7 +421,11 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
   };
 
   return (
-    <div className={`min-h-screen ${theme === 'light' ? 'bg-gray-50' : 'bg-black'}`}>
+    <>
+      {/* Toast Notifications */}
+      <ToastContainer toasts={toasts} removeToast={removeToast} />
+      
+      <div className={`min-h-screen ${theme === 'light' ? 'bg-gray-50' : 'bg-black'}`}>
       {/* Header */}
       <div className={`border-b ${theme === 'light' ? 'bg-white border-gray-200' : 'bg-gray-900 border-gray-800'}`}>
         <div className="container mx-auto px-4 py-4">
@@ -732,6 +789,37 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
                       </div>
                     </div>
                   )}
+
+                  {/* Customer Review */}
+                  {selectedOrder.review && (
+                    <div className={`p-4 rounded-lg border-2 ${
+                      theme === 'light' ? 'border-green-300 bg-green-50/50' : 'border-green-700 bg-green-900/10'
+                    }`}>
+                      <div className={`text-sm font-bold mb-2 flex items-center gap-2 ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
+                        ⭐ {language === 'fi' ? 'Asiakkaan arvostelu' : 'Customer Review'}
+                      </div>
+                      <div className="flex items-center gap-1 mb-2">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className={`w-5 h-5 ${
+                              i < selectedOrder.review!.rating
+                                ? 'fill-amber-400 text-amber-400'
+                                : theme === 'light' ? 'text-gray-300' : 'text-gray-600'
+                            }`}
+                          />
+                        ))}
+                        <span className={`ml-2 text-sm font-bold ${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>
+                          {selectedOrder.review.rating}/5
+                        </span>
+                      </div>
+                      {selectedOrder.review.comment && (
+                        <div className={`text-sm ${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>
+                          "{selectedOrder.review.comment}"
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             ) : (
@@ -758,6 +846,7 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
           />
         )}
       </div>
-    </div>
+      </div>
+    </>
   );
 }
