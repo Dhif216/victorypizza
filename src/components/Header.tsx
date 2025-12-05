@@ -15,7 +15,19 @@ interface HeaderProps {
 
 export function Header({ language, onToggleLanguage, theme, onToggleTheme, cartItemCount = 0, onCartClick, onTrackOrderClick, onDashboardClick }: HeaderProps) {
   return (
-    <header id="main-navbar">
+    <header 
+      id="main-navbar"
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 9999,
+        backgroundColor: '#ffffff',
+        boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        borderBottom: '1px solid #e5e7eb'
+      }}
+    >
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
@@ -53,12 +65,12 @@ export function Header({ language, onToggleLanguage, theme, onToggleTheme, cartI
           <div className="flex items-center gap-4">
             {/* Contact Info - Hidden on mobile */}
             <div className="hidden xl:flex items-center gap-6 text-sm">
-              <div className="contact-info flex items-center gap-2 hover:text-amber-500 transition-colors cursor-pointer">
-                <Phone className="w-4 h-4" />
+              <div className="contact-info flex items-center gap-2 hover:text-amber-500 transition-colors cursor-pointer" style={{ color: '#374151' }}>
+                <Phone className="w-4 h-4" style={{ color: '#374151' }} />
                 <span className="font-medium">046 842 0302</span>
               </div>
-              <div className="contact-info flex items-center gap-2">
-                <Clock className="w-4 h-4" />
+              <div className="contact-info flex items-center gap-2" style={{ color: '#374151' }}>
+                <Clock className="w-4 h-4" style={{ color: '#374151' }} />
                 <span className="font-medium">11:00 - 22:00</span>
               </div>
             </div>
