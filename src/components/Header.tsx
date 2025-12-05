@@ -1,5 +1,4 @@
-import { Phone, Clock, Sun, Moon, ShoppingCart, Package, LayoutDashboard, Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { Phone, Clock, Sun, Moon, ShoppingCart, Package, LayoutDashboard } from 'lucide-react';
 import logo from './file.svg';
 
 interface HeaderProps {
@@ -14,11 +13,9 @@ interface HeaderProps {
 }
 
 export function Header({ language, onToggleLanguage, theme, onToggleTheme, cartItemCount = 0, onCartClick, onTrackOrderClick, onDashboardClick }: HeaderProps) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg border-b border-gray-200">
-      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+      <div className="container mx-auto px-6 max-w-7xl">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 group">
@@ -40,13 +37,13 @@ export function Header({ language, onToggleLanguage, theme, onToggleTheme, cartI
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
-            <a href="#gallery" className="hover:text-amber-500 transition-colors text-sm tracking-wide uppercase text-gray-700">
+            <a href="#gallery" className="hover:text-amber-500 transition-colors text-sm tracking-wide uppercase text-gray-700 font-medium">
               {language === 'fi' ? 'Galleria' : 'Gallery'}
             </a>
-            <a href="#menu" className="hover:text-amber-500 transition-colors text-sm tracking-wide uppercase text-gray-700">
+            <a href="#menu" className="hover:text-amber-500 transition-colors text-sm tracking-wide uppercase text-gray-700 font-medium">
               Menu
             </a>
-            <a href="#contact" className="hover:text-amber-500 transition-colors text-sm tracking-wide uppercase text-gray-700">
+            <a href="#contact" className="hover:text-amber-500 transition-colors text-sm tracking-wide uppercase text-gray-700 font-medium">
               {language === 'fi' ? 'Yhteystiedot' : 'Contact'}
             </a>
           </nav>
@@ -54,14 +51,14 @@ export function Header({ language, onToggleLanguage, theme, onToggleTheme, cartI
           {/* Right Section */}
           <div className="flex items-center gap-4">
             {/* Contact Info - Hidden on mobile */}
-            <div className="hidden xl:flex items-center gap-6 text-sm mr-4">
+            <div className="hidden xl:flex items-center gap-6 text-sm">
               <div className="flex items-center gap-2 hover:text-amber-500 transition-colors cursor-pointer text-gray-700">
                 <Phone className="w-4 h-4" />
-                <span>046 842 0302</span>
+                <span className="font-medium">046 842 0302</span>
               </div>
               <div className="flex items-center gap-2 text-gray-700">
                 <Clock className="w-4 h-4" />
-                <span>11:00 - 22:00</span>
+                <span className="font-medium">11:00 - 22:00</span>
               </div>
             </div>
             
@@ -115,58 +112,8 @@ export function Header({ language, onToggleLanguage, theme, onToggleTheme, cartI
             >
               {language === 'fi' ? 'EN' : 'FI'}
             </button>
-
-            {/* Mobile Menu Button - Only visible on mobile */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-800 transition-all shadow-md"
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
           </div>
         </div>
-
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-gray-200 py-4 bg-white">
-            <nav className="flex flex-col gap-4">
-              <a 
-                href="#gallery" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-gray-700 hover:text-amber-500 transition-colors text-sm tracking-wide uppercase py-2"
-              >
-                {language === 'fi' ? 'Galleria' : 'Gallery'}
-              </a>
-              <a 
-                href="#menu" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-gray-700 hover:text-amber-500 transition-colors text-sm tracking-wide uppercase py-2"
-              >
-                Menu
-              </a>
-              <a 
-                href="#contact" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-gray-700 hover:text-amber-500 transition-colors text-sm tracking-wide uppercase py-2"
-              >
-                {language === 'fi' ? 'Yhteystiedot' : 'Contact'}
-              </a>
-              
-              {/* Mobile Contact Info */}
-              <div className="flex flex-col gap-3 pt-4 border-t border-gray-200">
-                <div className="flex items-center gap-2 text-gray-700 text-sm">
-                  <Phone className="w-4 h-4" />
-                  <span>046 842 0302</span>
-                </div>
-                <div className="flex items-center gap-2 text-gray-700 text-sm">
-                  <Clock className="w-4 h-4" />
-                  <span>11:00 - 22:00</span>
-                </div>
-              </div>
-            </nav>
-          </div>
-        )}
       </div>
     </header>
   );
