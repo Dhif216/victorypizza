@@ -386,25 +386,26 @@ body {
 
 .hero-cta-group {
   display: flex !important;
-  flex-direction: column !important;
-  gap: 20px !important;
+  flex-direction: row !important;
+  gap: 16px !important;
   align-items: center !important;
   justify-content: center !important;
   margin: 0 0 72px 0 !important;
+  flex-wrap: wrap !important;
 }
 
 .cta-button {
-  display: flex !important;
+  display: inline-flex !important;
   align-items: center !important;
-  gap: 18px !important;
-  padding: 22px 40px !important;
-  border-radius: 20px !important;
+  gap: 14px !important;
+  padding: 16px 28px !important;
+  border-radius: 16px !important;
   font-weight: 800 !important;
   text-decoration: none !important;
   transition: all 0.3s ease !important;
-  width: 100% !important;
-  max-width: 450px !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+  width: auto !important;
+  max-width: 320px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25) !important;
   border: 3px solid transparent !important;
 }
 
@@ -435,8 +436,8 @@ body {
 }
 
 .cta-icon {
-  width: 32px !important;
-  height: 32px !important;
+  width: 24px !important;
+  height: 24px !important;
   flex-shrink: 0 !important;
 }
 
@@ -445,24 +446,24 @@ body {
   flex-direction: column !important;
   align-items: flex-start !important;
   text-align: left !important;
-  gap: 4px !important;
+  gap: 2px !important;
 }
 
 .cta-label {
-  font-size: 15px !important;
+  font-size: 13px !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
-  letter-spacing: 1px !important;
+  letter-spacing: 0.8px !important;
 }
 
 .cta-number {
-  font-size: 24px !important;
+  font-size: 19px !important;
   font-weight: 900 !important;
-  letter-spacing: 1.5px !important;
+  letter-spacing: 1px !important;
 }
 
 .cta-subtitle {
-  font-size: 14px !important;
+  font-size: 12px !important;
   font-weight: 600 !important;
   opacity: 0.9 !important;
 }
@@ -1429,12 +1430,12 @@ body {
 @media (min-width: 640px) {
   .hero-cta-group {
     flex-direction: row !important;
-    gap: 20px !important;
+    gap: 16px !important;
   }
   
   .cta-button {
     width: auto !important;
-    min-width: 300px !important;
+    min-width: 260px !important;
   }
 }
 
@@ -1476,6 +1477,15 @@ body {
   .cart-item-image {
     width: 100px !important;
     height: 100px !important;
+  }
+  
+  .cta-button {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .hero-cta-group {
+    flex-direction: column !important;
   }
 }
 
