@@ -1,0 +1,215 @@
+/* ==================== COMPLETE TAILWIND OVERRIDES - FORCE NEW DESIGN ==================== */
+
+/* Force all sections */
+section {
+  padding: 80px 24px !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+/* Force containers */
+.container,
+.mx-auto {
+  max-width: 1400px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+  width: 100% !important;
+}
+
+/* Menu Category Buttons - BIGGER */
+button.rounded-full,
+.rounded-full.px-6 {
+  padding: 18px 36px !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  border-radius: 50px !important;
+  min-width: 160px !important;
+  margin: 10px !important;
+  gap: 14px !important;
+  border: 3px solid #e5e7eb !important;
+}
+
+button.rounded-full.bg-amber-500,
+.bg-amber-500.rounded-full {
+  background: linear-gradient(135deg, #DC2626, #F97316) !important;
+  color: white !important;
+  border-color: #F97316 !important;
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4) !important;
+}
+
+/* Menu Images - MUCH BIGGER */
+.w-32,
+.h-32,
+.md\:w-40,
+.md\:h-40 {
+  width: 220px !important;
+  height: 220px !important;
+}
+
+/* Menu Cards */
+.rounded-2xl.border {
+  background: white !important;
+  border: 3px solid #e5e7eb !important;
+  border-radius: 20px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+  margin-bottom: 24px !important;
+}
+
+.rounded-2xl.border:hover {
+  border-color: #F97316 !important;
+  transform: translateY(-6px) !important;
+  box-shadow: 0 12px 32px rgba(220, 38, 38, 0.15) !important;
+}
+
+/* Menu Text */
+.rounded-2xl h3 {
+  font-size: 28px !important;
+  font-weight: 800 !important;
+  color: #1f2937 !important;
+}
+
+.text-2xl.text-amber-500 {
+  font-size: 34px !important;
+  font-weight: 900 !important;
+  color: #DC2626 !important;
+}
+
+/* Add to Cart Buttons */
+button.rounded-xl,
+.rounded-xl.bg-amber-500 {
+  padding: 18px 32px !important;
+  background: linear-gradient(135deg, #DC2626, #F97316) !important;
+  color: white !important;
+  font-weight: 800 !important;
+  font-size: 17px !important;
+  border-radius: 14px !important;
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.3) !important;
+}
+
+button.rounded-xl:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 10px 28px rgba(220, 38, 38, 0.5) !important;
+}
+
+/* Contact Section */
+#contact {
+  background: linear-gradient(135deg, #DC2626, #F97316) !important;
+  padding: 80px 24px !important;
+}
+
+#contact .w-12.h-12 {
+  width: 72px !important;
+  height: 72px !important;
+  background: linear-gradient(135deg, #F97316, #DC2626) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3) !important;
+}
+
+#contact .w-12.h-12 svg {
+  width: 36px !important;
+  height: 36px !important;
+  color: white !important;
+}
+
+/* Gallery Grid */
+#gallery .grid {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+  gap: 28px !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  justify-items: center !important;
+}
+
+#gallery .group {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Space category buttons */
+.flex.gap-3.mb-12,
+.flex.gap-4.mb-12 {
+  gap: 20px !important;
+  margin-bottom: 56px !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+}
+
+/* Menu grid spacing */
+.space-y-6 {
+  margin-top: 40px !important;
+}
+
+.space-y-6 > * + * {
+  margin-top: 28px !important;
+}
+
+/* Emoji icons in buttons - BIGGER */
+button span:first-child {
+  font-size: 28px !important;
+}
+
+/* Menu item content padding */
+.rounded-2xl .p-6 {
+  padding: 32px !important;
+}
+
+/* Gallery background */
+#gallery {
+  background: #fafafa !important;
+  padding: 80px 24px !important;
+}
+
+/* Contact form inputs */
+#contact input,
+#contact textarea,
+#contact select {
+  width: 100% !important;
+  padding: 18px 22px !important;
+  border: 3px solid #e5e7eb !important;
+  border-radius: 14px !important;
+  font-size: 16px !important;
+  background: white !important;
+  color: #1f2937 !important;
+}
+
+#contact input:focus,
+#contact textarea:focus,
+#contact select:focus {
+  outline: none !important;
+  border-color: #F97316 !important;
+  box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.15) !important;
+}
+
+/* Contact submit button */
+#contact button[type="submit"] {
+  width: 100% !important;
+  padding: 22px 36px !important;
+  background: linear-gradient(135deg, #DC2626, #F97316) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 16px !important;
+  font-size: 19px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.3) !important;
+}
+
+#contact button[type="submit"]:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 32px rgba(220, 38, 38, 0.5) !important;
+}
+
+/* Contact text colors */
+#contact h3,
+#contact .text-white {
+  color: white !important;
+}
+
+/* Menu section background */
+#menu {
+  background: #fafafa !important;
+  padding: 80px 24px !important;
+}
