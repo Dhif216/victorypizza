@@ -48,13 +48,13 @@ export function Contact({ language, theme, onShowPolicy }: ContactProps) {
 
             {/* Contact Details */}
             <div className="space-y-6">
-              <a href="tel:00358-0468420302" className={`flex items-center gap-4 hover:text-amber-400 transition-colors group ${
+              <a href="tel:00358-0468420302" className={`flex items-start gap-4 hover:text-amber-400 transition-colors group ${
                 theme === "light" ? "text-black/80" : "text-white/80"
               }`}>
-                <div className="w-12 h-12 bg-gradient-to-br from-amber-500/20 to-amber-600/20 rounded-full flex items-center justify-center border border-amber-500/30 group-hover:border-amber-500 transition-all">
+                <div className="w-12 h-12 bg-gradient-to-br from-amber-500/20 to-amber-600/20 rounded-full flex items-center justify-center border border-amber-500/30 group-hover:border-amber-500 transition-all flex-shrink-0">
                   <Phone className="w-5 h-5 text-amber-500" />
                 </div>
-                <div>
+                <div className="flex flex-col pt-1">
                   <div className={`text-xs uppercase mb-1 ${
                     theme === "light" ? "text-black/40" : "text-white/40"
                   }`}>{language === 'fi' ? 'Puhelin' : 'Phone'}</div>
@@ -62,13 +62,13 @@ export function Contact({ language, theme, onShowPolicy }: ContactProps) {
                 </div>
               </a>
 
-              <a href="mailto:victroy.pizza.fi@gmail.com" className={`flex items-center gap-4 hover:text-amber-400 transition-colors group ${
+              <a href="mailto:victroy.pizza.fi@gmail.com" className={`flex items-start gap-4 hover:text-amber-400 transition-colors group ${
                 theme === "light" ? "text-black/80" : "text-white/80"
               }`}>
-                <div className="w-12 h-12 bg-gradient-to-br from-amber-500/20 to-amber-600/20 rounded-full flex items-center justify-center border border-amber-500/30 group-hover:border-amber-500 transition-all">
+                <div className="w-12 h-12 bg-gradient-to-br from-amber-500/20 to-amber-600/20 rounded-full flex items-center justify-center border border-amber-500/30 group-hover:border-amber-500 transition-all flex-shrink-0">
                   <Mail className="w-5 h-5 text-amber-500" />
                 </div>
-                <div>
+                <div className="flex flex-col pt-1">
                   <div className={`text-xs uppercase mb-1 ${
                     theme === "light" ? "text-black/40" : "text-white/40"
                   }`}>Email</div>
@@ -76,13 +76,13 @@ export function Contact({ language, theme, onShowPolicy }: ContactProps) {
                 </div>
               </a>
 
-              <div className={`flex items-center gap-4 ${
+              <div className={`flex items-start gap-4 ${
                 theme === "light" ? "text-black/80" : "text-white/80"
               }`}>
-                <div className="w-12 h-12 bg-gradient-to-br from-amber-500/20 to-amber-600/20 rounded-full flex items-center justify-center border border-amber-500/30">
+                <div className="w-12 h-12 bg-gradient-to-br from-amber-500/20 to-amber-600/20 rounded-full flex items-center justify-center border border-amber-500/30 flex-shrink-0">
                   <MapPin className="w-5 h-5 text-amber-500" />
                 </div>
-                <div>
+                <div className="flex flex-col pt-1">
                   <div className={`text-xs uppercase mb-1 ${
                     theme === "light" ? "text-black/40" : "text-white/40"
                   }`}>{language === 'fi' ? 'Osoite' : 'Address'}</div>
@@ -90,13 +90,13 @@ export function Contact({ language, theme, onShowPolicy }: ContactProps) {
                 </div>
               </div>
 
-              <div className={`flex items-center gap-4 ${
+              <div className={`flex items-start gap-4 ${
                 theme === "light" ? "text-black/80" : "text-white/80"
               }`}>
-                <div className="w-12 h-12 bg-gradient-to-br from-amber-500/20 to-amber-600/20 rounded-full flex items-center justify-center border border-amber-500/30">
+                <div className="w-12 h-12 bg-gradient-to-br from-amber-500/20 to-amber-600/20 rounded-full flex items-center justify-center border border-amber-500/30 flex-shrink-0">
                   <Clock className="w-5 h-5 text-amber-500" />
                 </div>
-                <div>
+                <div className="flex flex-col pt-1">
                   <div className={`text-xs uppercase mb-1 ${
                     theme === "light" ? "text-black/40" : "text-white/40"
                   }`}>{language === 'fi' ? 'Aukioloajat' : 'Opening Hours'}</div>

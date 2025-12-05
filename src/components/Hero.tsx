@@ -31,16 +31,16 @@ export function Hero({ language, theme }: HeroProps) {
 
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         {/* Main Title */}
-        <div className="mb-8">
+        <div className="mb-12">
           <div className="inline-block">
-            <div className="flex items-center justify-center gap-4 mb-4">
+            <div className="flex items-center justify-center gap-4 mb-6">
               <div className="h-px w-20 bg-gradient-to-r from-transparent to-amber-500"></div>
               <span className="text-amber-400 text-sm tracking-[0.3em] uppercase">
                 {language === 'fi' ? 'Helsinki' : 'Helsinki'}
               </span>
               <div className="h-px w-20 bg-gradient-to-l from-transparent to-amber-500"></div>
             </div>
-            <h1 className={`text-7xl md:text-8xl lg:text-9xl mb-2 tracking-tight ${
+            <h1 className={`text-7xl md:text-8xl lg:text-9xl mb-6 tracking-tight ${
               theme === "light" ? "text-black" : "text-white"
             }`} 
               style={{ 
@@ -51,8 +51,8 @@ export function Hero({ language, theme }: HeroProps) {
               }}>
               VICTORY
             </h1>
-            <p className="text-3xl md:text-4xl text-amber-400 italic mb-2">Pizza</p>
-            <div className="flex items-center justify-center gap-2">
+            <p className="text-3xl md:text-4xl text-amber-400 italic mb-6">Pizza</p>
+            <div className="flex items-center justify-center gap-2 mb-4">
               <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
               <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
               <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
@@ -61,7 +61,7 @@ export function Hero({ language, theme }: HeroProps) {
         </div>
 
         {/* Subtitle */}
-        <p className={`text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed ${
+        <p className={`text-xl md:text-2xl mb-16 max-w-3xl mx-auto leading-relaxed ${
           theme === "light" ? "text-black/70" : "text-white/70"
         }`}>
           {language === 'fi' 
@@ -70,7 +70,7 @@ export function Hero({ language, theme }: HeroProps) {
         </p>
 
         {/* Eye-catching CTA for Call/Order */}
-        <div className="mb-8">
+        <div className="mb-12">
           <a 
             href="tel:00358-0468420302" 
             className="group relative inline-flex items-center gap-3 px-12 py-6 bg-gradient-to-r from-green-500 via-green-600 to-emerald-600 hover:from-green-600 hover:via-green-700 hover:to-emerald-700 text-white rounded-full transition-all transform hover:scale-105 shadow-2xl shadow-green-500/40 hover:shadow-green-500/60 text-lg font-bold uppercase tracking-wider animate-pulse hover:animate-none"
@@ -90,7 +90,7 @@ export function Hero({ language, theme }: HeroProps) {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20">
           <a 
             href="#menu" 
             className="group px-10 py-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black rounded-full transition-all transform hover:scale-105 shadow-2xl shadow-amber-500/20 text-sm uppercase tracking-widest inline-flex items-center gap-2"
