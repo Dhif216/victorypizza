@@ -17,14 +17,14 @@ export function Header({ language, onToggleLanguage, theme, onToggleTheme, cartI
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md border-b border-gray-200">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg border-b border-gray-200">
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 sm:gap-3 group">
+          <a href="#" className="flex items-center gap-3 group">
             <div className="relative">
               <div className="absolute inset-0 bg-amber-500/30 rounded-full blur-lg group-hover:bg-amber-500/50 transition-all"></div>
-              <div className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
+              <div className="relative w-12 h-12 flex items-center justify-center">
                 <img 
                   src={logo} 
                   alt="Victory Pizza Logo" 
@@ -33,7 +33,7 @@ export function Header({ language, onToggleLanguage, theme, onToggleTheme, cartI
               </div>
             </div>
             <div>
-              <h1 className="text-xl sm:text-2xl tracking-wider text-gray-900" style={{ fontFamily: 'serif', letterSpacing: '0.1em' }}>VICTORY</h1>
+              <h1 className="text-2xl tracking-wider text-gray-900" style={{ fontFamily: 'serif', letterSpacing: '0.1em' }}>VICTORY</h1>
               <p className="text-xs text-amber-500 italic tracking-widest">PIZZA</p>
             </div>
           </a>
@@ -52,7 +52,7 @@ export function Header({ language, onToggleLanguage, theme, onToggleTheme, cartI
           </nav>
 
           {/* Right Section */}
-          <div className="flex items-center gap-2 sm:gap-4">
+          <div className="flex items-center gap-4">
             {/* Contact Info - Hidden on mobile */}
             <div className="hidden xl:flex items-center gap-6 text-sm mr-4">
               <div className="flex items-center gap-2 hover:text-amber-500 transition-colors cursor-pointer text-gray-700">
@@ -72,7 +72,7 @@ export function Header({ language, onToggleLanguage, theme, onToggleTheme, cartI
               aria-label={language === 'fi' ? 'Seuraa tilausta' : 'Track order'}
               title={language === 'fi' ? 'Seuraa tilausta' : 'Track order'}
             >
-              <Package className="w-4 h-4 sm:w-5 sm:h-5" />
+              <Package className="w-5 h-5" />
             </button>
 
             {/* Dashboard Button */}
@@ -82,7 +82,7 @@ export function Header({ language, onToggleLanguage, theme, onToggleTheme, cartI
               aria-label={language === 'fi' ? 'Ravintolan hallinta' : 'Restaurant Dashboard'}
               title={language === 'fi' ? 'Ravintolan hallinta' : 'Restaurant Dashboard'}
             >
-              <LayoutDashboard className="w-4 h-4 sm:w-5 sm:h-5" />
+              <LayoutDashboard className="w-5 h-5" />
             </button>
             
             {/* Cart Button */}
@@ -91,7 +91,7 @@ export function Header({ language, onToggleLanguage, theme, onToggleTheme, cartI
               className="relative p-2 rounded-full bg-amber-500 hover:bg-amber-600 text-white transition-all transform hover:scale-105 shadow-md"
               aria-label="Shopping cart"
             >
-              <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5" />
+              <ShoppingCart className="w-5 h-5" />
               {cartItemCount > 0 && (
                 <div className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold animate-pulse">
                   {cartItemCount}
@@ -99,10 +99,10 @@ export function Header({ language, onToggleLanguage, theme, onToggleTheme, cartI
               )}
             </button>
             
-            {/* Theme Toggle - Hidden on smallest screens */}
+            {/* Theme Toggle */}
             <button
               onClick={onToggleTheme}
-              className="hidden sm:block p-2 rounded-full bg-gray-200 hover:bg-gray-300 text-gray-800 transition-all transform hover:scale-105 shadow-md"
+              className="p-2 rounded-full bg-gray-200 hover:bg-gray-300 text-gray-800 transition-all transform hover:scale-105 shadow-md"
               aria-label="Toggle theme"
             >
               {theme === "light" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
@@ -111,18 +111,18 @@ export function Header({ language, onToggleLanguage, theme, onToggleTheme, cartI
             {/* Language Toggle */}
             <button
               onClick={onToggleLanguage}
-              className="px-3 sm:px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white rounded-full transition-all transform hover:scale-105 text-xs sm:text-sm uppercase tracking-wider shadow-md font-semibold"
+              className="px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white rounded-full transition-all transform hover:scale-105 text-sm uppercase tracking-wider shadow-md font-semibold"
             >
               {language === 'fi' ? 'EN' : 'FI'}
             </button>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - Only visible on mobile */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-800 transition-all"
+              className="lg:hidden p-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-800 transition-all shadow-md"
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
@@ -164,27 +164,6 @@ export function Header({ language, onToggleLanguage, theme, onToggleTheme, cartI
                   <span>11:00 - 22:00</span>
                 </div>
               </div>
-
-              {/* Theme Toggle for Mobile */}
-              <button
-                onClick={() => {
-                  onToggleTheme();
-                  setMobileMenuOpen(false);
-                }}
-                className="sm:hidden w-full p-3 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800 transition-all flex items-center justify-center gap-2 text-sm"
-              >
-                {theme === "light" ? (
-                  <>
-                    <Moon className="w-4 h-4" />
-                    <span>{language === 'fi' ? 'Tumma teema' : 'Dark Theme'}</span>
-                  </>
-                ) : (
-                  <>
-                    <Sun className="w-4 h-4" />
-                    <span>{language === 'fi' ? 'Valoisa teema' : 'Light Theme'}</span>
-                  </>
-                )}
-              </button>
             </nav>
           </div>
         )}
