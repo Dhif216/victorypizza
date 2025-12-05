@@ -1,0 +1,293 @@
+/* Victory Pizza - Complete CSS Reset and Custom Styles */
+
+/* ==================== RESET ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==================== NAVBAR ==================== */
+.victory-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #f59e0b;
+}
+
+.victory-navbar .navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.victory-navbar .navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+.victory-navbar .logo-image {
+  width: 50px;
+  height: 50px;
+}
+
+.victory-navbar .logo-text h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937;
+  letter-spacing: 0.1em;
+}
+
+.victory-navbar .logo-text p {
+  font-size: 0.75rem;
+  color: #f59e0b;
+  font-style: italic;
+  letter-spacing: 0.15em;
+}
+
+.victory-navbar .navbar-nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.victory-navbar .nav-link {
+  text-decoration: none;
+  color: #374151;
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+
+.victory-navbar .nav-link:hover {
+  color: #f59e0b;
+}
+
+.victory-navbar .navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.victory-navbar .contact-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #374151;
+  font-size: 0.875rem;
+}
+
+.victory-navbar .contact-info svg {
+  width: 16px;
+  height: 16px;
+  color: #374151;
+}
+
+.victory-navbar .icon-button {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 9999px;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.victory-navbar .icon-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+.victory-navbar .icon-button.blue {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.victory-navbar .icon-button.blue:hover {
+  background-color: #2563eb;
+}
+
+.victory-navbar .icon-button.purple {
+  background-color: #a855f7;
+  color: white;
+}
+
+.victory-navbar .icon-button.purple:hover {
+  background-color: #9333ea;
+}
+
+.victory-navbar .icon-button.amber {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.victory-navbar .icon-button.amber:hover {
+  background-color: #d97706;
+}
+
+.victory-navbar .icon-button.gray {
+  background-color: #e5e7eb;
+  color: #1f2937;
+}
+
+.victory-navbar .icon-button.gray:hover {
+  background-color: #d1d5db;
+}
+
+.victory-navbar .cart-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: #ef4444;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.victory-navbar .language-button {
+  background: linear-gradient(to right, #f59e0b, #d97706);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.victory-navbar .language-button:hover {
+  transform: scale(1.05);
+}
+
+/* ==================== HERO SECTION ==================== */
+.victory-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 120px;
+  background: linear-gradient(to bottom, #fef3c7, #ffffff, #fef3c7);
+  position: relative;
+  overflow: hidden;
+}
+
+.victory-hero.dark {
+  background: linear-gradient(to bottom, #000000, #1f2937, #000000);
+}
+
+.victory-hero .hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.victory-hero h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+.victory-hero.dark h1 {
+  color: #ffffff;
+}
+
+.victory-hero p {
+  font-size: 1.5rem;
+  color: #6b7280;
+  margin-bottom: 2rem;
+}
+
+.victory-hero.dark p {
+  color: #9ca3af;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+  .victory-navbar .navbar-nav {
+    display: none;
+  }
+  
+  .victory-navbar .contact-info {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .victory-navbar .navbar-container {
+    padding: 0.75rem 1rem;
+  }
+  
+  .victory-navbar .logo-image {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .victory-navbar .logo-text h1 {
+    font-size: 1.25rem;
+  }
+  
+  .victory-navbar .navbar-actions {
+    gap: 0.5rem;
+  }
+  
+  .victory-hero {
+    padding-top: 100px;
+  }
+  
+  .victory-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .victory-hero p {
+    font-size: 1rem;
+  }
+}
+
+/* ==================== UTILITIES ==================== */
+.hidden-mobile {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .hidden-mobile {
+    display: flex;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hidden-tablet {
+    display: none !important;
+  }
+}
