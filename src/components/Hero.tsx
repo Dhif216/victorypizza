@@ -7,7 +7,7 @@ interface HeroProps {
 
 export function Hero({ language, theme }: HeroProps) {
   return (
-    <section className={`relative min-h-screen flex items-center justify-center overflow-hidden pt-24 ${
+    <section className={`relative min-h-screen flex items-center justify-center overflow-hidden pt-28 ${
       theme === "light" ? "bg-gradient-to-b from-gray-50 via-white to-gray-50" : ""
     }`}>
       {/* Animated Background */}

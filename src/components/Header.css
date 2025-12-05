@@ -54,3 +54,19 @@
 #main-navbar .contact-info:hover {
   color: #f59e0b !important;
 }
+
+/* Make all icons dark/visible on white background */
+#main-navbar svg {
+  color: inherit !important;
+}
+
+/* Specific icon button styles for visibility */
+#main-navbar button svg {
+  color: #ffffff !important; /* White icons on colored buttons */
+}
+
+/* Contact info icons should be dark */
+#main-navbar .contact-info svg {
+  color: #374151 !important;
+}
+
