@@ -14,5 +14,10 @@
     "tailwindcss": "^4.1.17",
     "typescript": "~5.9.3",
     "vite": "^7.2.4"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react-swc": "^4.2.2",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1"
   }
 }
