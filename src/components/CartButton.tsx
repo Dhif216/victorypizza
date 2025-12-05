@@ -1,5 +1,5 @@
 import { ShoppingCart, X, Minus, Plus, Trash2, ArrowRight } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { MenuItem } from '../data/menuData';
 
 export interface CartItem extends MenuItem {
@@ -41,6 +41,28 @@ export function CartButton({
       setInternalIsOpen(!internalIsOpen);
     }
   };
+
+  // Prevent body scroll when cart is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('cart-open');
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+    } else {
+      document.body.classList.remove('cart-open');
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+    }
+    
+    return () => {
+      document.body.classList.remove('cart-open');
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+    };
+  }, [isOpen]);
 
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = cartItems.reduce((sum, item) => sum + (item.selectedPrice * item.quantity), 0);
