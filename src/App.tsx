@@ -89,18 +89,26 @@ export default function App() {
     alert(language === 'fi' ? '✅ Lisätty ostoskoriin!' : '✅ Added to cart!');
   };
 
-  const handleUpdateQuantity = (id: number, quantity: number) => {
+  const handleUpdateQuantity = (id: number, quantity: number, selectedSize?: string) => {
     if (quantity <= 0) {
-      setCartItems(items => items.filter(item => item.id !== id));
+      setCartItems(items => items.filter(item => 
+        !(item.id === id && item.selectedSize === selectedSize)
+      ));
     } else {
       setCartItems(items =>
-        items.map(item => item.id === id ? { ...item, quantity } : item)
+        items.map(item => 
+          item.id === id && item.selectedSize === selectedSize 
+            ? { ...item, quantity } 
+            : item
+        )
       );
     }
   };
 
-  const handleRemoveItem = (id: number) => {
-    setCartItems(items => items.filter(item => item.id !== id));
+  const handleRemoveItem = (id: number, selectedSize?: string) => {
+    setCartItems(items => items.filter(item => 
+      !(item.id === id && item.selectedSize === selectedSize)
+    ));
   };
 
   const handleCheckout = () => {

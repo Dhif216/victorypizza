@@ -13,8 +13,8 @@ interface CartButtonProps {
   language: 'fi' | 'en';
   theme: 'dark' | 'light';
   cartItems: CartItem[];
-  onUpdateQuantity: (id: number, quantity: number) => void;
-  onRemoveItem: (id: number) => void;
+  onUpdateQuantity: (id: number, quantity: number, selectedSize?: string) => void;
+  onRemoveItem: (id: number, selectedSize?: string) => void;
   onCheckout: () => void;
   isOpen?: boolean;
   onToggle?: () => void;
@@ -156,7 +156,7 @@ export function CartButton({
                       <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
                         <div className="flex items-center gap-2 bg-gray-100 dark:bg-gray-700 rounded-lg p-1.5">
                           <button
-                            onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}
+                            onClick={() => onUpdateQuantity(item.id, item.quantity - 1, item.selectedSize)}
                             className="p-2 bg-white dark:bg-gray-600 rounded-md hover:bg-amber-100 dark:hover:bg-amber-900 transition-colors"
                           >
                             <Minus className="w-4 h-4 text-gray-700 dark:text-gray-200" />
@@ -165,14 +165,14 @@ export function CartButton({
                             {item.quantity}
                           </span>
                           <button
-                            onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
+                            onClick={() => onUpdateQuantity(item.id, item.quantity + 1, item.selectedSize)}
                             className="p-2 bg-white dark:bg-gray-600 rounded-md hover:bg-amber-100 dark:hover:bg-amber-900 transition-colors"
                           >
                             <Plus className="w-4 h-4 text-gray-700 dark:text-gray-200" />
                           </button>
                         </div>
                         <button
-                          onClick={() => onRemoveItem(item.id)}
+                          onClick={() => onRemoveItem(item.id, item.selectedSize)}
                           className="p-2.5 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors group flex-shrink-0"
                           title={language === 'fi' ? 'Poista' : 'Remove'}
                         >
