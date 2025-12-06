@@ -1,5 +1,64 @@
 /* ==================== COMPLETE TAILWIND OVERRIDES - FORCE NEW DESIGN ==================== */
 
+/* FORCE DARKER COLORS - Override all amber/orange Tailwind classes */
+.bg-amber-500,
+.from-amber-500,
+.to-amber-500,
+.hover\:from-amber-500:hover,
+.hover\:to-amber-500:hover {
+  background-color: #B91C1C !important;
+}
+
+.bg-amber-600,
+.from-amber-600,
+.to-amber-600,
+.hover\:from-amber-600:hover,
+.hover\:to-amber-600:hover {
+  background-color: #991B1B !important;
+}
+
+.bg-orange-600,
+.from-orange-600,
+.to-orange-600,
+.hover\:from-orange-600:hover,
+.hover\:to-orange-600:hover {
+  background-color: #C2410C !important;
+}
+
+.hover\:from-orange-700:hover,
+.hover\:to-orange-700:hover {
+  background-color: #9A3412 !important;
+}
+
+.text-amber-400,
+.text-amber-500,
+.text-amber-600 {
+  color: #D97706 !important;
+}
+
+.border-amber-300,
+.hover\:border-amber-300:hover {
+  border-color: #D97706 !important;
+}
+
+.border-amber-500,
+.focus\:border-amber-500:focus {
+  border-color: #B91C1C !important;
+}
+
+.border-amber-700,
+.hover\:border-amber-700:hover {
+  border-color: #7C2D12 !important;
+}
+
+.bg-amber-50 {
+  background-color: #FEF2F2 !important;
+}
+
+.bg-amber-900\/20 {
+  background-color: rgba(124, 45, 18, 0.2) !important;
+}
+
 /* ==================== ORDER TRACKING PAGE FIX ==================== */
 /* Fix order tracking page layout - add top padding and proper spacing */
 .min-h-screen.py-20 {
@@ -722,7 +781,113 @@ body.cart-open {
 .fixed.top-0.right-0.h-full .flex.justify-between.mb-6 span:last-child {
   font-size: 32px !important;
   font-weight: 900 !important;
-  color: #DC2626 !important;
+  color: #B91C1C !important;
+}
+
+/* ==================== MOBILE RESPONSIVE FIXES ==================== */
+@media (max-width: 768px) {
+  /* Center all content on mobile */
+  .container,
+  .mx-auto,
+  .max-w-7xl {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    text-align: center !important;
+  }
+  
+  /* Menu items - SHOW IMAGES on mobile */
+  .w-32.h-32,
+  .md\:w-40.md\:h-40 {
+    width: 120px !important;
+    height: 120px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Menu grid - stack vertically */
+  .space-y-6,
+  .grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    align-items: center !important;
+  }
+  
+  /* Menu cards - full width on mobile */
+  .rounded-2xl.border {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+  }
+  
+  /* Category buttons - wrap and center */
+  .flex.gap-3,
+  .flex.gap-4 {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 12px !important;
+  }
+  
+  /* Mobile text sizing */
+  h1, .text-5xl, .text-6xl {
+    font-size: 32px !important;
+    text-align: center !important;
+  }
+  
+  h2, .text-4xl {
+    font-size: 28px !important;
+    text-align: center !important;
+  }
+  
+  h3, .text-3xl {
+    font-size: 24px !important;
+    text-align: center !important;
+  }
+  
+  /* Gallery - center on mobile */
+  #gallery .grid {
+    grid-template-columns: 1fr !important;
+    justify-items: center !important;
+    gap: 16px !important;
+  }
+  
+  /* Hero CTA buttons - stack and center */
+  .hero-cta-group {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  
+  .cta-button {
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: center !important;
+  }
+  
+  /* Menu prices - better mobile layout */
+  .text-2xl.text-amber-500 {
+    font-size: 24px !important;
+  }
+  
+  /* Reduce padding on mobile */
+  section {
+    padding: 40px 16px !important;
+  }
+  
+  /* Cart on mobile */
+  .fixed.top-0.right-0 {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .fixed.top-0.right-0.h-full .flex.justify-between.mb-6 span:last-child {
+    font-size: 28px !important;
+  }
 }
 
 /* Checkout Button - PROMINENT */
