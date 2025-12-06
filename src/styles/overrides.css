@@ -200,10 +200,10 @@ button.rounded-full,
 
 button.rounded-full.bg-amber-500,
 .bg-amber-500.rounded-full {
-  background: linear-gradient(135deg, #DC2626, #F97316) !important;
+  background: linear-gradient(135deg, #991b1b, #c2410c) !important;
   color: white !important;
-  border-color: #F97316 !important;
-  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4) !important;
+  border-color: #c2410c !important;
+  box-shadow: 0 6px 20px rgba(153, 27, 27, 0.4) !important;
 }
 
 /* Menu Images - MUCH BIGGER */
@@ -240,38 +240,38 @@ button.rounded-full.bg-amber-500,
 .text-2xl.text-amber-500 {
   font-size: 34px !important;
   font-weight: 900 !important;
-  color: #DC2626 !important;
+  color: #991b1b !important;
 }
 
 /* Add to Cart Buttons */
 button.rounded-xl,
 .rounded-xl.bg-amber-500 {
   padding: 18px 32px !important;
-  background: linear-gradient(135deg, #DC2626, #F97316) !important;
+  background: linear-gradient(135deg, #991b1b, #c2410c) !important;
   color: white !important;
   font-weight: 800 !important;
   font-size: 17px !important;
   border-radius: 14px !important;
-  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.3) !important;
+  box-shadow: 0 6px 20px rgba(153, 27, 27, 0.3) !important;
 }
 
 button.rounded-xl:hover {
   transform: translateY(-3px) !important;
-  box-shadow: 0 10px 28px rgba(220, 38, 38, 0.5) !important;
+  box-shadow: 0 10px 28px rgba(153, 27, 27, 0.5) !important;
 }
 
 /* Contact Section */
 #contact {
-  background: linear-gradient(135deg, #DC2626, #F97316) !important;
+  background: linear-gradient(135deg, #991b1b, #c2410c) !important;
   padding: 80px 24px !important;
 }
 
 #contact .w-12.h-12 {
   width: 72px !important;
   height: 72px !important;
-  background: linear-gradient(135deg, #F97316, #DC2626) !important;
+  background: linear-gradient(135deg, #c2410c, #991b1b) !important;
   border-radius: 18px !important;
-  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(153, 27, 27, 0.3) !important;
 }
 
 #contact .w-12.h-12 svg {
@@ -345,8 +345,8 @@ button span:first-child {
 #contact textarea:focus,
 #contact select:focus {
   outline: none !important;
-  border-color: #F97316 !important;
-  box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.15) !important;
+  border-color: #c2410c !important;
+  box-shadow: 0 0 0 4px rgba(194, 65, 12, 0.15) !important;
 }
 
 /* ==================== ALL INPUT FIELDS - FORCE DARK TEXT ==================== */
@@ -473,7 +473,7 @@ label,
 #contact button[type="submit"] {
   width: 100% !important;
   padding: 22px 36px !important;
-  background: linear-gradient(135deg, #DC2626, #F97316) !important;
+  background: linear-gradient(135deg, #991b1b, #c2410c) !important;
   color: white !important;
   border: none !important;
   border-radius: 16px !important;
@@ -481,12 +481,12 @@ label,
   font-weight: 900 !important;
   text-transform: uppercase !important;
   letter-spacing: 1.5px !important;
-  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.3) !important;
+  box-shadow: 0 8px 24px rgba(153, 27, 27, 0.3) !important;
 }
 
 #contact button[type="submit"]:hover {
   transform: translateY(-4px) !important;
-  box-shadow: 0 12px 32px rgba(220, 38, 38, 0.5) !important;
+  box-shadow: 0 12px 32px rgba(153, 27, 27, 0.5) !important;
 }
 
 /* Contact text colors */
