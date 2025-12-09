@@ -57,7 +57,9 @@ const orderSchema = new mongoose.Schema({
     rating: { type: Number, min: 1, max: 5 },
     comment: String,
     submittedAt: Date
-  }
+  },
+  rejectionReason: String,
+  rejectedAt: Date
 }, {
   timestamps: true
 });

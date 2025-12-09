@@ -181,9 +181,20 @@ exports.addReview = async (req, res) => {
 // Cancel order
 exports.cancelOrder = async (req, res) => {
   try {
+    const { rejectionReason } = req.body;
+    
+    const updateData = { 
+      status: 'cancelled',
+      rejectedAt: new Date()
+    };
+    
+    if (rejectionReason) {
+      updateData.rejectionReason = rejectionReason;
+    }
+    
     const order = await Order.findOneAndUpdate(
       { orderId: req.params.orderId },
-      { status: 'cancelled' },
+      updateData,
       { new: true }
     );
 

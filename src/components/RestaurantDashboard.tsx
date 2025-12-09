@@ -62,6 +62,11 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
   const [deletingCompleted, setDeletingCompleted] = useState(false);
   const [toasts, setToasts] = useState<Array<{ id: string; message: string; type?: 'success' | 'error' | 'info' }>>([]);
   
+  // Reject order state
+  const [showRejectDialog, setShowRejectDialog] = useState(false);
+  const [rejectionReason, setRejectionReason] = useState('');
+  const [rejectingOrder, setRejectingOrder] = useState(false);
+  
   // Login state
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [email, setEmail] = useState('');
@@ -368,6 +373,55 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
           : 'Failed to update order status!',
         'error'
       );
+    }
+  };
+
+  // Reject order with reason
+  const handleRejectOrder = async () => {
+    if (!selectedOrder || !rejectionReason.trim()) {
+      addToast(
+        language === 'fi' 
+          ? 'Syötä hylkäämisen syy' 
+          : 'Please enter a rejection reason',
+        'error'
+      );
+      return;
+    }
+
+    try {
+      setRejectingOrder(true);
+      console.log(`🚫 Rejecting order ${selectedOrder.orderId} with reason: ${rejectionReason}`);
+      
+      // Call API to cancel order with rejection reason
+      await orderAPI.cancelOrder(selectedOrder.orderId, rejectionReason);
+      
+      // Update local state
+      setOrders(prev => prev.map(order => 
+        order.orderId === selectedOrder.orderId 
+          ? { ...order, status: 'cancelled' as any }
+          : order
+      ));
+      
+      setSelectedOrder(null);
+      setShowRejectDialog(false);
+      setRejectionReason('');
+      
+      addToast(
+        language === 'fi' 
+          ? `Tilaus ${selectedOrder.orderId} hylätty`
+          : `Order ${selectedOrder.orderId} rejected`,
+        'success'
+      );
+    } catch (error) {
+      console.error('❌ Error rejecting order:', error);
+      addToast(
+        language === 'fi' 
+          ? 'Tilauksen hylkääminen epäonnistui!' 
+          : 'Failed to reject order!',
+        'error'
+      );
+    } finally {
+      setRejectingOrder(false);
     }
   };
 
@@ -683,6 +737,17 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
                           </button>
                         ))}
                     </div>
+                    
+                    {/* Reject Order Button */}
+                    {selectedOrder.status !== 'cancelled' && selectedOrder.status !== 'completed' && (
+                      <button
+                        onClick={() => setShowRejectDialog(true)}
+                        className="w-full mt-3 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg font-bold transition-colors flex items-center justify-center gap-2"
+                      >
+                        <X className="w-4 h-4" />
+                        {language === 'fi' ? 'Hylkää tilaus' : 'Reject Order'}
+                      </button>
+                    )}
                   </div>
 
                   {/* Customer Info */}
@@ -834,6 +899,71 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
             )}
           </div>
         </div>
+        )}
+
+        {/* Reject Order Dialog */}
+        {showRejectDialog && selectedOrder && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+            <div className={`w-full max-w-md rounded-xl shadow-2xl ${
+              theme === 'light' ? 'bg-white' : 'bg-gray-900 border border-gray-800'
+            }`}>
+              <div className={`p-6 border-b ${theme === 'light' ? 'border-gray-200' : 'border-gray-800'}`}>
+                <h3 className={`text-xl font-bold ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
+                  {language === 'fi' ? 'Hylkää tilaus' : 'Reject Order'}
+                </h3>
+                <p className={`text-sm mt-2 ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'}`}>
+                  {language === 'fi' 
+                    ? `Tilaus ${selectedOrder.orderId}` 
+                    : `Order ${selectedOrder.orderId}`}
+                </p>
+              </div>
+              
+              <div className="p-6">
+                <label className={`block text-sm font-bold mb-2 ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
+                  {language === 'fi' ? 'Syy hylkäykseen (asiakkaalle lähetettävä viesti):' : 'Rejection reason (message to customer):'}
+                </label>
+                <textarea
+                  value={rejectionReason}
+                  onChange={(e) => setRejectionReason(e.target.value)}
+                  placeholder={language === 'fi' 
+                    ? 'Esim. Pahoittelemme, emme pysty toimittamaan tilaustasi...' 
+                    : 'E.g. Sorry, we cannot fulfill your order...'}
+                  className={`w-full px-4 py-3 rounded-lg border resize-none ${
+                    theme === 'light'
+                      ? 'bg-white border-gray-300 text-gray-900 focus:border-amber-500'
+                      : 'bg-gray-800 border-gray-700 text-white focus:border-amber-500'
+                  } focus:outline-none focus:ring-2 focus:ring-amber-500/20`}
+                  rows={4}
+                />
+              </div>
+              
+              <div className={`p-6 border-t flex gap-3 ${theme === 'light' ? 'border-gray-200' : 'border-gray-800'}`}>
+                <button
+                  onClick={() => {
+                    setShowRejectDialog(false);
+                    setRejectionReason('');
+                  }}
+                  disabled={rejectingOrder}
+                  className={`flex-1 px-4 py-3 rounded-lg font-bold transition-colors ${
+                    theme === 'light'
+                      ? 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                  }`}
+                >
+                  {language === 'fi' ? 'Peruuta' : 'Cancel'}
+                </button>
+                <button
+                  onClick={handleRejectOrder}
+                  disabled={rejectingOrder || !rejectionReason.trim()}
+                  className="flex-1 px-4 py-3 bg-red-500 hover:bg-red-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-lg font-bold transition-colors"
+                >
+                  {rejectingOrder 
+                    ? (language === 'fi' ? 'Hylätään...' : 'Rejecting...') 
+                    : (language === 'fi' ? 'Hylkää tilaus' : 'Reject Order')}
+                </button>
+              </div>
+            </div>
+          </div>
         )}
 
         {/* User Settings Modal */}

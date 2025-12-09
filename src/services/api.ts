@@ -64,9 +64,9 @@ export const orderAPI = {
     return response.data;
   },
 
-  // Cancel order - requires authentication
-  cancelOrder: async (orderId: string) => {
-    const response = await api.delete(`/orders/${orderId}`);
+  // Cancel order with rejection reason - requires authentication
+  cancelOrder: async (orderId: string, rejectionReason?: string) => {
+    const response = await api.patch(`/orders/${orderId}/cancel`, { rejectionReason });
     return response.data;
   },
 
