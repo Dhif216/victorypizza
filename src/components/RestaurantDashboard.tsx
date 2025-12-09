@@ -860,6 +860,20 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
                     </div>
                   )}
 
+                  {/* Rejection Reason */}
+                  {selectedOrder.status === 'cancelled' && selectedOrder.rejectionReason && (
+                    <div className={`p-4 rounded-lg border-2 ${
+                      theme === 'light' ? 'border-red-300 bg-red-50/50' : 'border-red-700 bg-red-900/10'
+                    }`}>
+                      <div className={`text-sm font-bold mb-2 ${theme === 'light' ? 'text-red-900' : 'text-red-300'}`}>
+                        🚫 {language === 'fi' ? 'Hylkäyksen syy' : 'Rejection Reason'}
+                      </div>
+                      <div className={`text-sm ${theme === 'light' ? 'text-red-800' : 'text-red-200'}`}>
+                        {selectedOrder.rejectionReason}
+                      </div>
+                    </div>
+                  )}
+
                   {/* Customer Review */}
                   {selectedOrder.review && (
                     <div className={`p-4 rounded-lg border-2 ${

@@ -11,7 +11,7 @@ interface OrderTrackingProps {
 
 interface OrderStatus {
   orderId: string;
-  status: 'pending' | 'confirmed' | 'preparing' | 'ready' | 'delivering' | 'completed';
+  status: 'pending' | 'confirmed' | 'preparing' | 'ready' | 'delivering' | 'completed' | 'cancelled';
   orderTime: string;
   estimatedTime: string;
   items: Array<{
@@ -20,6 +20,7 @@ interface OrderStatus {
   }>;
   total: number;
   deliveryMethod: 'delivery' | 'pickup';
+  rejectionReason?: string;
 }
 
 export function OrderTracking({ language, theme, onClose }: OrderTrackingProps) {
@@ -51,7 +52,8 @@ export function OrderTracking({ language, theme, onClose }: OrderTrackingProps) 
             estimatedTime: updatedOrder.estimatedTime || getEstimatedTime(updatedOrder.deliveryMethod),
             items: updatedOrder.items,
             total: updatedOrder.pricing?.total || 0,
-            deliveryMethod: updatedOrder.deliveryMethod
+            deliveryMethod: updatedOrder.deliveryMethod,
+            rejectionReason: updatedOrder.rejectionReason
           });
         }
       };
@@ -88,7 +90,8 @@ export function OrderTracking({ language, theme, onClose }: OrderTrackingProps) 
         estimatedTime: response.order.estimatedTime || getEstimatedTime(response.order.deliveryMethod),
         items: response.order.items,
         total: response.order.pricing?.total || 0,
-        deliveryMethod: response.order.deliveryMethod
+        deliveryMethod: response.order.deliveryMethod,
+        rejectionReason: response.order.rejectionReason
       };
       
       setOrder(mappedOrder);
@@ -275,10 +278,6 @@ export function OrderTracking({ language, theme, onClose }: OrderTrackingProps) 
                   <Clock className="w-4 h-4 inline mr-1" />
                   {language === 'fi' ? 'Tilattu klo' : 'Ordered at'} {order.orderTime}
                 </p>
-                {/* Debug info - remove later */}
-                <p className="text-xs text-blue-500 mt-1">
-                  Current Status: {order.status} (Index: {getStatusIndex(order.status)})
-                </p>
               </div>
               <div className="text-right">
                 <div className={`text-sm font-medium mb-1 ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'}`}>
@@ -381,6 +380,24 @@ export function OrderTracking({ language, theme, onClose }: OrderTrackingProps) 
                   : language === 'fi' ? '🏪 Nouto ravintolasta' : '🏪 Restaurant Pickup'}
               </span>
             </div>
+
+            {/* Rejection Message - Show when order is cancelled */}
+            {order.status === 'cancelled' && order.rejectionReason && (
+              <div className={`mt-6 p-4 rounded-xl border-2 ${
+                theme === 'light' 
+                  ? 'bg-red-50 border-red-300' 
+                  : 'bg-red-900/20 border-red-700'
+              }`}>
+                <div className={`text-sm font-bold mb-2 flex items-center gap-2 ${
+                  theme === 'light' ? 'text-red-900' : 'text-red-300'
+                }`}>
+                  🚫 {language === 'fi' ? 'Tilaus peruttu' : 'Order Cancelled'}
+                </div>
+                <div className={`text-sm ${theme === 'light' ? 'text-red-800' : 'text-red-200'}`}>
+                  {order.rejectionReason}
+                </div>
+              </div>
+            )}
 
             {/* Action Buttons - Show when order is completed */}
             {order.status === 'completed' && (
