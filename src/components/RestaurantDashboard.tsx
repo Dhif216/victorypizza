@@ -583,7 +583,6 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
                   {language === 'fi' ? 'Kirjaudu ulos' : 'Logout'}
                 </span>
               </button>
-              </button>
 
               {/* Close button */}
               {onClose && (
