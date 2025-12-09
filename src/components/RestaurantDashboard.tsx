@@ -5,6 +5,19 @@ import { socketService } from '../services/socket';
 import { UserSettings } from './UserSettings';
 import { ToastContainer } from './Toast';
 
+// Custom heartbeat animation for reject button
+const heartbeatStyles = `
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.05); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.03); }
+  }
+  .animate-heartbeat {
+    animation: heartbeat 2s ease-in-out infinite;
+  }
+`;
+
 interface DashboardProps {
   language: 'fi' | 'en';
   theme: 'dark' | 'light';
@@ -778,21 +791,22 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
                     
                     {/* Reject Order Button */}
                     {selectedOrder.status !== 'cancelled' && selectedOrder.status !== 'completed' && (
-                      <button
-                        onClick={() => setShowRejectDialog(true)}
-                        className={`w-full mt-3 px-4 py-2 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 rounded-lg font-bold transition-all transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2 animate-pulse ${
-                          theme === 'light' ? 'text-white' : 'text-white'
-                        }`}
-                        style={{ 
-                          color: '#ffffff',
-                          boxShadow: '0 4px 15px rgba(239, 68, 68, 0.4)'
-                        }}
-                      >
-                        <X className="w-5 h-5 animate-bounce" style={{ color: '#ffffff' }} />
-                        <span className="font-extrabold">
-                          {language === 'fi' ? 'Hylkää tilaus' : 'Reject Order'}
-                        </span>
-                      </button>
+                      <>
+                        <style>{heartbeatStyles}</style>
+                        <button
+                          onClick={() => setShowRejectDialog(true)}
+                          className="w-full mt-3 px-4 py-2 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 rounded-lg font-bold transition-all hover:shadow-xl flex items-center justify-center gap-2 animate-heartbeat"
+                          style={{ 
+                            color: theme === 'light' ? '#111827' : '#ffffff',
+                            boxShadow: '0 4px 15px rgba(239, 68, 68, 0.4)'
+                          }}
+                        >
+                          <X className="w-5 h-5" style={{ color: theme === 'light' ? '#111827' : '#ffffff' }} />
+                          <span className="font-extrabold">
+                            {language === 'fi' ? 'Hylkää tilaus' : 'Reject Order'}
+                          </span>
+                        </button>
+                      </>
                     )}
                   </div>
 
