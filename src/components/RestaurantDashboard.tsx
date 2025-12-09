@@ -213,18 +213,24 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
 
   // Handle delete completed orders
   const handleDeleteCompleted = async () => {
+    console.log('🗑️ Delete button clicked');
+    console.log('Current orders:', orders);
+    console.log('Completed orders count:', orders.filter(o => o.status === 'completed').length);
+    
     const confirmMessage = language === 'fi' 
       ? 'Haluatko varmasti poistaa kaikki valmiit tilaukset? Tätä ei voi perua.'
       : 'Are you sure you want to delete all completed orders? This cannot be undone.';
     
     if (!window.confirm(confirmMessage)) {
+      console.log('❌ User cancelled delete');
       return;
     }
 
+    console.log('✅ User confirmed delete, sending request...');
     setDeletingCompleted(true);
     try {
       const result = await orderAPI.deleteCompletedOrders();
-      console.log('Delete result:', result);
+      console.log('✅ Delete result:', result);
       
       addToast(
         language === 'fi'
@@ -233,13 +239,15 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
         'success'
       );
       
+      console.log('🔄 Reloading orders...');
       await loadOrders(); // Refresh order list
     } catch (error: any) {
-      console.error('Delete completed orders error:', error);
+      console.error('❌ Delete completed orders error:', error);
+      console.error('Error response:', error.response);
       addToast(
         language === 'fi'
-          ? 'Tilausten poisto epäonnistui'
-          : 'Failed to delete orders',
+          ? `Tilausten poisto epäonnistui: ${error.response?.data?.message || error.message}`
+          : `Failed to delete orders: ${error.response?.data?.message || error.message}`,
         'error'
       );
     } finally {
@@ -535,9 +543,10 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
                 disabled={deletingCompleted}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
                   deletingCompleted
-                    ? 'bg-gray-400 cursor-not-allowed text-white'
-                    : 'bg-red-500 hover:bg-red-600 text-white'
+                    ? 'bg-gray-400 cursor-not-allowed'
+                    : 'bg-red-500 hover:bg-red-600'
                 }`}
+                style={{ color: '#ffffff' }}
                 title={language === 'fi' ? 'Poista valmiit tilaukset' : 'Delete completed orders'}
               >
                 <Trash2 className="w-4 h-4" />
@@ -549,9 +558,10 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
                 onClick={() => setShowSettings(true)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
                   theme === 'light' 
-                    ? 'bg-blue-500 hover:bg-blue-600 text-white' 
-                    : 'bg-blue-600 hover:bg-blue-700 text-white'
+                    ? 'bg-blue-500 hover:bg-blue-600' 
+                    : 'bg-blue-600 hover:bg-blue-700'
                 }`}
+                style={{ color: '#ffffff' }}
                 title={language === 'fi' ? 'Asetukset' : 'Settings'}
               >
                 <Settings className="w-4 h-4" />
@@ -561,7 +571,8 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
               {/* Logout button */}
               <button
                 onClick={handleLogout}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium bg-red-500 hover:bg-red-600 text-white transition-all"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium bg-red-500 hover:bg-red-600 transition-all"
+                style={{ color: '#ffffff' }}
               >
                 <Lock className="w-4 h-4" />
                 {language === 'fi' ? 'Kirjaudu ulos' : 'Logout'}
