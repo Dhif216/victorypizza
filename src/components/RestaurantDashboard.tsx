@@ -947,14 +947,12 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
         {/* Reject Order Dialog */}
         {showRejectDialog && selectedOrder && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-            <div className={`w-full max-w-md rounded-xl shadow-2xl ${
-              theme === 'light' ? 'bg-white' : 'bg-gray-900 border border-gray-800'
-            }`}>
-              <div className={`p-6 border-b ${theme === 'light' ? 'border-gray-200' : 'border-gray-800'}`}>
-                <h3 className={`text-xl font-bold ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
+            <div className="w-full max-w-md rounded-xl shadow-2xl bg-orange-500 border-2 border-orange-600">
+              <div className="p-6 border-b border-orange-600">
+                <h3 className="text-xl font-bold text-white">
                   {language === 'fi' ? 'Hylkää tilaus' : 'Reject Order'}
                 </h3>
-                <p className={`text-sm mt-2 ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'}`}>
+                <p className="text-sm mt-2 text-orange-100">
                   {language === 'fi' 
                     ? `Tilaus ${selectedOrder.orderId}` 
                     : `Order ${selectedOrder.orderId}`}
@@ -962,7 +960,7 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
               </div>
               
               <div className="p-6">
-                <label className={`block text-sm font-bold mb-2 ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
+                <label className="block text-sm font-bold mb-2 text-white">
                   {language === 'fi' ? 'Syy hylkäykseen (asiakkaalle lähetettävä viesti):' : 'Rejection reason (message to customer):'}
                 </label>
                 <textarea
@@ -971,34 +969,29 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
                   placeholder={language === 'fi' 
                     ? 'Esim. Pahoittelemme, emme pysty toimittamaan tilaustasi...' 
                     : 'E.g. Sorry, we cannot fulfill your order...'}
-                  className={`w-full px-4 py-3 rounded-lg border resize-none ${
-                    theme === 'light'
-                      ? 'bg-white border-gray-300 text-gray-900 focus:border-amber-500'
-                      : 'bg-gray-800 border-gray-700 text-white focus:border-amber-500'
-                  } focus:outline-none focus:ring-2 focus:ring-amber-500/20`}
+                  className="w-full px-4 py-3 rounded-lg border-2 border-orange-600 resize-none bg-white text-gray-900 placeholder-gray-500 focus:border-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-300"
+                  style={{ color: '#111827', backgroundColor: '#ffffff' }}
                   rows={4}
                 />
               </div>
               
-              <div className={`p-6 border-t flex gap-3 ${theme === 'light' ? 'border-gray-200' : 'border-gray-800'}`}>
+              <div className="p-6 border-t border-orange-600 flex gap-3">
                 <button
                   onClick={() => {
                     setShowRejectDialog(false);
                     setRejectionReason('');
                   }}
                   disabled={rejectingOrder}
-                  className={`flex-1 px-4 py-3 rounded-lg font-bold transition-colors ${
-                    theme === 'light'
-                      ? 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                      : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
-                  }`}
+                  className="flex-1 px-4 py-3 rounded-lg font-bold transition-colors bg-white text-gray-900 hover:bg-gray-100 border-2 border-orange-600"
+                  style={{ color: '#111827', backgroundColor: '#ffffff' }}
                 >
                   {language === 'fi' ? 'Peruuta' : 'Cancel'}
                 </button>
                 <button
                   onClick={handleRejectOrder}
                   disabled={rejectingOrder || !rejectionReason.trim()}
-                  className="flex-1 px-4 py-3 bg-red-500 hover:bg-red-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-lg font-bold transition-colors"
+                  className="flex-1 px-4 py-3 bg-gray-900 hover:bg-black disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-lg font-bold transition-colors border-2 border-gray-900"
+                  style={{ color: '#ffffff', backgroundColor: rejectingOrder || !rejectionReason.trim() ? '#9ca3af' : '#111827' }}
                 >
                   {rejectingOrder 
                     ? (language === 'fi' ? 'Hylätään...' : 'Rejecting...') 
