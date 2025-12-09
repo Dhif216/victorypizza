@@ -224,17 +224,24 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
     setDeletingCompleted(true);
     try {
       const result = await orderAPI.deleteCompletedOrders();
-      const successMessage = language === 'fi'
-        ? `Poistettu ${result.deletedCount} tilausta`
-        : `Deleted ${result.deletedCount} orders`;
-      alert(successMessage);
-      loadOrders(); // Refresh order list
+      console.log('Delete result:', result);
+      
+      addToast(
+        language === 'fi'
+          ? `Poistettu ${result.deletedCount || 0} tilausta`
+          : `Deleted ${result.deletedCount || 0} orders`,
+        'success'
+      );
+      
+      await loadOrders(); // Refresh order list
     } catch (error: any) {
-      const errorMessage = language === 'fi'
-        ? 'Tilausten poisto epäonnistui'
-        : 'Failed to delete orders';
-      alert(errorMessage);
       console.error('Delete completed orders error:', error);
+      addToast(
+        language === 'fi'
+          ? 'Tilausten poisto epäonnistui'
+          : 'Failed to delete orders',
+        'error'
+      );
     } finally {
       setDeletingCompleted(false);
     }
@@ -488,7 +495,7 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
       {/* Header */}
       <div className={`border-b ${theme === 'light' ? 'bg-white border-gray-200' : 'bg-gray-900 border-gray-800'}`}>
         <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between text-gray-900">
+          <div className="flex items-center justify-between">
             <div>
               <h1 className={`text-2xl font-bold ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
                 🍕 {language === 'fi' ? 'Ravintolan hallinta' : 'Restaurant Dashboard'}
