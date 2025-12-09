@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Analytics Configuration | victorypizza</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Analytics Configuration" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://dhif216.github.io/victorypizza/src/ANALYTICS_SETUP.html" />
+<meta property="og:url" content="https://dhif216.github.io/victorypizza/src/ANALYTICS_SETUP.html" />
+<meta property="og:site_name" content="victorypizza" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Analytics Configuration" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Analytics Configuration","url":"https://dhif216.github.io/victorypizza/src/ANALYTICS_SETUP.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/victorypizza/assets/css/style.css?v=65b5cbde63235d67fe6a7ee5d6a6b17ba586f8e5">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/victorypizza/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://dhif216.github.io/victorypizza/">victorypizza</a></h1>
+      
+
+      <h1 id="analytics-configuration">Analytics Configuration</h1>
+
+<h2 id="google-analytics-setup">Google Analytics Setup</h2>
+
+<ol>
+  <li>Go to <a href="https://analytics.google.com/">Google Analytics</a></li>
+  <li>Create a new property for your website</li>
+  <li>Get your Measurement ID (format: G-XXXXXXXXXX)</li>
+  <li>Replace <code class="language-plaintext highlighter-rouge">GA_MEASUREMENT_ID</code> in <code class="language-plaintext highlighter-rouge">index.html</code> with your actual ID</li>
+</ol>
+
+<p>Example:</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">async</span> <span class="na">src=</span><span class="s">"https://www.googletagmanager.com/gtag/js?id=G-ABC123XYZ"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<h2 id="facebook-pixel-setup-optional">Facebook Pixel Setup (Optional)</h2>
+
+<ol>
+  <li>Go to <a href="https://business.facebook.com/events_manager">Facebook Events Manager</a></li>
+  <li>Create a new pixel</li>
+  <li>Get your Pixel ID</li>
+  <li>Uncomment the Facebook Pixel code in <code class="language-plaintext highlighter-rouge">index.html</code></li>
+  <li>Replace <code class="language-plaintext highlighter-rouge">YOUR_PIXEL_ID</code> with your actual Pixel ID</li>
+</ol>
+
+<h2 id="other-tracking-tools">Other Tracking Tools</h2>
+
+<h3 id="google-tag-manager-alternative-to-ga">Google Tag Manager (Alternative to GA)</h3>
+<ol>
+  <li>Create account at <a href="https://tagmanager.google.com/">Google Tag Manager</a></li>
+  <li>Add GTM container code to <code class="language-plaintext highlighter-rouge">index.html</code></li>
+  <li>Configure tags through GTM interface</li>
+</ol>
+
+<h3 id="hotjar-heatmaps--session-recording">Hotjar (Heatmaps &amp; Session Recording)</h3>
+<ol>
+  <li>Sign up at <a href="https://www.hotjar.com/">Hotjar</a></li>
+  <li>Add tracking code to <code class="language-plaintext highlighter-rouge">index.html</code></li>
+</ol>
+
+<h3 id="microsoft-clarity-free-analytics">Microsoft Clarity (Free Analytics)</h3>
+<ol>
+  <li>Sign up at <a href="https://clarity.microsoft.com/">Microsoft Clarity</a></li>
+  <li>Add tracking code to <code class="language-plaintext highlighter-rouge">index.html</code></li>
+</ol>
+
+<h2 id="gdpr-compliance">GDPR Compliance</h2>
+
+<p>The cookie consent banner is already implemented and includes:</p>
+<ul>
+  <li>✅ Cookie banner with accept/decline options</li>
+  <li>✅ Privacy policy modal</li>
+  <li>✅ LocalStorage to remember user choice</li>
+  <li>✅ Analytics only loads after user consent</li>
+  <li>✅ Bilingual support (Finnish/English)</li>
+</ul>
+
+<h2 id="testing">Testing</h2>
+
+<ol>
+  <li>Clear browser localStorage</li>
+  <li>Reload the page</li>
+  <li>Cookie banner should appear after 1 second</li>
+  <li>Accept cookies to enable tracking</li>
+  <li>Decline to disable tracking</li>
+</ol>
+
+<h2 id="analytics-events-to-track">Analytics Events to Track</h2>
+
+<p>Consider adding custom events for:</p>
+<ul>
+  <li>Menu item clicks</li>
+  <li>Phone number clicks</li>
+  <li>Menu category changes</li>
+  <li>Language switches</li>
+  <li>Theme toggles</li>
+  <li>Form submissions (if added)</li>
+  <li>Social media link clicks</li>
+</ul>
+
+<p>Example custom event:</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">gtag</span><span class="p">(</span><span class="dl">'</span><span class="s1">event</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">phone_click</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">event_category</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">engagement</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">event_label</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Header Phone</span><span class="dl">'</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
