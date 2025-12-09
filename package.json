@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "npm install --prefix victory-pizza-backend",
+    "start": "node victory-pizza-backend/src/server.js",
     "preview": "vite preview",
     "deploy": "gh-pages -d build"
   },
