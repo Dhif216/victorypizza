@@ -172,7 +172,7 @@ export function OrderTracking({ language, theme, onClose }: OrderTrackingProps) 
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-20" style={{ background: '#fafafa' }}>
+    <div className="min-h-screen flex items-center justify-center pt-32 pb-20" style={{ background: '#fafafa' }}>
       {/* Close Button */}
       {onClose && (
         <button
@@ -189,7 +189,7 @@ export function OrderTracking({ language, theme, onClose }: OrderTrackingProps) 
         </button>
       )}
       
-      <div className="container mx-auto px-4 max-w-4xl">
+      <div className="container mx-auto px-4 max-w-4xl w-full">
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4" style={{ color: '#111827' }}>
