@@ -780,13 +780,18 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
                     {selectedOrder.status !== 'cancelled' && selectedOrder.status !== 'completed' && (
                       <button
                         onClick={() => setShowRejectDialog(true)}
-                        className={`w-full mt-3 px-4 py-2 bg-red-500 hover:bg-red-600 rounded-lg font-bold transition-colors flex items-center justify-center gap-2 ${
-                          theme === 'light' ? 'text-black' : 'text-white'
+                        className={`w-full mt-3 px-4 py-2 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 rounded-lg font-bold transition-all transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2 animate-pulse ${
+                          theme === 'light' ? 'text-white' : 'text-white'
                         }`}
-                        style={{ color: theme === 'light' ? '#111827' : '#ffffff' }}
+                        style={{ 
+                          color: '#ffffff',
+                          boxShadow: '0 4px 15px rgba(239, 68, 68, 0.4)'
+                        }}
                       >
-                        <X className="w-4 h-4" style={{ color: theme === 'light' ? '#111827' : '#ffffff' }} />
-                        {language === 'fi' ? 'Hylkää tilaus' : 'Reject Order'}
+                        <X className="w-5 h-5 animate-bounce" style={{ color: '#ffffff' }} />
+                        <span className="font-extrabold">
+                          {language === 'fi' ? 'Hylkää tilaus' : 'Reject Order'}
+                        </span>
                       </button>
                     )}
                   </div>
