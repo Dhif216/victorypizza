@@ -253,6 +253,12 @@ exports.deleteCompletedOrders = async (req, res) => {
   try {
     const result = await Order.deleteMany({ status: 'completed' });
 
+    // Emit real-time update to all connected clients
+    const io = req.app.get('io');
+    if (io) {
+      io.emit('orders-deleted', { count: result.deletedCount, status: 'completed' });
+    }
+
     res.json({
       success: true,
       message: `${result.deletedCount} completed orders deleted`,
