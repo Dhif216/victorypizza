@@ -544,13 +544,15 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
                   deletingCompleted
                     ? 'bg-gray-400 cursor-not-allowed'
-                    : 'bg-red-500 hover:bg-red-600'
+                    : 'bg-orange-500 hover:bg-orange-600'
                 }`}
-                style={{ color: '#ffffff' }}
+                style={{ color: '#ffffff !important', backgroundColor: deletingCompleted ? '#9ca3af' : '#f97316' }}
                 title={language === 'fi' ? 'Poista valmiit tilaukset' : 'Delete completed orders'}
               >
-                <Trash2 className="w-4 h-4" />
-                {language === 'fi' ? 'Poista valmiit' : 'Delete Completed'}
+                <Trash2 className="w-4 h-4" style={{ color: '#ffffff' }} />
+                <span style={{ color: '#ffffff !important' }}>
+                  {language === 'fi' ? 'Poista valmiit' : 'Delete Completed'}
+                </span>
               </button>
 
               {/* Settings button */}
@@ -558,24 +560,29 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
                 onClick={() => setShowSettings(true)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
                   theme === 'light' 
-                    ? 'bg-blue-500 hover:bg-blue-600' 
-                    : 'bg-blue-600 hover:bg-blue-700'
+                    ? 'bg-orange-500 hover:bg-orange-600' 
+                    : 'bg-orange-600 hover:bg-orange-700'
                 }`}
-                style={{ color: '#ffffff' }}
+                style={{ color: '#ffffff !important', backgroundColor: theme === 'light' ? '#f97316' : '#ea580c' }}
                 title={language === 'fi' ? 'Asetukset' : 'Settings'}
               >
-                <Settings className="w-4 h-4" />
-                {language === 'fi' ? 'Asetukset' : 'Settings'}
+                <Settings className="w-4 h-4" style={{ color: '#ffffff' }} />
+                <span style={{ color: '#ffffff !important' }}>
+                  {language === 'fi' ? 'Asetukset' : 'Settings'}
+                </span>
               </button>
 
               {/* Logout button */}
               <button
                 onClick={handleLogout}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium bg-red-500 hover:bg-red-600 transition-all"
-                style={{ color: '#ffffff' }}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium bg-orange-500 hover:bg-orange-600 transition-all"
+                style={{ color: '#ffffff !important', backgroundColor: '#f97316' }}
               >
-                <Lock className="w-4 h-4" />
-                {language === 'fi' ? 'Kirjaudu ulos' : 'Logout'}
+                <Lock className="w-4 h-4" style={{ color: '#ffffff' }} />
+                <span style={{ color: '#ffffff !important' }}>
+                  {language === 'fi' ? 'Kirjaudu ulos' : 'Logout'}
+                </span>
+              </button>
               </button>
 
               {/* Close button */}

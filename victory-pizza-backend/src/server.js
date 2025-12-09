@@ -38,9 +38,16 @@ const io = new Server(server, {
   cors: {
     origin: [
       process.env.FRONTEND_URL || 'http://localhost:3003',
-      'http://localhost:3000'
+      'http://localhost:3000',
+      'http://localhost:3004',
+      'http://localhost:3005',
+      'http://localhost:3006',
+      'http://localhost:3007',
+      'https://dhif216.github.io',
+      'https://dhif216.github.io/victorypizza'
     ],
-    methods: ['GET', 'POST', 'PATCH', 'DELETE']
+    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+    credentials: true
   }
 });
 
