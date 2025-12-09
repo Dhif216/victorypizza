@@ -546,11 +546,14 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
                     ? 'bg-gray-400 cursor-not-allowed'
                     : 'bg-orange-500 hover:bg-orange-600'
                 }`}
-                style={{ color: '#ffffff !important', backgroundColor: deletingCompleted ? '#9ca3af' : '#f97316' }}
+                style={{ 
+                  color: theme === 'light' ? '#111827 !important' : '#ffffff !important', 
+                  backgroundColor: deletingCompleted ? '#9ca3af' : '#f97316' 
+                }}
                 title={language === 'fi' ? 'Poista valmiit tilaukset' : 'Delete completed orders'}
               >
-                <Trash2 className="w-4 h-4" style={{ color: '#ffffff' }} />
-                <span style={{ color: '#ffffff !important' }}>
+                <Trash2 className="w-4 h-4" style={{ color: theme === 'light' ? '#111827' : '#ffffff' }} />
+                <span style={{ color: theme === 'light' ? '#111827 !important' : '#ffffff !important' }}>
                   {language === 'fi' ? 'Poista valmiit' : 'Delete Completed'}
                 </span>
               </button>
@@ -563,11 +566,14 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
                     ? 'bg-orange-500 hover:bg-orange-600' 
                     : 'bg-orange-600 hover:bg-orange-700'
                 }`}
-                style={{ color: '#ffffff !important', backgroundColor: theme === 'light' ? '#f97316' : '#ea580c' }}
+                style={{ 
+                  color: theme === 'light' ? '#111827 !important' : '#ffffff !important', 
+                  backgroundColor: theme === 'light' ? '#f97316' : '#ea580c' 
+                }}
                 title={language === 'fi' ? 'Asetukset' : 'Settings'}
               >
-                <Settings className="w-4 h-4" style={{ color: '#ffffff' }} />
-                <span style={{ color: '#ffffff !important' }}>
+                <Settings className="w-4 h-4" style={{ color: theme === 'light' ? '#111827' : '#ffffff' }} />
+                <span style={{ color: theme === 'light' ? '#111827 !important' : '#ffffff !important' }}>
                   {language === 'fi' ? 'Asetukset' : 'Settings'}
                 </span>
               </button>
@@ -576,10 +582,13 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
               <button
                 onClick={handleLogout}
                 className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium bg-orange-500 hover:bg-orange-600 transition-all"
-                style={{ color: '#ffffff !important', backgroundColor: '#f97316' }}
+                style={{ 
+                  color: theme === 'light' ? '#111827 !important' : '#ffffff !important', 
+                  backgroundColor: '#f97316' 
+                }}
               >
-                <Lock className="w-4 h-4" style={{ color: '#ffffff' }} />
-                <span style={{ color: '#ffffff !important' }}>
+                <Lock className="w-4 h-4" style={{ color: theme === 'light' ? '#111827' : '#ffffff' }} />
+                <span style={{ color: theme === 'light' ? '#111827 !important' : '#ffffff !important' }}>
                   {language === 'fi' ? 'Kirjaudu ulos' : 'Logout'}
                 </span>
               </button>
