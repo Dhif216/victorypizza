@@ -2,7 +2,7 @@
 nixPkgs = ["nodejs_18"]
 
 [phases.install]
-cmds = ["cd victory-pizza-backend && npm install"]
+cmds = ["npm install --prefix victory-pizza-backend"]
 
 [start]
-cmd = "cd victory-pizza-backend && node src/server.js"
+cmd = "node victory-pizza-backend/src/server.js"
