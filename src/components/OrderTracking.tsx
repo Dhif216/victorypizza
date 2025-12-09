@@ -172,7 +172,7 @@ export function OrderTracking({ language, theme, onClose }: OrderTrackingProps) 
   };
 
   return (
-    <div className="min-h-screen py-20" style={{ background: '#fafafa' }}>
+    <div className="min-h-screen pt-32 pb-20" style={{ background: '#fafafa' }}>
       {/* Close Button */}
       {onClose && (
         <button
