@@ -21,7 +21,7 @@ interface OrderItem {
 
 interface Order {
   orderId: string;
-  status: 'pending' | 'confirmed' | 'preparing' | 'ready' | 'delivering' | 'completed';
+  status: 'pending' | 'confirmed' | 'preparing' | 'ready' | 'delivering' | 'completed' | 'cancelled';
   orderTime: string;
   estimatedTime: string;
   items: OrderItem[];
@@ -48,6 +48,8 @@ interface Order {
     comment?: string;
     createdAt?: string;
   };
+  rejectionReason?: string;
+  rejectedAt?: string;
   timestamp?: number;
 }
 
@@ -440,6 +442,8 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
         return 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-400';
       case 'completed':
         return 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300';
+      case 'cancelled':
+        return 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400';
       default:
         return 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300';
     }
@@ -453,7 +457,8 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
       preparing: { fi: 'Valmistetaan', en: 'Preparing' },
       ready: { fi: 'Valmis', en: 'Ready' },
       delivering: { fi: 'Toimitetaan', en: 'Delivering' },
-      completed: { fi: 'Valmis', en: 'Completed' }
+      completed: { fi: 'Valmis', en: 'Completed' },
+      cancelled: { fi: 'Hylätty', en: 'Rejected' }
     };
     return language === 'fi' ? labels[status as keyof typeof labels]?.fi : labels[status as keyof typeof labels]?.en;
   };

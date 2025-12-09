@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "npm install --prefix victory-pizza-backend",
+    "build:frontend": "tsc && vite build",
     "start": "node victory-pizza-backend/src/server.js",
     "preview": "vite preview",
-    "deploy": "gh-pages -d build"
+    "deploy": "npm run build:frontend && gh-pages -d build"
   },
   "devDependencies": {
     "@types/node": "^24.10.1",
