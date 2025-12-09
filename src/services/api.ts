@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // API Base URL - production backend URL
-const API_URL = import.meta.env.VITE_API_URL || 'https://victorypizza-production-9dbc.up.railway.app/api';
+const API_URL = import.meta.env.VITE_API_URL || 'https://victorypizza-production.up.railway.app/api';
 
 // Create axios instance with default config
 const api = axios.create({
