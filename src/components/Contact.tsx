@@ -10,7 +10,7 @@ export function Contact({ language, theme, onShowPolicy }: ContactProps) {
   return (
     <section id="contact" className={`relative py-32 border-t ${
       theme === "light"
-        ? "bg-gradient-to-br from-orange-500 via-amber-500 to-green-500 border-orange-400"
+        ? "bg-white border-gray-200"
         : "bg-black border-neutral-800"
     }`}>
 
@@ -21,14 +21,14 @@ export function Contact({ language, theme, onShowPolicy }: ContactProps) {
             <div className="mb-8">
               <div className="flex items-center gap-3 mb-6">
                 <div>
-                  <h3 className="text-3xl tracking-wider text-white" style={{ fontFamily: 'serif', letterSpacing: '0.1em' }}>VICTORY</h3>
+                  <h3 className="text-3xl tracking-wider text-gray-900" style={{ fontFamily: 'serif', letterSpacing: '0.1em' }}>VICTORY</h3>
                   <p className={`italic tracking-widest ${
-                    theme === "light" ? "text-white/90" : "text-green-400"
+                    theme === "light" ? "text-gray-600" : "text-green-400"
                   }`}>PIZZA</p>
                 </div>
               </div>
               <p className={`text-lg leading-relaxed ${
-                theme === "light" ? "text-white/90" : "text-white/60"
+                theme === "light" ? "text-gray-600" : "text-white/60"
               }`}>
                 {language === 'fi' 
                   ? 'Tervetuloa nauttimaan aitoon italialaisen keittiön tunnelmaan Helsingin sydämessä. Tarjoamme vain parasta.'
@@ -38,61 +38,61 @@ export function Contact({ language, theme, onShowPolicy }: ContactProps) {
 
             {/* Contact Details */}
             <div className="space-y-6">
-              <a href="tel:00358-0468420302" className={`flex items-start gap-4 hover:text-green-200 transition-colors group ${
-                theme === "light" ? "text-white" : "text-white/80"
+              <a href="tel:00358-0468420302" className={`flex items-start gap-4 transition-colors group ${
+                theme === "light" ? "text-gray-900 hover:text-green-600" : "text-white/80 hover:text-green-200"
               }`}>
                 <div className="w-12 h-12 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-full flex items-center justify-center border border-green-500/30 group-hover:border-green-500 transition-all flex-shrink-0">
-                  <Phone className="w-5 h-5 text-white" />
+                  <Phone className="w-5 h-5 text-green-600" />
                 </div>
                 <div className="flex flex-col pt-1">
                   <div className={`text-xs uppercase mb-1 ${
-                    theme === "light" ? "text-white/70" : "text-white/40"
+                    theme === "light" ? "text-gray-500" : "text-white/40"
                   }`}>{language === 'fi' ? 'Puhelin' : 'Phone'}</div>
                   <div>00358-046 842 0302</div>
                 </div>
               </a>
 
-              <a href="mailto:victroy.pizza.fi@gmail.com" className={`flex items-start gap-4 hover:text-green-200 transition-colors group ${
-                theme === "light" ? "text-white" : "text-white/80"
+              <a href="mailto:victroy.pizza.fi@gmail.com" className={`flex items-start gap-4 transition-colors group ${
+                theme === "light" ? "text-gray-900 hover:text-green-600" : "text-white/80 hover:text-green-200"
               }`}>
                 <div className="w-12 h-12 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-full flex items-center justify-center border border-green-500/30 group-hover:border-green-500 transition-all flex-shrink-0">
-                  <Mail className="w-5 h-5 text-white" />
+                  <Mail className="w-5 h-5 text-green-600" />
                 </div>
                 <div className="flex flex-col pt-1">
                   <div className={`text-xs uppercase mb-1 ${
-                    theme === "light" ? "text-white/70" : "text-white/40"
+                    theme === "light" ? "text-gray-500" : "text-white/40"
                   }`}>Email</div>
                   <div className="break-all">victory.pizza.fi@gmail.com</div>
                 </div>
               </a>
 
               <div className={`flex items-start gap-4 ${
-                theme === "light" ? "text-white" : "text-white/80"
+                theme === "light" ? "text-gray-900" : "text-white/80"
               }`}>
                 <div className="w-12 h-12 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-full flex items-center justify-center border border-green-500/30 flex-shrink-0">
-                  <MapPin className="w-5 h-5 text-white" />
+                  <MapPin className="w-5 h-5 text-green-600" />
                 </div>
                 <div className="flex flex-col pt-1">
                   <div className={`text-xs uppercase mb-1 ${
-                    theme === "light" ? "text-white/70" : "text-white/40"
+                    theme === "light" ? "text-gray-500" : "text-white/40"
                   }`}>{language === 'fi' ? 'Osoite' : 'Address'}</div>
                   <div>Puustellinpolku 25, 00410 Helsinki</div>
                 </div>
               </div>
 
               <div className={`flex items-start gap-4 ${
-                theme === "light" ? "text-white" : "text-white/80"
+                theme === "light" ? "text-gray-900" : "text-white/80"
               }`}>
                 <div className="w-12 h-12 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-full flex items-center justify-center border border-green-500/30 flex-shrink-0">
-                  <Clock className="w-5 h-5 text-white" />
+                  <Clock className="w-5 h-5 text-green-600" />
                 </div>
                 <div className="flex flex-col pt-1">
                   <div className={`text-xs uppercase mb-1 ${
-                    theme === "light" ? "text-white/70" : "text-white/40"
+                    theme === "light" ? "text-gray-500" : "text-white/40"
                   }`}>{language === 'fi' ? 'Aukioloajat' : 'Opening Hours'}</div>
                   <div>{language === 'fi' ? 'Maanantai - Sunnuntai' : 'Monday - Sunday'}</div>
                   <div className={`${
-                    theme === "light" ? "text-white font-bold" : "text-green-400"
+                    theme === "light" ? "text-green-600 font-bold" : "text-green-400"
                   }`}>11:00 - 22:00</div>
                 </div>
               </div>
@@ -104,10 +104,12 @@ export function Contact({ language, theme, onShowPolicy }: ContactProps) {
             {/* Map Container - Only map inside */}
             <div className={`rounded-2xl p-6 border mb-4 ${
               theme === "light"
-                ? "bg-white/20 backdrop-blur-sm border-white/30"
+                ? "bg-gray-50 border-gray-200"
                 : "bg-black border-green-500"
             }`}>
-              <h3 className="text-2xl mb-4 text-white">
+              <h3 className={`text-2xl mb-4 ${
+                theme === "light" ? "text-gray-900" : "text-white"
+              }`}>
                 {language === 'fi' ? 'Vieraile Luonamme' : 'Visit Us'}
               </h3>
               
@@ -128,7 +130,7 @@ export function Contact({ language, theme, onShowPolicy }: ContactProps) {
 
             {/* Text Below Map Container */}
             <p className={`text-sm mb-4 ${
-              theme === "light" ? "text-white/90" : "text-white/60"
+              theme === "light" ? "text-gray-600" : "text-white/60"
             }`}>
               {language === 'fi' 
                 ? 'Löydät meidät Helsingin Puustellinpolulta. Helppo saavutettavuus julkisilla kulkuneuvoilla.'
@@ -138,10 +140,10 @@ export function Contact({ language, theme, onShowPolicy }: ContactProps) {
             {/* Social Media - Hidden on mobile, shown on desktop */}
             <div className="hidden md:flex gap-4">
               <a href="#" className="w-12 h-12 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-full flex items-center justify-center border border-green-500/30 hover:border-green-500 transition-all hover:scale-110">
-                <Facebook className="w-5 h-5 text-white" />
+                <Facebook className="w-5 h-5 text-green-600" />
               </a>
               <a href="#" className="w-12 h-12 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-full flex items-center justify-center border border-green-500/30 hover:border-green-500 transition-all hover:scale-110">
-                <Instagram className="w-5 h-5 text-white" />
+                <Instagram className="w-5 h-5 text-green-600" />
               </a>
             </div>
           </div>
@@ -149,15 +151,15 @@ export function Contact({ language, theme, onShowPolicy }: ContactProps) {
 
         {/* Footer */}
         <div className={`pt-8 border-t text-center ${
-          theme === "light" ? "border-white/30" : "border-neutral-800"
+          theme === "light" ? "border-gray-200" : "border-neutral-800"
         }`}>
           {/* Social Media Icons - Shown on mobile only */}
           <div className="flex md:hidden gap-4 justify-center mb-6">
             <a href="#" className="w-14 h-14 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-full flex items-center justify-center border-2 border-green-500/50 hover:border-green-500 transition-all hover:scale-110">
-              <Facebook className="w-6 h-6 text-white" />
+              <Facebook className="w-6 h-6 text-green-600" />
             </a>
             <a href="#" className="w-14 h-14 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-full flex items-center justify-center border-2 border-green-500/50 hover:border-green-500 transition-all hover:scale-110">
-              <Instagram className="w-6 h-6 text-white" />
+              <Instagram className="w-6 h-6 text-green-600" />
             </a>
           </div>
           
@@ -170,13 +172,13 @@ export function Contact({ language, theme, onShowPolicy }: ContactProps) {
                   onShowPolicy();
                 }
               }}
-              className={`text-sm hover:text-green-200 transition-colors underline ${
-                theme === "light" ? "text-white/90" : "text-white/60"
+              className={`text-sm transition-colors underline ${
+                theme === "light" ? "text-gray-600 hover:text-green-600" : "text-white/60 hover:text-green-200"
               }`}
             >
               {language === 'fi' ? 'Tietosuojakäytäntö' : 'Privacy Policy'}
             </button>
-            <span className={theme === "light" ? "text-white/50" : "text-white/40"}>•</span>
+            <span className={theme === "light" ? "text-gray-400" : "text-white/40"}>•</span>
             <button
               onClick={(e) => {
                 e.preventDefault();
@@ -185,15 +187,15 @@ export function Contact({ language, theme, onShowPolicy }: ContactProps) {
                   onShowPolicy();
                 }
               }}
-              className={`text-sm hover:text-green-200 transition-colors underline ${
-                theme === "light" ? "text-white/90" : "text-white/60"
+              className={`text-sm transition-colors underline ${
+                theme === "light" ? "text-gray-600 hover:text-green-600" : "text-white/60 hover:text-green-200"
               }`}
             >
               {language === 'fi' ? 'Evästekäytäntö' : 'Cookie Policy'}
             </button>
           </div>
           <p className={`text-sm ${
-            theme === "light" ? "text-white/70" : "text-white/40"
+            theme === "light" ? "text-gray-500" : "text-white/40"
           }`}>
             © 2024 Victory Pizza. {language === 'fi' ? 'Kaikki oikeudet pidätetään.' : 'All rights reserved.'}
           </p>
