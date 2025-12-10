@@ -515,30 +515,29 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
       <div className={`min-h-screen ${theme === 'light' ? 'bg-gray-50' : 'bg-black'}`}>
       {/* Header */}
       <div className={`border-b ${theme === 'light' ? 'bg-white border-gray-200' : 'bg-gray-900 border-gray-800'}`}>
-        <div className="w-full px-4 py-4">
-          <div className="flex items-center justify-between mb-4">
+        <div className="max-w-7xl mx-auto px-4 py-4">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
             <div>
-              <h1 className={`text-xl md:text-2xl font-bold ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
+              <h1 className={`text-2xl font-bold ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
                 🍕 {language === 'fi' ? 'Ravintolan hallinta' : 'Restaurant Dashboard'}
               </h1>
-              <p className={`text-xs md:text-sm ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'}`}>
+              <p className={`text-sm ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'}`}>
                 {language === 'fi' ? 'Hallinnoi tilauksia ja päivitä tilauksen tila' : 'Manage orders and update order status'}
               </p>
             </div>
-          </div>
             
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 -mx-4 px-4">
+            <div className="flex flex-wrap items-center gap-2">
               {/* Auto-refresh toggle */}
               <button
                 onClick={() => setAutoRefresh(!autoRefresh)}
-                className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all whitespace-nowrap ${
                   autoRefresh
                     ? 'bg-green-500 text-white'
                     : theme === 'light' ? 'bg-gray-200 text-gray-700' : 'bg-gray-700 text-gray-300'
                 }`}
               >
                 <RefreshCw className={`w-4 h-4 ${autoRefresh ? 'animate-spin' : ''}`} />
-                {language === 'fi' ? 'Auto' : 'Auto'}
+                <span className="hidden sm:inline">{language === 'fi' ? 'Auto-päivitys' : 'Auto-refresh'}</span>
               </button>
 
               {/* Manual refresh */}
@@ -555,7 +554,7 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
               <button
                 onClick={handleDeleteCompleted}
                 disabled={deletingCompleted}
-                className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all whitespace-nowrap ${
                   deletingCompleted
                     ? 'bg-gray-400 cursor-not-allowed'
                     : 'bg-orange-500 hover:bg-orange-600'
@@ -567,15 +566,15 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
                 title={language === 'fi' ? 'Poista valmiit tilaukset' : 'Delete completed orders'}
               >
                 <Trash2 className="w-4 h-4" style={{ color: theme === 'light' ? '#111827' : '#ffffff' }} />
-                <span style={{ color: theme === 'light' ? '#111827 !important' : '#ffffff !important' }}>
-                  {language === 'fi' ? 'Poista' : 'Delete'}
+                <span className="hidden lg:inline" style={{ color: theme === 'light' ? '#111827 !important' : '#ffffff !important' }}>
+                  {language === 'fi' ? 'Poista valmiit' : 'Delete Completed'}
                 </span>
               </button>
 
               {/* Settings button */}
               <button
                 onClick={() => setShowSettings(true)}
-                className={`p-2 rounded-lg transition-all ${
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all whitespace-nowrap ${
                   theme === 'light' 
                     ? 'bg-orange-500 hover:bg-orange-600' 
                     : 'bg-orange-600 hover:bg-orange-700'
@@ -586,20 +585,25 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
                 }}
                 title={language === 'fi' ? 'Asetukset' : 'Settings'}
               >
-                <Settings className="w-5 h-5" style={{ color: theme === 'light' ? '#111827' : '#ffffff' }} />
+                <Settings className="w-4 h-4" style={{ color: theme === 'light' ? '#111827' : '#ffffff' }} />
+                <span className="hidden lg:inline" style={{ color: theme === 'light' ? '#111827 !important' : '#ffffff !important' }}>
+                  {language === 'fi' ? 'Asetukset' : 'Settings'}
+                </span>
               </button>
 
               {/* Logout button */}
               <button
                 onClick={handleLogout}
-                className="p-2 rounded-lg bg-orange-500 hover:bg-orange-600 transition-all"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium bg-orange-500 hover:bg-orange-600 transition-all whitespace-nowrap"
                 style={{ 
                   color: theme === 'light' ? '#111827 !important' : '#ffffff !important', 
                   backgroundColor: '#f97316' 
                 }}
-                title={language === 'fi' ? 'Kirjaudu ulos' : 'Logout'}
               >
-                <Lock className="w-5 h-5" style={{ color: theme === 'light' ? '#111827' : '#ffffff' }} />
+                <Lock className="w-4 h-4" style={{ color: theme === 'light' ? '#111827' : '#ffffff' }} />
+                <span className="hidden lg:inline" style={{ color: theme === 'light' ? '#111827 !important' : '#ffffff !important' }}>
+                  {language === 'fi' ? 'Kirjaudu ulos' : 'Logout'}
+                </span>
               </button>
 
               {/* Close button */}
@@ -617,7 +621,8 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
           </div>
 
           {/* Status Filter Tabs */}
-          <div className="flex gap-2 mt-4 overflow-x-auto pb-2">{[
+          <div className="overflow-x-auto -mx-4 px-4">
+            <div className="flex gap-2 mt-4 pb-2 min-w-max">{[
               { key: 'all', label: language === 'fi' ? 'Kaikki' : 'All', count: orderCounts.all },
               { key: 'pending', label: language === 'fi' ? 'Odottaa' : 'Pending', count: orderCounts.pending },
               { key: 'confirmed', label: language === 'fi' ? 'Vahvistettu' : 'Confirmed', count: orderCounts.confirmed },
@@ -640,12 +645,13 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
                 {filter.label} ({filter.count})
               </button>
             ))}
+            </div>
           </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="w-full px-4 py-6">
+      <div className="max-w-7xl mx-auto px-4 py-6">
         {/* Loading State */}
         {loading && (
           <div className="text-center py-12">
