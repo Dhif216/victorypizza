@@ -173,22 +173,6 @@ export function OrderTracking({ language, theme, onClose }: OrderTrackingProps) 
 
   return (
     <div className="min-h-screen flex items-center justify-center pt-32 pb-20" style={{ background: '#fafafa' }}>
-      {/* Close Button */}
-      {onClose && (
-        <button
-          onClick={onClose}
-          className="fixed top-4 left-4 p-4 rounded-full transition-all transform hover:scale-110 shadow-lg z-50 animate-pulse"
-          style={{
-            background: 'linear-gradient(135deg, #DC2626, #F97316)',
-            color: 'white',
-            border: '3px solid white'
-          }}
-          aria-label={language === 'fi' ? 'Sulje' : 'Close'}
-        >
-          <X className="w-8 h-8" />
-        </button>
-      )}
-      
       <div className="container mx-auto px-4 max-w-4xl w-full">
         {/* Header */}
         <div className="text-center mb-12">
@@ -203,7 +187,22 @@ export function OrderTracking({ language, theme, onClose }: OrderTrackingProps) 
         </div>
 
         {/* Search Section */}
-        <div className="p-8 rounded-2xl shadow-lg border mb-8" style={{ background: 'white', borderColor: '#e5e7eb' }}>
+        <div className="relative p-8 rounded-2xl shadow-lg border mb-8" style={{ background: 'white', borderColor: '#e5e7eb' }}>
+          {/* Close Button - attached to card */}
+          {onClose && (
+            <button
+              onClick={onClose}
+              className="absolute -top-4 -right-4 p-4 rounded-full transition-all transform hover:scale-110 shadow-lg z-50 animate-pulse"
+              style={{
+                background: 'linear-gradient(135deg, #DC2626, #F97316)',
+                color: 'white',
+                border: '3px solid white'
+              }}
+              aria-label={language === 'fi' ? 'Sulje' : 'Close'}
+            >
+              <X className="w-8 h-8" />
+            </button>
+          )}
           <div className="flex gap-4">
             <div className="flex-1">
               <label className="block text-sm font-bold mb-3" style={{ color: '#111827' }}>
