@@ -15,7 +15,6 @@ interface CustomerInfo {
   email: string;
   address: string;
   city: string;
-  postalCode: string;
   notes: string;
 }
 
@@ -36,7 +35,6 @@ export function CheckoutPage({ language, theme, onBack }: CheckoutPageProps) {
     email: '',
     address: '',
     city: '',
-    postalCode: '',
     notes: ''
   });
 
