@@ -102,8 +102,8 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
 
   if (orderSubmitted) {
     return (
-      <div className={`min-h-screen flex items-center justify-center p-4 ${
-        theme === 'light' ? 'bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50' : 'bg-gradient-to-br from-gray-900 via-black to-gray-900'
+      <div className={`min-h-screen flex items-center justify-center p-6 ${
+        theme === 'light' ? 'bg-white' : 'bg-black'
       }`}>
         <div className="text-center max-w-md">
           <div className="mb-8 relative">
@@ -121,7 +121,7 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
             <p className={`text-sm mb-2 ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'}`}>
               {language === 'fi' ? 'Tilausnumerosi' : 'Your Order Number'}
             </p>
-            <p className="text-4xl font-bold text-amber-500 mb-2 tracking-wider">
+            <p className="text-4xl font-bold text-blue-600 mb-2 tracking-wider">
               {orderNumber}
             </p>
             <p className={`text-xs ${theme === 'light' ? 'text-gray-500' : 'text-gray-500'}`}>
@@ -166,7 +166,7 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
               }}
               className={`w-full font-bold py-4 px-6 rounded-xl transition-all shadow-lg flex items-center justify-center gap-3 ${
                 theme === 'light'
-                  ? 'bg-amber-600 hover:bg-amber-700 text-white border border-amber-500'
+                  ? 'bg-blue-600 hover:bg-blue-700 text-white border border-blue-500'
                   : 'bg-gray-800 hover:bg-gray-700 text-white'
               }`}
             >
@@ -179,7 +179,7 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
   }
 
   return (
-    <div className={`min-h-screen py-20 ${theme === 'light' ? 'bg-gradient-to-br from-gray-50 via-amber-50/30 to-orange-50/30' : 'bg-gradient-to-br from-black via-gray-900 to-black'}`}>
+    <div className={`min-h-screen py-20 ${theme === 'light' ? 'bg-white' : 'bg-black'}`}>
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Header */}
         <div className="mb-8">
@@ -195,7 +195,7 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
             <span className="font-medium">{language === 'fi' ? 'Takaisin ostoskoriin' : 'Back to Cart'}</span>
           </button>
           <div className="flex items-center gap-4">
-            <div className={`w-12 h-12 rounded-full flex items-center justify-center ${theme === 'light' ? 'bg-amber-500' : 'bg-amber-600'}`}>
+            <div className={`w-12 h-12 rounded-full flex items-center justify-center ${theme === 'light' ? 'bg-blue-500' : 'bg-blue-600'}`}>
               <CreditCard className="w-6 h-6 text-white" />
             </div>
             <div>
@@ -217,7 +217,7 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
               theme === 'light' ? 'bg-white border-gray-200' : 'bg-gray-900 border-gray-800'
             }`}>
               <h2 className={`text-2xl font-bold mb-6 flex items-center gap-3 ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
-                <MapPin className="w-6 h-6 text-amber-500" />
+                <MapPin className="w-6 h-6 text-blue-500" />
                 {language === 'fi' ? 'Toimitustapa' : 'Delivery Method'}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -226,17 +226,17 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
                   onClick={() => setDeliveryMethod('delivery')}
                   className={`p-6 rounded-xl border-2 transition-all transform hover:scale-[1.02] ${
                     deliveryMethod === 'delivery'
-                      ? 'border-amber-500 bg-gradient-to-br from-amber-500/20 to-orange-500/10 shadow-lg'
+                      ? 'border-blue-500 bg-blue-50 shadow-lg'
                       : theme === 'light'
-                      ? 'border-gray-200 hover:border-amber-300 bg-gray-50'
-                      : 'border-gray-700 hover:border-amber-600 bg-gray-800'
+                      ? 'border-gray-200 hover:border-blue-300 bg-gray-50'
+                      : 'border-gray-700 hover:border-blue-600 bg-gray-800'
                   }`}
                 >
-                  <MapPin className={`w-8 h-8 mb-3 mx-auto ${deliveryMethod === 'delivery' ? 'text-amber-500' : 'text-gray-400'}`} />
+                  <MapPin className={`w-8 h-8 mb-3 mx-auto ${deliveryMethod === 'delivery' ? 'text-blue-500' : 'text-gray-400'}`} />
                   <div className={`font-bold text-lg mb-1 ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
                     {language === 'fi' ? 'Kotiinkuljetus' : 'Home Delivery'}
                   </div>
-                  <div className="text-sm text-amber-500 font-semibold">+€5.00</div>
+                  <div className="text-sm text-blue-500 font-semibold">+€5.00</div>
                   <div className={`text-xs mt-2 ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'}`}>
                     {language === 'fi' ? '30-45 min' : '30-45 min'}
                   </div>
@@ -246,13 +246,13 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
                   onClick={() => setDeliveryMethod('pickup')}
                   className={`p-6 rounded-xl border-2 transition-all transform hover:scale-[1.02] ${
                     deliveryMethod === 'pickup'
-                      ? 'border-amber-500 bg-gradient-to-br from-amber-500/20 to-orange-500/10 shadow-lg'
+                      ? 'border-blue-500 bg-blue-50 shadow-lg'
                       : theme === 'light'
-                      ? 'border-gray-200 hover:border-amber-300 bg-gray-50'
-                      : 'border-gray-700 hover:border-amber-600 bg-gray-800'
+                      ? 'border-gray-200 hover:border-blue-300 bg-gray-50'
+                      : 'border-gray-700 hover:border-blue-600 bg-gray-800'
                   }`}
                 >
-                  <User className={`w-8 h-8 mb-3 mx-auto ${deliveryMethod === 'pickup' ? 'text-amber-500' : 'text-gray-400'}`} />
+                  <User className={`w-8 h-8 mb-3 mx-auto ${deliveryMethod === 'pickup' ? 'text-blue-500' : 'text-gray-400'}`} />
                   <div className={`font-bold text-lg mb-1 ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
                     {language === 'fi' ? 'Nouto ravintolasta' : 'Restaurant Pickup'}
                   </div>
@@ -269,7 +269,7 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
               theme === 'light' ? 'bg-white border-gray-200' : 'bg-gray-900 border-gray-800'
             }`}>
               <h2 className={`text-2xl font-bold mb-6 flex items-center gap-3 ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
-                <User className="w-6 h-6 text-amber-500" />
+                <User className="w-6 h-6 text-blue-500" />
                 {language === 'fi' ? 'Yhteystiedot' : 'Contact Information'}
               </h2>
               
@@ -279,16 +279,16 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
                     {language === 'fi' ? 'Nimi *' : 'Full Name *'}
                   </label>
                   <div className="relative">
-                    <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-amber-500" />
+                    <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-blue-500" />
                     <input
                       type="text"
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      className={`w-full pl-12 pr-4 py-4 rounded-xl border-2 transition-all focus:ring-2 focus:ring-amber-500/50 focus:outline-none ${
+                      className={`w-full pl-12 pr-4 py-4 rounded-xl border-2 transition-all focus:ring-2 focus:ring-blue-500/50 focus:outline-none ${
                         theme === 'light'
-                          ? 'bg-white border-gray-300 text-gray-900 focus:border-amber-500'
-                          : 'bg-gray-800 border-gray-700 text-white focus:border-amber-500'
+                          ? 'bg-white border-gray-300 text-gray-900 focus:border-blue-500'
+                          : 'bg-gray-800 border-gray-700 text-white focus:border-blue-500'
                       }`}
                       placeholder={language === 'fi' ? 'Matti Meikäläinen' : 'John Doe'}
                     />
@@ -300,16 +300,16 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
                     {language === 'fi' ? 'Puhelinnumero *' : 'Phone Number *'}
                   </label>
                   <div className="relative">
-                    <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-amber-500" />
+                    <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-blue-500" />
                     <input
                       type="tel"
                       required
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                      className={`w-full pl-12 pr-4 py-4 rounded-xl border-2 transition-all focus:ring-2 focus:ring-amber-500/50 focus:outline-none ${
+                      className={`w-full pl-12 pr-4 py-4 rounded-xl border-2 transition-all focus:ring-2 focus:ring-blue-500/50 focus:outline-none ${
                         theme === 'light'
-                          ? 'bg-white border-gray-300 text-gray-900 focus:border-amber-500'
-                          : 'bg-gray-800 border-gray-700 text-white focus:border-amber-500'
+                          ? 'bg-white border-gray-300 text-gray-900 focus:border-blue-500'
+                          : 'bg-gray-800 border-gray-700 text-white focus:border-blue-500'
                       }`}
                       placeholder="+358 40 123 4567"
                     />
@@ -321,15 +321,15 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
                     {language === 'fi' ? 'Sähköposti' : 'Email'}
                   </label>
                   <div className="relative">
-                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-amber-500" />
+                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-blue-500" />
                     <input
                       type="email"
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      className={`w-full pl-12 pr-4 py-4 rounded-xl border-2 transition-all focus:ring-2 focus:ring-amber-500/50 focus:outline-none ${
+                      className={`w-full pl-12 pr-4 py-4 rounded-xl border-2 transition-all focus:ring-2 focus:ring-blue-500/50 focus:outline-none ${
                         theme === 'light'
-                          ? 'bg-white border-gray-300 text-gray-900 focus:border-amber-500'
-                          : 'bg-gray-800 border-gray-700 text-white focus:border-amber-500'
+                          ? 'bg-white border-gray-300 text-gray-900 focus:border-blue-500'
+                          : 'bg-gray-800 border-gray-700 text-white focus:border-blue-500'
                       }`}
                       placeholder="matti@example.com"
                     />
@@ -343,16 +343,16 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
                         {language === 'fi' ? 'Osoite *' : 'Address *'}
                       </label>
                       <div className="relative">
-                        <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-amber-500" />
+                        <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-blue-500" />
                         <input
                           type="text"
                           required={deliveryMethod === 'delivery'}
                           value={formData.address}
                           onChange={(e) => setFormData({...formData, address: e.target.value})}
-                          className={`w-full pl-12 pr-4 py-4 rounded-xl border-2 transition-all focus:ring-2 focus:ring-amber-500/50 focus:outline-none ${
+                          className={`w-full pl-12 pr-4 py-4 rounded-xl border-2 transition-all focus:ring-2 focus:ring-blue-500/50 focus:outline-none ${
                             theme === 'light'
-                              ? 'bg-white border-gray-300 text-gray-900 focus:border-amber-500'
-                              : 'bg-gray-800 border-gray-700 text-white focus:border-amber-500'
+                              ? 'bg-white border-gray-300 text-gray-900 focus:border-blue-500'
+                              : 'bg-gray-800 border-gray-700 text-white focus:border-blue-500'
                           }`}
                           placeholder={language === 'fi' ? 'Katuosoite 1' : 'Street Address 1'}
                         />
@@ -368,10 +368,10 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
                         required={deliveryMethod === 'delivery'}
                         value={formData.city}
                         onChange={(e) => setFormData({...formData, city: e.target.value})}
-                        className={`w-full px-4 py-4 rounded-xl border-2 transition-all focus:ring-2 focus:ring-amber-500/50 focus:outline-none ${
+                        className={`w-full px-4 py-4 rounded-xl border-2 transition-all focus:ring-2 focus:ring-blue-500/50 focus:outline-none ${
                           theme === 'light'
-                            ? 'bg-white border-gray-300 text-gray-900 focus:border-amber-500'
-                            : 'bg-gray-800 border-gray-700 text-white focus:border-amber-500'
+                            ? 'bg-white border-gray-300 text-gray-900 focus:border-blue-500'
+                            : 'bg-gray-800 border-gray-700 text-white focus:border-blue-500'
                         }`}
                         placeholder={language === 'fi' ? 'esim. Vantaa 01234' : 'e.g. Helsinki 00100'}
                       />
@@ -384,15 +384,15 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
                     {language === 'fi' ? 'Lisätiedot' : 'Additional Notes'}
                   </label>
                   <div className="relative">
-                    <MessageSquare className="absolute left-4 top-4 w-5 h-5 text-amber-500" />
+                    <MessageSquare className="absolute left-4 top-4 w-5 h-5 text-blue-500" />
                     <textarea
                       value={formData.notes}
                       onChange={(e) => setFormData({...formData, notes: e.target.value})}
                       rows={3}
-                      className={`w-full pl-12 pr-4 py-4 rounded-xl border-2 resize-none transition-all focus:ring-2 focus:ring-amber-500/50 focus:outline-none ${
+                      className={`w-full pl-12 pr-4 py-4 rounded-xl border-2 resize-none transition-all focus:ring-2 focus:ring-blue-500/50 focus:outline-none ${
                         theme === 'light'
-                          ? 'bg-white border-gray-300 text-gray-900 focus:border-amber-500'
-                          : 'bg-gray-800 border-gray-700 text-white focus:border-amber-500'
+                          ? 'bg-white border-gray-300 text-gray-900 focus:border-blue-500'
+                          : 'bg-gray-800 border-gray-700 text-white focus:border-blue-500'
                       }`}
                       placeholder={language === 'fi' ? 'Esim. ovikoodi, kerros...' : 'e.g. door code, floor...'}
                     />
@@ -403,7 +403,7 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
               {/* Payment Method */}
               <div className={`mt-8 pt-8 border-t ${theme === 'light' ? 'border-gray-200' : 'border-gray-700'}`}>
                 <h3 className={`text-2xl font-bold mb-6 flex items-center gap-3 ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
-                  <CreditCard className="w-6 h-6 text-amber-500" />
+                  <CreditCard className="w-6 h-6 text-blue-500" />
                   {language === 'fi' ? 'Maksutapa' : 'Payment Method'}
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -412,13 +412,13 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
                     onClick={() => setPaymentMethod('card')}
                     className={`p-6 rounded-xl border-2 transition-all transform hover:scale-[1.02] ${
                       paymentMethod === 'card'
-                        ? 'border-amber-500 bg-gradient-to-br from-amber-500/20 to-orange-500/10 shadow-lg'
+                        ? 'border-blue-500 bg-gradient-to-br from-blue-500/20 to-blue-600/10 shadow-lg'
                         : theme === 'light'
-                        ? 'border-gray-200 hover:border-amber-300 bg-gray-50'
-                        : 'border-gray-700 hover:border-amber-600 bg-gray-800'
+                        ? 'border-gray-200 hover:border-blue-300 bg-gray-50'
+                        : 'border-gray-700 hover:border-blue-600 bg-gray-800'
                     }`}
                   >
-                    <CreditCard className={`w-8 h-8 mb-3 mx-auto ${paymentMethod === 'card' ? 'text-amber-500' : 'text-gray-400'}`} />
+                    <CreditCard className={`w-8 h-8 mb-3 mx-auto ${paymentMethod === 'card' ? 'text-blue-500' : 'text-gray-400'}`} />
                     <div className={`font-bold text-lg ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
                       {language === 'fi' ? 'Korttimaksu' : 'Card Payment'}
                     </div>
@@ -431,13 +431,13 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
                     onClick={() => setPaymentMethod('cash')}
                     className={`p-6 rounded-xl border-2 transition-all transform hover:scale-[1.02] ${
                       paymentMethod === 'cash'
-                        ? 'border-amber-500 bg-gradient-to-br from-amber-500/20 to-orange-500/10 shadow-lg'
+                        ? 'border-blue-500 bg-gradient-to-br from-blue-500/20 to-blue-600/10 shadow-lg'
                         : theme === 'light'
-                        ? 'border-gray-200 hover:border-amber-300 bg-gray-50'
-                        : 'border-gray-700 hover:border-amber-600 bg-gray-800'
+                        ? 'border-gray-200 hover:border-blue-300 bg-gray-50'
+                        : 'border-gray-700 hover:border-blue-600 bg-gray-800'
                     }`}
                   >
-                    <Banknote className={`w-8 h-8 mb-3 mx-auto ${paymentMethod === 'cash' ? 'text-amber-500' : 'text-gray-400'}`} />
+                    <Banknote className={`w-8 h-8 mb-3 mx-auto ${paymentMethod === 'cash' ? 'text-blue-500' : 'text-gray-400'}`} />
                     <div className={`font-bold text-lg ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
                       {language === 'fi' ? 'Käteinen' : 'Cash'}
                     </div>
@@ -451,7 +451,7 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full mt-8 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:via-orange-600 hover:to-amber-700 text-white font-bold py-5 px-8 rounded-xl transition-all shadow-xl hover:shadow-2xl transform hover:scale-[1.02] text-lg"
+                className="w-full mt-8 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:from-blue-600 hover:via-blue-700 hover:to-blue-800 text-white font-bold py-5 px-8 rounded-xl transition-all shadow-xl hover:shadow-2xl transform hover:scale-[1.02] text-lg"
               >
                 <span className="flex items-center justify-center gap-3">
                   <CheckCircle className="w-6 h-6" />
@@ -486,15 +486,15 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
                       <div className={`font-semibold text-sm leading-tight mb-1 ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
                         {language === 'fi' ? item.nameFi : item.nameEn}
                       </div>
-                      <div className="text-xs text-amber-500 mt-1 mb-1">
-                        <span className="inline-block px-2 py-0.5 rounded bg-amber-500/20 font-medium">
+                      <div className="text-xs text-blue-500 mt-1 mb-1">
+                        <span className="inline-block px-2 py-0.5 rounded bg-blue-500/20 font-medium">
                           {item.selectedSize}
                         </span>
                       </div>
                       <div className={`text-sm mt-1 ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'}`}>
                         {item.quantity}x €{item.selectedPrice.toFixed(2)}
                       </div>
-                      <div className="text-sm font-bold text-amber-500 mt-0.5">
+                      <div className="text-sm font-bold text-blue-500 mt-0.5">
                         €{(item.selectedPrice * item.quantity).toFixed(2)}
                       </div>
                     </div>
@@ -517,13 +517,13 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
                   theme === 'light' ? 'text-gray-900 border-gray-200' : 'text-white border-gray-700'
                 }`}>
                   <span>{language === 'fi' ? 'Yhteensä' : 'Total'}</span>
-                  <span className="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
                     €{total.toFixed(2)}
                   </span>
                 </div>
               </div>
 
-              <div className={`mt-6 p-4 rounded-xl ${theme === 'light' ? 'bg-amber-50' : 'bg-amber-900/20'}`}>
+              <div className={`mt-6 p-4 rounded-xl ${theme === 'light' ? 'bg-blue-50' : 'bg-blue-900/20'}`}>
                 <p className={`text-xs ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'}`}>
                   {language === 'fi' 
                     ? '🔒 Tietosi käsitellään turvallisesti' 
