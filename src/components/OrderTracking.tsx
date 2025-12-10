@@ -177,7 +177,7 @@ export function OrderTracking({ language, theme, onClose }: OrderTrackingProps) 
       {onClose && (
         <button
           onClick={onClose}
-          className="fixed top-24 right-8 p-3 rounded-full transition-all transform hover:scale-110 shadow-lg z-50"
+          className="fixed top-4 left-4 p-4 rounded-full transition-all transform hover:scale-110 shadow-lg z-50 animate-pulse"
           style={{
             background: 'linear-gradient(135deg, #DC2626, #F97316)',
             color: 'white',
@@ -185,7 +185,7 @@ export function OrderTracking({ language, theme, onClose }: OrderTrackingProps) 
           }}
           aria-label={language === 'fi' ? 'Sulje' : 'Close'}
         >
-          <X className="w-6 h-6" />
+          <X className="w-8 h-8" />
         </button>
       )}
       
