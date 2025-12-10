@@ -11,7 +11,7 @@ export function Contact({ language, theme, onShowPolicy }: ContactProps) {
     <section id="contact" className={`relative py-32 border-t ${
       theme === "light"
         ? "bg-white border-gray-200"
-        : "bg-black border-neutral-800"
+        : "bg-gradient-to-br from-orange-500 via-amber-500 to-green-500 border-orange-400"
     }`}>
 
       <div className="container mx-auto px-6 max-w-7xl">
