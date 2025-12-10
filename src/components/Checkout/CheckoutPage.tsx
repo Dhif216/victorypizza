@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { orderAPI } from '../../services/api';
 import { useCart } from '../../context/CartContext';
-import { ArrowLeft, CreditCard, Truck, Store, User, Phone, Mail, MapPin, MessageSquare } from 'lucide-react';
+import { ArrowLeft, CreditCard, Banknote, Truck, Store, User, Phone, Mail, MapPin, MessageSquare } from 'lucide-react';
 
 interface CheckoutPageProps {
   language: 'fi' | 'en';
@@ -163,32 +163,28 @@ export function CheckoutPage({ language, theme, onBack }: CheckoutPageProps) {
                 <button
                   type="button"
                   onClick={() => setDeliveryMethod('delivery')}
-                  className={`p-4 rounded-lg border-2 transition-all active:scale-95 ${
+                  className={`p-4 rounded-lg transition-all touch-manipulation ${
                     deliveryMethod === 'delivery'
-                      ? 'border-blue-500 bg-blue-500/20 shadow-lg scale-105'
-                      : theme === 'light'
-                        ? 'border-gray-300 hover:border-blue-500/50 active:bg-blue-500/10'
-                        : 'border-neutral-700 hover:border-blue-500/50 active:bg-blue-500/10'
+                      ? 'border-4 border-orange-500 bg-orange-500/20 shadow-xl scale-105'
+                      : 'border-2 border-gray-300 active:border-orange-500 active:bg-orange-500/10'
                   }`}
                 >
-                  <Truck className={`w-6 h-6 mx-auto mb-2 ${deliveryMethod === 'delivery' ? 'text-blue-600' : 'text-gray-400'}`} />
+                  <Truck className={`w-6 h-6 mx-auto mb-2 ${deliveryMethod === 'delivery' ? 'text-orange-500' : 'text-gray-400'}`} />
                   <div className={`font-medium ${theme === 'light' ? 'text-black' : 'text-white'}`}>
                     {language === 'fi' ? 'Kotiinkuljetus' : 'Delivery'}
                   </div>
-                  <div className={`text-sm font-semibold ${deliveryMethod === 'delivery' ? 'text-blue-600' : 'text-gray-500'}`}>+5.00€</div>
+                  <div className={`text-sm font-semibold ${deliveryMethod === 'delivery' ? 'text-orange-500' : 'text-gray-500'}`}>+5.00€</div>
                 </button>
                 <button
                   type="button"
                   onClick={() => setDeliveryMethod('pickup')}
-                  className={`p-4 rounded-lg border-2 transition-all active:scale-95 ${
+                  className={`p-4 rounded-lg transition-all touch-manipulation ${
                     deliveryMethod === 'pickup'
-                      ? 'border-blue-500 bg-blue-500/20 shadow-lg scale-105'
-                      : theme === 'light'
-                        ? 'border-gray-300 hover:border-blue-500/50 active:bg-blue-500/10'
-                        : 'border-neutral-700 hover:border-blue-500/50 active:bg-blue-500/10'
+                      ? 'border-4 border-orange-500 bg-orange-500/20 shadow-xl scale-105'
+                      : 'border-2 border-gray-300 active:border-orange-500 active:bg-orange-500/10'
                   }`}
                 >
-                  <Store className={`w-6 h-6 mx-auto mb-2 ${deliveryMethod === 'pickup' ? 'text-blue-600' : 'text-gray-400'}`} />
+                  <Store className={`w-6 h-6 mx-auto mb-2 ${deliveryMethod === 'pickup' ? 'text-orange-500' : 'text-gray-400'}`} />
                   <div className={`font-medium ${theme === 'light' ? 'text-black' : 'text-white'}`}>
                     {language === 'fi' ? 'Nouto' : 'Pickup'}
                   </div>
@@ -328,31 +324,27 @@ export function CheckoutPage({ language, theme, onBack }: CheckoutPageProps) {
                 <button
                   type="button"
                   onClick={() => setPaymentMethod('card')}
-                  className={`p-4 rounded-lg border-2 transition-all active:scale-95 ${
+                  className={`p-4 rounded-lg transition-all touch-manipulation ${
                     paymentMethod === 'card'
-                      ? 'border-blue-500 bg-blue-500/20 shadow-lg scale-105'
-                      : theme === 'light'
-                        ? 'border-gray-300 hover:border-blue-500/50 active:bg-blue-500/10'
-                        : 'border-neutral-700 hover:border-blue-500/50 active:bg-blue-500/10'
+                      ? 'border-4 border-orange-500 bg-orange-500/20 shadow-xl scale-105'
+                      : 'border-2 border-gray-300 active:border-orange-500 active:bg-orange-500/10'
                   }`}
                 >
-                  <CreditCard className={`w-6 h-6 mx-auto mb-2 ${paymentMethod === 'card' ? 'text-blue-600' : 'text-gray-400'}`} />
+                  <CreditCard className={`w-6 h-6 mx-auto mb-2 ${paymentMethod === 'card' ? 'text-orange-500' : 'text-gray-400'}`} />
                   <div className={`font-medium ${theme === 'light' ? 'text-black' : 'text-white'}`}>
-                    {language === 'fi' ? 'Kortti' : 'Card'}
+                    {language === 'fi' ? 'Korttimaksu' : 'Card Payment'}
                   </div>
                 </button>
                 <button
                   type="button"
                   onClick={() => setPaymentMethod('cash')}
-                  className={`p-4 rounded-lg border-2 transition-all active:scale-95 ${
+                  className={`p-4 rounded-lg transition-all touch-manipulation ${
                     paymentMethod === 'cash'
-                      ? 'border-blue-500 bg-blue-500/20 shadow-lg scale-105'
-                      : theme === 'light'
-                        ? 'border-gray-300 hover:border-blue-500/50 active:bg-blue-500/10'
-                        : 'border-neutral-700 hover:border-blue-500/50 active:bg-blue-500/10'
+                      ? 'border-4 border-orange-500 bg-orange-500/20 shadow-xl scale-105'
+                      : 'border-2 border-gray-300 active:border-orange-500 active:bg-orange-500/10'
                   }`}
                 >
-                  <div className="text-2xl mb-2">💵</div>
+                  <Banknote className={`w-6 h-6 mx-auto mb-2 ${paymentMethod === 'cash' ? 'text-orange-500' : 'text-gray-400'}`} />
                   <div className={`font-medium ${theme === 'light' ? 'text-black' : 'text-white'}`}>
                     {language === 'fi' ? 'Käteinen' : 'Cash'}
                   </div>

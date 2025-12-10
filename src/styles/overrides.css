@@ -1,0 +1,1486 @@
+/* Cart images - force small and cropped */
+.cart-item-img, .cart-item-img img, .cart-item-img .object-cover {
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  min-height: 32px !important;
+  object-fit: cover !important;
+  border-radius: 8px !important;
+  display: block !important;
+}
+/* ==================== COMPLETE TAILWIND OVERRIDES - FORCE NEW DESIGN ==================== */
+
+/* OVERRIDE TAILWIND CSS VARIABLES - BLACK/SILVER/GREEN THEME */
+:root {
+  /* Override Tailwind's amber colors with GREEN for buttons and prices */
+  --color-amber-300: #86EFAC !important;  /* Light green */
+  --color-amber-400: #4ADE80 !important;  /* Medium green */
+  --color-amber-500: #22C55E !important;  /* Green (for Tilaa buttons) */
+  --color-amber-600: #16A34A !important;  /* Dark green */
+  --color-amber-700: #15803D !important;  /* Darker green */
+  
+  /* Override Tailwind's orange colors with GREEN tones */
+  --color-orange-500: #22C55E !important;  /* Green */
+  --color-orange-600: #16A34A !important;  /* Dark green */
+  --color-orange-700: #15803D !important;  /* Darker green */
+  
+  /* Override yellow with GREEN */
+  --color-yellow-400: #4ADE80 !important;  /* Light green */
+  --color-yellow-500: #22C55E !important;  /* Green */
+}
+
+/* FORCE GREEN COLORS - Override all amber/orange Tailwind classes */
+.bg-amber-500,
+.from-amber-500,
+.to-amber-500,
+.hover\:from-amber-500:hover,
+.hover\:to-amber-500:hover {
+  background-color: #22C55E !important;
+}
+
+.bg-amber-600,
+.from-amber-600,
+.to-amber-600,
+  --tw-gradient-to: #ea580c !important;
+  background-image: linear-gradient(to right, #f97316, #ea580c) !important;
+  background-color: #16A34A !important;
+
+
+.bg-orange-600,
+.from-orange-600,
+.to-orange-600,
+.hover\:from-orange-600:hover,
+.hover\:to-orange-600:hover {
+  background-color: #414242 !important;
+}
+
+.hover\:from-orange-700:hover,
+.hover\:to-orange-700:hover {
+  background-color: #15803D !important;
+}
+
+.text-amber-400,
+.text-amber-500,
+.text-amber-600 {
+  color: #22C55E !important;
+}
+
+.border-amber-300,
+.hover\:border-amber-300:hover {
+  border-color: #4ADE80 !important;
+}
+
+.border-amber-500,
+.focus\:border-amber-500:focus {
+  border-color: #22C55E !important;
+}
+
+.border-amber-700,
+.hover\:border-amber-700:hover {
+  border-color: #15803D !important;
+}
+
+.bg-amber-50 {
+  background-color: #F0FDF4 !important;
+}
+
+.bg-amber-900\/20 {
+  background-color: rgba(21, 128, 61, 0.2) !important;
+}
+
+/* ==================== ORDER TRACKING PAGE FIX ==================== */
+/* Fix order tracking page layout - add top padding and proper spacing */
+.min-h-screen.py-20 {
+  padding-top: 140px !important;
+  padding-bottom: 80px !important;
+  min-height: 100vh !important;
+}
+
+/* Close button - make it visible and positioned properly */
+button.fixed.top-24 {
+  top: 100px !important;
+  right: 32px !important;
+  width: 56px !important;
+  height: 56px !important;
+  z-index: 10000 !important;
+  background: linear-gradient(135deg, #DC2626, #F97316) !important;
+  color: white !important;
+  border: 3px solid white !important;
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.4) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+button.fixed.top-24:hover {
+  transform: scale(1.1) rotate(90deg) !important;
+  box-shadow: 0 12px 32px rgba(220, 38, 38, 0.6) !important;
+}
+
+button.fixed.top-24 svg {
+  width: 28px !important;
+  height: 28px !important;
+}
+
+/* Order tracking header */
+.min-h-screen h1 {
+  color: #1f2937 !important;
+  font-size: 42px !important;
+  font-weight: 900 !important;
+  margin-bottom: 16px !important;
+}
+
+/* Order tracking description */
+.min-h-screen .text-lg {
+  color: #4b5563 !important;
+  font-size: 18px !important;
+}
+
+/* Search input box */
+.min-h-screen input[type="text"] {
+  background: white !important;
+  color: #1f2937 !important;
+  border: 3px solid #e5e7eb !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  padding: 18px 20px 18px 56px !important;
+}
+
+.min-h-screen input[type="text"]:focus {
+  border-color: #F97316 !important;
+  box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.2) !important;
+}
+
+/* Search button */
+.min-h-screen button.bg-gradient-to-r {
+  background: linear-gradient(135deg, #DC2626, #F97316) !important;
+  padding: 18px 36px !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4) !important;
+}
+
+/* Order status cards */
+.min-h-screen .p-8.rounded-2xl {
+  background: white !important;
+  border: 3px solid #e5e7eb !important;
+  padding: 32px !important;
+}
+
+/* ==================== TEXT VISIBILITY FIXES ==================== */
+
+/* Force all text to have proper contrast */
+.text-gray-900,
+.text-black {
+  color: #111827 !important;
+}
+
+.text-gray-600 {
+  color: #4b5563 !important;
+}
+
+.text-gray-400 {
+  color: #9ca3af !important;
+}
+
+.text-white {
+  color: #ffffff !important;
+}
+
+/* Light theme text fixes */
+.bg-white .text-black,
+.bg-white .text-gray-900,
+.bg-gradient-to-br.from-gray-50 .text-gray-900 {
+  color: #111827 !important;
+}
+
+.bg-white .text-gray-600,
+.bg-gradient-to-br.from-gray-50 .text-gray-600 {
+  color: #4b5563 !important;
+}
+
+/* Dark theme text fixes */
+.bg-black .text-white,
+.bg-gray-900 .text-white,
+.bg-gradient-to-br.from-black .text-white {
+  color: #ffffff !important;
+}
+
+.bg-black .text-gray-400,
+.bg-gray-900 .text-gray-400 {
+  color: #9ca3af !important;
+}
+
+/* Menu section text */
+#menu h2,
+#menu h3,
+#menu .text-xl {
+  color: #111827 !important;
+}
+
+#menu .text-sm,
+#menu p {
+  color: #4b5563 !important;
+}
+
+/* Gallery section text */
+#gallery h2 {
+  color: #111827 !important;
+}
+
+#gallery p {
+  color: #4b5563 !important;
+}
+
+#gallery h3 {
+  color: #ffffff !important;
+}
+
+/* Contact section - force white text */
+#contact h3,
+#contact h2,
+#contact .text-3xl,
+#contact .text-lg {
+  color: #ffffff !important;
+}
+
+#contact .text-xs {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Order tracking status text */
+.min-h-screen .text-sm.font-bold {
+  color: #111827 !important;
+}
+
+/* ==================== GLOBAL OVERRIDES ==================== */
+
+/* Force all sections */
+section {
+  padding: 80px 24px !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+/* Force containers */
+.container,
+.mx-auto {
+  max-width: 1400px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+  width: 100% !important;
+}
+
+/* Menu Category Buttons - BIGGER */
+button.rounded-full,
+.rounded-full.px-6 {
+  padding: 18px 36px !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  border-radius: 50px !important;
+  min-width: 160px !important;
+  margin: 10px !important;
+  gap: 14px !important;
+  border: 3px solid #e5e7eb !important;
+}
+
+button.rounded-full.bg-amber-500,
+.bg-amber-500.rounded-full {
+  background: #22C55E !important;
+  color: white !important;
+  border-color: #22C55E !important;
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4) !important;
+}
+
+/* Menu Images - MUCH BIGGER */
+.w-32,
+.h-32,
+.md\:w-40,
+.md\:h-40 {
+  width: 220px !important;
+  height: 220px !important;
+}
+
+/* Menu Cards */
+.rounded-2xl.border {
+  background: white !important;
+  border: 3px solid #e5e7eb !important;
+  border-radius: 20px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+  margin-bottom: 24px !important;
+}
+
+.rounded-2xl.border:hover {
+  border-color: #F97316 !important;
+  transform: translateY(-6px) !important;
+  box-shadow: 0 12px 32px rgba(220, 38, 38, 0.15) !important;
+}
+
+/* Menu Text */
+.rounded-2xl h3 {
+  font-size: 28px !important;
+  font-weight: 800 !important;
+  color: #1f2937 !important;
+}
+
+.text-2xl.text-amber-500 {
+  font-size: 34px !important;
+  font-weight: 900 !important;
+  color: #22C55E !important;
+}
+
+/* Add to Cart Buttons */
+button.rounded-xl,
+.rounded-xl.bg-amber-500 {
+  padding: 18px 32px !important;
+  background: #22C55E !important;
+  color: white !important;
+  font-weight: 800 !important;
+  font-size: 17px !important;
+  border-radius: 14px !important;
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.3) !important;
+}
+
+button.rounded-xl:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 10px 28px rgba(153, 27, 27, 0.5) !important;
+}
+
+/* Contact Section */
+#contact {
+  background: #000000 !important;
+  padding: 80px 24px !important;
+}
+
+#contact .w-12.h-12 {
+  width: 72px !important;
+  height: 72px !important;
+  background: #22C55E !important;
+  border-radius: 18px !important;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3) !important;
+}
+
+#contact .w-12.h-12 svg {
+  width: 36px !important;
+  height: 36px !important;
+  color: white !important;
+}
+
+/* Gallery Grid */
+#gallery .grid {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+  gap: 28px !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  justify-items: center !important;
+}
+
+#gallery .group {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Space category buttons */
+.flex.gap-3.mb-12,
+.flex.gap-4.mb-12 {
+  gap: 20px !important;
+  margin-bottom: 56px !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+}
+
+/* Menu grid spacing */
+.space-y-6 {
+  margin-top: 40px !important;
+}
+
+.space-y-6 > * + * {
+  margin-top: 28px !important;
+}
+
+/* Emoji icons in buttons - BIGGER */
+button span:first-child {
+  font-size: 28px !important;
+}
+
+/* Menu item content padding */
+.rounded-2xl .p-6 {
+  padding: 32px !important;
+}
+
+/* Gallery background */
+#gallery {
+  background: #fafafa !important;
+  padding: 80px 24px !important;
+}
+
+/* Contact form inputs */
+#contact input,
+#contact textarea,
+#contact select {
+  width: 100% !important;
+  padding: 18px 22px !important;
+  border: 3px solid #e5e7eb !important;
+  border-radius: 14px !important;
+  font-size: 16px !important;
+  background: white !important;
+  color: #1f2937 !important;
+}
+
+#contact input:focus,
+#contact textarea:focus,
+#contact select:focus {
+  outline: none !important;
+  border-color: #22C55E !important;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.15) !important;
+}
+
+/* ==================== ALL INPUT FIELDS - FORCE DARK TEXT ==================== */
+input,
+textarea,
+select,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="search"],
+.input,
+.form-input,
+.form-control {
+  color: #1f2937 !important;
+  background: white !important;
+  border: 2px solid #e5e7eb !important;
+  padding: 12px 16px !important;
+  border-radius: 8px !important;
+  font-size: 15px !important;
+}
+
+input::placeholder,
+textarea::placeholder,
+select::placeholder {
+  color: #9ca3af !important;
+  opacity: 0.7 !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+  border-color: #F97316 !important;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1) !important;
+}
+
+/* ==================== DASHBOARD ORDER CARDS - FORCE DARK TEXT ==================== */
+.bg-white h3,
+.bg-white h4,
+.bg-white p,
+.bg-white span,
+.bg-white div,
+.bg-white strong,
+.bg-gray-50 h3,
+.bg-gray-50 h4,
+.bg-gray-50 p,
+.bg-gray-50 span,
+.bg-gray-50 div,
+.bg-gray-50 strong {
+  color: #1f2937 !important;
+}
+
+/* Order cards specifically */
+.rounded-xl.border h3,
+.rounded-xl.border p,
+.rounded-xl.border span,
+.rounded-2xl.border h3,
+.rounded-2xl.border p,
+.rounded-2xl.border span {
+  color: #1f2937 !important;
+}
+
+/* Status badges - keep their colors */
+.bg-yellow-100,
+.bg-blue-100,
+.bg-green-100,
+.bg-red-100 {
+  color: #1f2937 !important;
+}
+
+/* Order tracking page */
+.order-tracking-container input,
+.order-tracking-container textarea,
+.order-tracking-container select {
+  color: #1f2937 !important;
+  background: white !important;
+}
+
+/* Dashboard cards */
+.dashboard-card,
+.order-card,
+[class*="card"] {
+  background: white !important;
+}
+
+.dashboard-card *,
+.order-card *,
+[class*="card"] * {
+  color: #1f2937 !important;
+}
+
+/* Preserve specific colored text */
+.text-amber-500,
+.text-amber-400,
+.text-red-500,
+.text-green-500,
+.text-blue-500 {
+  color: inherit !important;
+}
+
+/* Labels and headings in forms */
+label,
+.label,
+.form-label {
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+}
+
+/* Make sure all text in white backgrounds is dark */
+.bg-white,
+.bg-gray-50,
+.bg-gray-100 {
+  background: white !important;
+}
+
+.bg-white *:not(.text-amber-500):not(.text-red-500):not(.text-green-500):not(.text-blue-500),
+.bg-gray-50 *:not(.text-amber-500):not(.text-red-500):not(.text-green-500):not(.text-blue-500),
+.bg-gray-100 *:not(.text-amber-500):not(.text-red-500):not(.text-green-500):not(.text-blue-500) {
+  color: #1f2937 !important;
+}
+
+/* Contact submit button */
+#contact button[type="submit"] {
+  width: 100% !important;
+  padding: 22px 36px !important;
+  background: #22C55E !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 16px !important;
+  font-size: 19px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  box-shadow: 0 8px 24px rgba(153, 27, 27, 0.3) !important;
+}
+
+#contact button[type="submit"]:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 32px rgba(153, 27, 27, 0.5) !important;
+}
+
+/* Contact text colors */
+#contact h3,
+#contact .text-white {
+  color: white !important;
+}
+
+/* Menu section background */
+#menu {
+  background: #fafafa !important;
+  padding: 80px 24px !important;
+}
+
+/* ==================== CART (OSTOKORI) COMPLETE REDESIGN ==================== */
+
+/* Prevent body scroll when cart is open */
+body.cart-open {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100% !important;
+}
+
+/* Force light page base */
+body {
+  background: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* Cart Overlay - solid */
+.fixed.inset-0.bg-gray-900,
+.fixed.inset-0.bg-black {
+  background: rgba(0, 0, 0, 1) !important;
+  backdrop-filter: none !important;
+  z-index: 99998 !important;
+}
+
+/* Cart Container - clean light */
+.fixed.top-0.right-0.h-full {
+  width: 480px !important;
+  max-width: 90vw !important;
+  background: #ffffff !important;
+  color: #0f172a !important;
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.25) !important;
+  z-index: 99999 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+/* Cart Header - neutral */
+.fixed.top-0.right-0.h-full > div:first-of-type {
+  padding: 24px 28px !important;
+  background: #ffffff !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  flex-shrink: 0 !important;
+}
+
+.fixed.top-0.right-0.h-full h2 {
+  font-size: 26px !important;
+  font-weight: 800 !important;
+  color: #f97316 !important;
+  margin: 0 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+}
+
+.fixed.top-0.right-0.h-full .text-amber-500,
+.fixed.top-0.right-0.h-full .text-emerald-600,
+.fixed.top-0.right-0.h-full .text-emerald-400 {
+  color: #16a34a !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+}
+
+/* Cart close button */
+.fixed.top-0.right-0.h-full button {
+  background: transparent !important;
+  border-radius: 12px !important;
+  padding: 10px !important;
+  transition: all 0.2s ease !important;
+  color: #475569 !important;
+}
+
+.fixed.top-0.right-0.h-full button:hover {
+  background: #f3f4f6 !important;
+  transform: none !important;
+}
+
+/* Cart Items Container - PROPER SCROLL */
+.fixed.top-0.right-0.h-full > div:nth-of-type(2) {
+  flex: 1 !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  padding: 20px !important;
+  background: #ffffff !important;
+  max-height: calc(100vh - 280px) !important;
+}
+
+/* Prevent scroll on main page */
+.fixed.top-0.right-0.h-full > div:nth-of-type(2)::-webkit-scrollbar {
+  width: 8px !important;
+}
+
+.fixed.top-0.right-0.h-full > div:nth-of-type(2)::-webkit-scrollbar-track {
+  background: #e5e7eb !important;
+  border-radius: 10px !important;
+}
+
+.fixed.top-0.right-0.h-full > div:nth-of-type(2)::-webkit-scrollbar-thumb {
+  background: #F97316 !important;
+  border-radius: 10px !important;
+}
+
+/* Cart Item Cards - BETTER LAYOUT */
+.space-y-4 > div {
+  background: white !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 16px !important;
+  padding: 20px !important;
+  margin-bottom: 16px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+  transition: all 0.2s ease !important;
+}
+
+.space-y-4 > div:hover {
+  border-color: #22c55e !important;
+  box-shadow: 0 6px 18px rgba(34, 197, 94, 0.18) !important;
+}
+
+/* Cart Item Images - BIGGER */
+.space-y-4 h3 {
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+  margin-bottom: 8px !important;
+  line-height: 1.3 !important;
+}
+.space-y-4 .text-amber-500,
+.space-y-4 .text-emerald-600,
+.space-y-4 .text-emerald-400 {
+  font-size: 24px !important;
+  font-weight: 900 !important;
+  color: #16a34a !important;
+  margin-top: 12px !important;
+}
+  font-weight: 800 !important;
+  color: #1f2937 !important;
+  margin-bottom: 8px !important;
+  line-height: 1.3 !important;
+}
+
+/* Cart Item Price - NOT SO FAR RIGHT */
+.space-y-4 .text-amber-500 {
+  font-size: 24px !important;
+  font-weight: 900 !important;
+  color: #DC2626 !important;
+  margin-top: 12px !important;
+}
+
+/* Quantity Controls - BETTER DESIGN */
+.bg-gray-100 {
+  background: #f3f4f6 !important;
+  border-radius: 12px !important;
+  padding: 6px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.bg-gray-100 button {
+  width: 36px !important;
+  height: 36px !important;
+  background: white !important;
+  border: 2px solid #e5e7eb !important;
+  border-radius: 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease !important;
+}
+
+.bg-gray-100 button:hover {
+  background: #F97316 !important;
+  border-color: #F97316 !important;
+  color: white !important;
+  transform: scale(1.1) !important;
+}
+
+.bg-gray-100 button svg {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.bg-gray-100 span {
+  min-width: 44px !important;
+  text-align: center !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  color: #1f2937 !important;
+}
+
+/* Remove button */
+.text-red-500 {
+  color: #dc2626 !important;
+  background: #fee2e2 !important;
+  padding: 10px !important;
+  border-radius: 10px !important;
+  transition: all 0.2s ease !important;
+}
+
+.text-red-500:hover {
+  background: #dc2626 !important;
+  color: white !important;
+  transform: scale(1.05) !important;
+}
+
+/* Cart Footer - FIXED AT BOTTOM */
+.fixed.top-0.right-0.h-full > div:last-of-type {
+  padding: 24px 28px !important;
+  background: white !important;
+  border-top: 3px solid #e5e7eb !important;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08) !important;
+  flex-shrink: 0 !important;
+}
+
+/* Total Section - BETTER LAYOUT */
+.fixed.top-0.right-0.h-full .flex.justify-between.mb-6 {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 20px !important;
+  background: #f9fafb !important;
+  border-radius: 14px !important;
+  margin-bottom: 20px !important;
+}
+
+.fixed.top-0.right-0.h-full .flex.justify-between.mb-6 span:first-child {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #1f2937 !important;
+}
+
+.fixed.top-0.right-0.h-full .flex.justify-between.mb-6 span:last-child {
+  font-size: 32px !important;
+  font-weight: 900 !important;
+  color: #22C55E !important;
+}
+
+/* ==================== MOBILE RESPONSIVE FIXES ==================== */
+@media (max-width: 768px) {
+  /* Center all content on mobile */
+  .container,
+  .mx-auto,
+  .max-w-7xl {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    text-align: center !important;
+  }
+  
+  /* Menu items - SHOW IMAGES on mobile */
+  .w-32.h-32,
+  .md\:w-40.md\:h-40 {
+    width: 120px !important;
+    height: 120px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Menu grid - stack vertically */
+  .space-y-6,
+  .grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    align-items: center !important;
+  }
+  
+  /* Menu cards - full width on mobile */
+  .rounded-2xl.border {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+  }
+  
+  /* Category buttons - wrap and center */
+  .flex.gap-3,
+  .flex.gap-4 {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 12px !important;
+  }
+  
+  /* Mobile text sizing */
+  h1, .text-5xl, .text-6xl {
+    font-size: 32px !important;
+    text-align: center !important;
+  }
+  
+  h2, .text-4xl {
+    font-size: 28px !important;
+    text-align: center !important;
+  }
+  
+  h3, .text-3xl {
+    font-size: 24px !important;
+    text-align: center !important;
+  }
+  
+  /* Gallery - center on mobile */
+  #gallery .grid {
+    grid-template-columns: 1fr !important;
+    justify-items: center !important;
+    gap: 16px !important;
+  }
+  
+  /* Hero CTA buttons - stack and center */
+  .hero-cta-group {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  
+  .cta-button {
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: center !important;
+  }
+  
+  /* Menu prices - better mobile layout */
+  .text-2xl.text-amber-500 {
+    font-size: 24px !important;
+  }
+  
+  /* Reduce padding on mobile */
+  section {
+    padding: 40px 16px !important;
+  }
+  
+  /* Cart on mobile */
+  .fixed.top-0.right-0 {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .fixed.top-0.right-0.h-full .flex.justify-between.mb-6 span:last-child {
+    font-size: 28px !important;
+  }
+}
+
+/* Checkout Button - PROMINENT */
+.fixed.top-0.right-0.h-full button[type="button"]:last-of-type,
+.fixed.top-0.right-0.h-full > div:last-of-type > button {
+  width: 100% !important;
+  padding: 20px 32px !important;
+  background: linear-gradient(135deg, #f97316, #fb923c) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 16px !important;
+  font-size: 18px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  box-shadow: 0 10px 28px rgba(249, 115, 22, 0.35) !important;
+  transition: all 0.25s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+  animation: checkoutPulse 1.6s ease-in-out infinite !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+}
+
+.fixed.top-0.right-0.h-full button[type="button"]:last-of-type:hover {
+  transform: translateY(-2px) scale(1.01) !important;
+  box-shadow: 0 12px 32px rgba(249, 115, 22, 0.45) !important;
+}
+
+/* Checkout pulse highlight */
+@keyframes checkoutPulse {
+  0% { box-shadow: 0 10px 28px rgba(249, 115, 22, 0.35); }
+  50% { box-shadow: 0 14px 36px rgba(249, 115, 22, 0.5); }
+  100% { box-shadow: 0 10px 28px rgba(249, 115, 22, 0.35); }
+}
+
+/* Empty Cart Icon */
+.flex.flex-col.items-center.justify-center {
+  padding: 60px 20px !important;
+}
+
+.flex.flex-col.items-center.justify-center .w-24.h-24 {
+  width: 100px !important;
+  height: 100px !important;
+  background: linear-gradient(135deg, #22C55E, #16A34A) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 24px !important;
+}
+
+.flex.flex-col.items-center.justify-center .w-24.h-24 svg {
+  width: 50px !important;
+  height: 50px !important;
+  color: white !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .fixed.top-0.right-0.h-full {
+    width: 100vw !important;
+    max-width: 100vw !important;
+  }
+
+  /* Contact Section Mobile Layout */
+  #contact {
+    padding: 40px 16px !important;
+  }
+
+  #contact .container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    max-width: 100% !important;
+  }
+
+  #contact .grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 32px !important;
+  }
+
+  /* Contact Icons - Better spacing on mobile */
+  #contact .w-12.h-12 {
+    width: 56px !important;
+    height: 56px !important;
+    flex-shrink: 0 !important;
+    min-width: 56px !important;
+  }
+
+  #contact .w-12.h-12 svg {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  #contact .space-y-6 {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+
+  #contact .space-y-6 > * {
+    margin-top: 0 !important;
+  }
+
+  #contact .space-y-6 > * + * {
+    margin-top: 0 !important;
+  }
+
+  /* Map Container - Add border and better styling */
+  #contact .rounded-2xl {
+    border: 3px solid #22C55E !important;
+    border-radius: 16px !important;
+    padding: 24px 16px !important;
+    background: #000000 !important;
+    margin: 0 !important;
+  }
+
+  #contact .rounded-2xl.p-8 {
+    padding: 24px 16px !important;
+  }
+
+  /* Map wrapper - MULTIPLE SELECTORS */
+  #contact .aspect-video,
+  #contact .bg-neutral-900,
+  #contact div[style*="height"],
+  #contact .rounded-xl.mb-4 {
+    border: 2px solid #22C55E !important;
+    border-radius: 12px !important;
+    overflow: visible !important;
+    background: #1a1a1a !important;
+    margin-bottom: 20px !important;
+    position: relative !important;
+    width: 100% !important;
+    height: 280px !important;
+    min-height: 280px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Ensure map is visible on mobile - MAXIMUM FORCE */
+  #contact iframe,
+  #contact iframe[src*="google.com/maps"] {
+    display: block !important;
+    visibility: visible !important;
+    height: 280px !important;
+    min-height: 280px !important;
+    max-height: 280px !important;
+    width: 100% !important;
+    opacity: 1 !important;
+    border: none !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 100 !important;
+    pointer-events: auto !important;
+    transform: none !important;
+  }
+
+  #contact .aspect-video iframe {
+    display: block !important;
+    visibility: visible !important;
+    height: 100% !important;
+    min-height: 280px !important;
+    width: 100% !important;
+    opacity: 1 !important;
+    border: none !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 100 !important;
+  }
+
+  /* Force all map-related elements visible */
+  #contact .relative,
+  #contact .absolute {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  /* Contact headings */
+  #contact h3 {
+    font-size: 22px !important;
+    margin-bottom: 16px !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Contact paragraphs */
+  #contact p {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 16px !important;
+  }
+
+  /* Contact links and items */
+  #contact .flex.items-start {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+  }
+
+  #contact .flex.flex-col {
+    flex: 1 !important;
+  }
+
+  /* Social media icons */
+  #contact .flex.gap-4 {
+    gap: 16px !important;
+    margin-top: 24px !important;
+    display: flex !important;
+  }
+
+  /* Text sizes */
+  #contact .text-xs {
+    font-size: 11px !important;
+  }
+
+  #contact .text-lg {
+    font-size: 16px !important;
+  }
+
+  /* Contact section title */
+  #contact .text-3xl {
+    font-size: 28px !important;
+  }
+
+  /* Victory Pizza logo text */
+  #contact h3[style*="serif"] {
+    font-size: 26px !important;
+  }
+
+  #contact .text-green-400 {
+    font-size: 14px !important;
+  }
+}
+
+/* ==================== AGGRESSIVE TOTAL ORANGE REMOVAL - FORCE GREEN EVERYWHERE ==================== */
+
+/* Override EVERY possible amber/orange class with !important */
+*[class*="amber"],
+*[class*="orange"] {
+  --tw-gradient-from: #22C55E !important;
+  --tw-gradient-to: #16A34A !important;
+  --tw-gradient-via: #22C55E !important;
+  --tw-gradient-stops: #22C55E, #16A34A !important;
+}
+
+/* Text colors - FORCE GREEN */
+.text-amber-50,
+.text-amber-100,
+.text-amber-200,
+.text-amber-300,
+.text-amber-400,
+.text-amber-500,
+.text-amber-600,
+.text-amber-700,
+.text-amber-800,
+.text-amber-900,
+.text-orange-400,
+.text-orange-500,
+.text-orange-600,
+.hover\:text-amber-400:hover,
+.hover\:text-amber-500:hover,
+.group-hover\:text-amber-400,
+.group:hover .group-hover\:text-amber-400 {
+  color: #22C55E !important;
+}
+
+/* Background colors - FORCE GREEN */
+.bg-amber-50,
+.bg-amber-100,
+.bg-amber-200,
+.bg-amber-300,
+.bg-amber-400,
+.bg-amber-500,
+.bg-amber-600,
+.bg-amber-700,
+.bg-amber-800,
+.bg-amber-900,
+.bg-orange-50,
+.bg-orange-400,
+.bg-orange-500,
+.bg-orange-600,
+.hover\:bg-amber-500:hover,
+.hover\:bg-amber-600:hover {
+  background-color: #22C55E !important;
+}
+
+/* Border colors - FORCE GREEN */
+.border-amber-50,
+.border-amber-100,
+.border-amber-200,
+.border-amber-300,
+.border-amber-400,
+.border-amber-500,
+.border-amber-600,
+.border-amber-700,
+.border-amber-800,
+.border-amber-900,
+.hover\:border-amber-500:hover,
+.hover\:border-amber-600:hover,
+.group-hover\:border-amber-500,
+.group:hover .group-hover\:border-amber-500 {
+  border-color: #22C55E !important;
+}
+
+/* Gradient FROM colors */
+.from-amber-50,
+.from-amber-100,
+.from-amber-200,
+.from-amber-300,
+.from-amber-400,
+.from-amber-500,
+.from-amber-600,
+.from-amber-700,
+.from-amber-800,
+.from-amber-900,
+.from-orange-400,
+.from-orange-500,
+.from-orange-600,
+.hover\:from-amber-500:hover,
+.hover\:from-amber-600:hover {
+  --tw-gradient-from: #22C55E !important;
+  --tw-gradient-stops: #22C55E, transparent !important;
+  background-image: linear-gradient(to right, #22C55E, #16A34A) !important;
+}
+
+/* Gradient TO colors */
+.to-amber-50,
+.to-amber-100,
+.to-amber-200,
+.to-amber-300,
+.to-amber-400,
+.to-amber-500,
+.to-amber-600,
+.to-amber-700,
+.to-amber-800,
+.to-amber-900,
+.to-orange-400,
+.to-orange-500,
+.to-orange-600,
+.hover\:to-amber-500:hover,
+.hover\:to-amber-600:hover {
+  --tw-gradient-to: #16A34A !important;
+  background-image: linear-gradient(to right, #22C55E, #16A34A) !important;
+}
+
+/* Gradient VIA colors */
+.via-amber-50,
+.via-orange-50 {
+  --tw-gradient-via: #fb923c !important;
+}
+
+/* Background opacity variations */
+.bg-amber-500\/10,
+.bg-amber-500\/20,
+.bg-amber-500\/30,
+.bg-amber-600\/20,
+.from-amber-500\/20,
+.to-amber-600\/20 {
+  background-color: rgba(249, 115, 22, 0.2) !important;
+}
+
+/* SVG icon colors */
+svg.text-amber-500,
+svg.text-amber-400,
+.text-amber-500 svg,
+.text-amber-400 svg {
+  color: #f97316 !important;
+  stroke: #f97316 !important;
+}
+
+/* Focus and ring colors */
+.focus\:border-amber-500:focus,
+.focus\:ring-amber-500:focus,
+.focus\:ring-amber-500\/50:focus {
+  border-color: #f97316 !important;
+  --tw-ring-color: rgba(249, 115, 22, 0.5) !important;
+}
+
+/* Background clip text (for gradients) */
+.bg-gradient-to-r.from-amber-500.to-orange-500,
+.bg-gradient-to-r.from-amber-500.to-amber-600,
+.bg-gradient-to-br.from-amber-500\/20.to-amber-600\/20,
+.bg-gradient-to-br.from-amber-50.via-orange-50 {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%) !important;
+}
+
+/* Specific logo glow fix */
+.bg-amber-500\/30 {
+  background-color: rgba(249, 115, 22, 0.3) !important;
+}
+
+/* Ring colors for focus states */
+.ring-amber-500\/30 {
+  --tw-ring-color: rgba(249, 115, 22, 0.3) !important;
+}
+
+/* ==================== ENHANCED MOBILE SPACING & MAP FIX ==================== */
+@media (max-width: 768px) {
+  /* Better mobile spacing */
+  section {
+    padding: 60px 20px !important;
+  }
+  
+  /* Hero section mobile */
+  .victory-hero-modern {
+    padding: 120px 20px 60px 20px !important;
+    min-height: 90vh !important;
+  }
+  
+  /* Navbar mobile spacing */
+  .navbar-container {
+    padding: 12px 16px !important;
+  }
+  
+  /* HIDE LOGO IMAGE ON MOBILE - TEXT ONLY */
+  .logo-image {
+    display: none !important;
+  }
+  
+  .navbar-logo {
+    gap: 0 !important;
+  }
+  
+  .logo-text h1 {
+    font-size: 20px !important;
+    letter-spacing: 2px !important;
+    color: #ffffff !important;
+  }
+  
+  .logo-text p {
+    font-size: 14px !important;
+    letter-spacing: 1px !important;
+    color: #22C55E !important;
+  }
+  
+  /* Menu section mobile spacing */
+  .space-y-6,
+  .space-y-8 {
+    gap: 20px !important;
+    padding: 0 12px !important;
+  }
+  
+  /* Contact section - ENSURE MAP IS VISIBLE */
+  .contact-section {
+    padding: 60px 16px !important;
+  }
+  
+  /* Map container - FORCE VISIBILITY ON MOBILE */
+  iframe[src*="google.com/maps"],
+  .rounded-2xl.overflow-hidden.shadow-lg iframe,
+  [class*="map"] iframe {
+    width: 100% !important;
+    height: 300px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    border-radius: 12px !important;
+    margin: 0 auto !important;
+  }
+  
+  /* Map wrapper */
+  .rounded-2xl.overflow-hidden.shadow-lg,
+  .rounded-2xl.overflow-hidden {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 300px !important;
+    display: block !important;
+    margin: 20px 0 !important;
+  }
+  
+  /* Contact grid - stack on mobile */
+  .grid.grid-cols-1.md\:grid-cols-2 {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+  
+  /* Contact cards */
+  .bg-white.rounded-2xl.p-6 {
+    padding: 20px !important;
+    margin-bottom: 16px !important;
+  }
+  
+  /* Cart button spacing */
+  button[class*="fixed"] {
+    bottom: 20px !important;
+    right: 20px !important;
+  }
+  
+  /* Menu item images on mobile */
+  img[alt*="pizza"],
+  img[alt*="Pizza"],
+  .rounded-xl.object-cover,
+  .w-28.h-28.object-cover.rounded-xl,
+  .cart-item-img,
+  .cart-item-img img,
+  .cart-item-img .object-cover {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+    display: block !important;
+  }
+  
+  /* Text readability on mobile */
+  h1 {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  h2 {
+    font-size: 1.75rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  p {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  /* Even more compact spacing */
+  .navbar-container {
+    padding: 10px 12px !important;
+  }
+  
+  .logo-image {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .logo-text h1 {
+    font-size: 18px !important;
+    color: #ffffff !important;
+  }
+  
+  .logo-text p {
+    color: #22C55E !important;
+  }
+  
+  /* Map on very small screens */
+  iframe[src*="google.com/maps"] {
+    height: 250px !important;
+  }
+}
+
