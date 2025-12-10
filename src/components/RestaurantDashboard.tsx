@@ -1045,6 +1045,7 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
           />
         )}
       </div>
+      </div>
     </>
   );
 }
