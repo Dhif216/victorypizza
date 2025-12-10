@@ -530,31 +530,30 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
               {/* Auto-refresh toggle */}
               <button
                 onClick={() => setAutoRefresh(!autoRefresh)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all whitespace-nowrap ${
+                className={`px-4 py-2 rounded-lg font-medium transition-all whitespace-nowrap text-sm ${
                   autoRefresh
                     ? 'bg-green-500 text-white'
                     : theme === 'light' ? 'bg-gray-200 text-gray-700' : 'bg-gray-700 text-gray-300'
                 }`}
               >
-                <RefreshCw className={`w-4 h-4 ${autoRefresh ? 'animate-spin' : ''}`} />
-                <span className="hidden sm:inline">{language === 'fi' ? 'Auto-päivitys' : 'Auto-refresh'}</span>
+                {language === 'fi' ? 'Auto-päivitys' : 'Auto-refresh'}
               </button>
 
               {/* Manual refresh */}
               <button
                 onClick={loadOrders}
-                className={`p-2 rounded-lg transition-all ${
+                className={`px-4 py-2 rounded-lg font-medium transition-all whitespace-nowrap text-sm ${
                   theme === 'light' ? 'bg-gray-200 hover:bg-gray-300 text-gray-700' : 'bg-gray-700 hover:bg-gray-600 text-gray-300'
                 }`}
               >
-                <RefreshCw className="w-5 h-5" />
+                {language === 'fi' ? 'Päivitä' : 'Refresh'}
               </button>
 
               {/* Delete completed orders button */}
               <button
                 onClick={handleDeleteCompleted}
                 disabled={deletingCompleted}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all whitespace-nowrap ${
+                className={`px-4 py-2 rounded-lg font-medium transition-all whitespace-nowrap text-sm ${
                   deletingCompleted
                     ? 'bg-gray-400 cursor-not-allowed'
                     : 'bg-orange-500 hover:bg-orange-600'
@@ -565,16 +564,13 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
                 }}
                 title={language === 'fi' ? 'Poista valmiit tilaukset' : 'Delete completed orders'}
               >
-                <Trash2 className="w-4 h-4" style={{ color: theme === 'light' ? '#111827' : '#ffffff' }} />
-                <span className="hidden lg:inline" style={{ color: theme === 'light' ? '#111827 !important' : '#ffffff !important' }}>
-                  {language === 'fi' ? 'Poista valmiit' : 'Delete Completed'}
-                </span>
+                {language === 'fi' ? 'Poista valmiit' : 'Delete Completed'}
               </button>
 
               {/* Settings button */}
               <button
                 onClick={() => setShowSettings(true)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all whitespace-nowrap ${
+                className={`px-4 py-2 rounded-lg font-medium transition-all whitespace-nowrap text-sm ${
                   theme === 'light' 
                     ? 'bg-orange-500 hover:bg-orange-600' 
                     : 'bg-orange-600 hover:bg-orange-700'
@@ -585,36 +581,30 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
                 }}
                 title={language === 'fi' ? 'Asetukset' : 'Settings'}
               >
-                <Settings className="w-4 h-4" style={{ color: theme === 'light' ? '#111827' : '#ffffff' }} />
-                <span className="hidden lg:inline" style={{ color: theme === 'light' ? '#111827 !important' : '#ffffff !important' }}>
-                  {language === 'fi' ? 'Asetukset' : 'Settings'}
-                </span>
+                {language === 'fi' ? 'Asetukset' : 'Settings'}
               </button>
 
               {/* Logout button */}
               <button
                 onClick={handleLogout}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium bg-orange-500 hover:bg-orange-600 transition-all whitespace-nowrap"
+                className="px-4 py-2 rounded-lg font-medium bg-orange-500 hover:bg-orange-600 transition-all whitespace-nowrap text-sm"
                 style={{ 
                   color: theme === 'light' ? '#111827 !important' : '#ffffff !important', 
                   backgroundColor: '#f97316' 
                 }}
               >
-                <Lock className="w-4 h-4" style={{ color: theme === 'light' ? '#111827' : '#ffffff' }} />
-                <span className="hidden lg:inline" style={{ color: theme === 'light' ? '#111827 !important' : '#ffffff !important' }}>
-                  {language === 'fi' ? 'Kirjaudu ulos' : 'Logout'}
-                </span>
+                {language === 'fi' ? 'Kirjaudu ulos' : 'Logout'}
               </button>
 
               {/* Close button */}
               {onClose && (
                 <button
                   onClick={onClose}
-                  className={`p-2 rounded-lg transition-all ${
+                  className={`px-4 py-2 rounded-lg font-medium transition-all whitespace-nowrap text-sm ${
                     theme === 'light' ? 'bg-gray-200 hover:bg-gray-300 text-gray-700' : 'bg-gray-700 hover:bg-gray-600 text-gray-300'
                   }`}
                 >
-                  <X className="w-5 h-5" />
+                  {language === 'fi' ? 'Sulje' : 'Close'}
                 </button>
               )}
             </div>
