@@ -80,14 +80,14 @@ export function FoodGallery({ language, theme }: FoodGalleryProps) {
     <>
       <section id="gallery" className={`relative py-32 ${
         theme === "light" 
-          ? "bg-gradient-to-b from-white via-gray-50 to-white" 
-          : "bg-gradient-to-b from-black via-neutral-900 to-black"
+          ? "bg-white" 
+          : "bg-black"
       }`}>
         <div className="container mx-auto px-6 max-w-7xl">
           {/* Section Header */}
           <div className="text-center mb-16">
             <div className="inline-block mb-4">
-              <span className="text-amber-400 text-sm tracking-[0.3em] uppercase">
+              <span className="text-gray-600 text-sm tracking-[0.3em] uppercase">
                 {language === 'fi' ? 'Ruokamme' : 'Our Food'}
               </span>
             </div>
@@ -123,7 +123,7 @@ export function FoodGallery({ language, theme }: FoodGalleryProps) {
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
                   <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    <span className="inline-block px-3 py-1 bg-amber-500 text-black text-xs rounded-full mb-3 uppercase tracking-wider">
+                    <span className="inline-block px-3 py-1 bg-blue-500 text-white text-xs rounded-full mb-3 uppercase tracking-wider">
                       {item.category}
                     </span>
                     <h3 className="text-white text-xl mb-2">
@@ -136,7 +136,7 @@ export function FoodGallery({ language, theme }: FoodGalleryProps) {
                 </div>
 
                 {/* Gold Border Effect */}
-                <div className="absolute inset-0 border-2 border-transparent group-hover:border-amber-500/50 rounded-2xl transition-all duration-300"></div>
+                <div className="absolute inset-0 border-2 border-transparent group-hover:border-blue-500/50 rounded-2xl transition-all duration-300"></div>
               </div>
             ))}
           </div>
