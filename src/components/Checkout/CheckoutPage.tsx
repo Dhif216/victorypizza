@@ -163,36 +163,36 @@ export function CheckoutPage({ language, theme, onBack }: CheckoutPageProps) {
                 <button
                   type="button"
                   onClick={() => setDeliveryMethod('delivery')}
-                  className={`p-4 rounded-lg border-2 transition-all ${
+                  className={`p-4 rounded-lg border-2 transition-all active:scale-95 ${
                     deliveryMethod === 'delivery'
-                      ? 'border-amber-500 bg-amber-500/10'
+                      ? 'border-blue-500 bg-blue-500/20 shadow-lg scale-105'
                       : theme === 'light'
-                        ? 'border-gray-300 hover:border-amber-500/50'
-                        : 'border-neutral-700 hover:border-amber-500/50'
+                        ? 'border-gray-300 hover:border-blue-500/50 active:bg-blue-500/10'
+                        : 'border-neutral-700 hover:border-blue-500/50 active:bg-blue-500/10'
                   }`}
                 >
-                  <Truck className="w-6 h-6 mx-auto mb-2 text-amber-500" />
+                  <Truck className={`w-6 h-6 mx-auto mb-2 ${deliveryMethod === 'delivery' ? 'text-blue-600' : 'text-gray-400'}`} />
                   <div className={`font-medium ${theme === 'light' ? 'text-black' : 'text-white'}`}>
                     {language === 'fi' ? 'Kotiinkuljetus' : 'Delivery'}
                   </div>
-                  <div className="text-sm text-amber-500">+5.00€</div>
+                  <div className={`text-sm font-semibold ${deliveryMethod === 'delivery' ? 'text-blue-600' : 'text-gray-500'}`}>+5.00€</div>
                 </button>
                 <button
                   type="button"
                   onClick={() => setDeliveryMethod('pickup')}
-                  className={`p-4 rounded-lg border-2 transition-all ${
+                  className={`p-4 rounded-lg border-2 transition-all active:scale-95 ${
                     deliveryMethod === 'pickup'
-                      ? 'border-amber-500 bg-amber-500/10'
+                      ? 'border-blue-500 bg-blue-500/20 shadow-lg scale-105'
                       : theme === 'light'
-                        ? 'border-gray-300 hover:border-amber-500/50'
-                        : 'border-neutral-700 hover:border-amber-500/50'
+                        ? 'border-gray-300 hover:border-blue-500/50 active:bg-blue-500/10'
+                        : 'border-neutral-700 hover:border-blue-500/50 active:bg-blue-500/10'
                   }`}
                 >
-                  <Store className="w-6 h-6 mx-auto mb-2 text-amber-500" />
+                  <Store className={`w-6 h-6 mx-auto mb-2 ${deliveryMethod === 'pickup' ? 'text-blue-600' : 'text-gray-400'}`} />
                   <div className={`font-medium ${theme === 'light' ? 'text-black' : 'text-white'}`}>
                     {language === 'fi' ? 'Nouto' : 'Pickup'}
                   </div>
-                  <div className="text-sm text-green-500">{language === 'fi' ? 'Ilmainen' : 'Free'}</div>
+                  <div className={`text-sm font-semibold ${deliveryMethod === 'pickup' ? 'text-green-600' : 'text-gray-500'}`}>{language === 'fi' ? 'Ilmainen' : 'Free'}</div>
                 </button>
               </div>
             </div>
