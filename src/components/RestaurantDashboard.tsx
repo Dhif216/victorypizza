@@ -50,6 +50,7 @@ interface Order {
     email?: string;
     address?: string;
     city?: string;
+    postalCode?: string;
     notes?: string;
   };
   payment: {
@@ -829,7 +830,12 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
                           <MapPin className="w-4 h-4 text-amber-500 mt-1" />
                           <div>
                             <div>{selectedOrder.customer.address}</div>
-                            {selectedOrder.customer.city && <div>{selectedOrder.customer.city}</div>}
+                            {selectedOrder.customer.postalCode && selectedOrder.customer.city && (
+                              <div>{selectedOrder.customer.postalCode} {selectedOrder.customer.city}</div>
+                            )}
+                            {!selectedOrder.customer.postalCode && selectedOrder.customer.city && (
+                              <div>{selectedOrder.customer.city}</div>
+                            )}
                           </div>
                         </div>
                       )}
