@@ -172,7 +172,7 @@ export function Contact({ language, theme, onShowPolicy }: ContactProps) {
               }}
               className={`text-sm hover:text-green-200 transition-colors underline ${
                 theme === "light" ? "text-white/90" : "text-white/60"
-              }`}>
+              }`}
             >
               {language === 'fi' ? 'Tietosuojakäytäntö' : 'Privacy Policy'}
             </button>
@@ -187,7 +187,7 @@ export function Contact({ language, theme, onShowPolicy }: ContactProps) {
               }}
               className={`text-sm hover:text-green-200 transition-colors underline ${
                 theme === "light" ? "text-white/90" : "text-white/60"
-              }`}>
+              }`}
             >
               {language === 'fi' ? 'Evästekäytäntö' : 'Cookie Policy'}
             </button>
