@@ -24,7 +24,6 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
     email: '',
     address: '',
     city: '',
-    postalCode: '',
     notes: ''
   });
 
@@ -360,40 +359,22 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <label className={`block text-sm font-bold mb-3 ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
-                          {language === 'fi' ? 'Kaupunki *' : 'City *'}
-                        </label>
-                        <input
-                          type="text"
-                          required={deliveryMethod === 'delivery'}
-                          value={formData.city}
-                          onChange={(e) => setFormData({...formData, city: e.target.value})}
-                          className={`w-full px-4 py-4 rounded-xl border-2 transition-all focus:ring-2 focus:ring-amber-500/50 focus:outline-none ${
-                            theme === 'light'
-                              ? 'bg-white border-gray-300 text-gray-900 focus:border-amber-500'
-                              : 'bg-gray-800 border-gray-700 text-white focus:border-amber-500'
-                          }`}
-                          placeholder="Helsinki"
-                        />
-                      </div>
-                      <div>
-                        <label className={`block text-sm font-bold mb-3 ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
-                          {language === 'fi' ? 'Postinumero' : 'Postal Code'}
-                        </label>
-                        <input
-                          type="text"
-                          value={formData.postalCode}
-                          onChange={(e) => setFormData({...formData, postalCode: e.target.value})}
-                          className={`w-full px-4 py-4 rounded-xl border-2 transition-all focus:ring-2 focus:ring-amber-500/50 focus:outline-none ${
-                            theme === 'light'
-                              ? 'bg-white border-gray-300 text-gray-900 focus:border-amber-500'
-                              : 'bg-gray-800 border-gray-700 text-white focus:border-amber-500'
-                          }`}
-                          placeholder="00100"
-                        />
-                      </div>
+                    <div>
+                      <label className={`block text-sm font-bold mb-3 ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
+                        {language === 'fi' ? 'Kaupunki/Postinumero *' : 'City/Postal Code *'}
+                      </label>
+                      <input
+                        type="text"
+                        required={deliveryMethod === 'delivery'}
+                        value={formData.city}
+                        onChange={(e) => setFormData({...formData, city: e.target.value})}
+                        className={`w-full px-4 py-4 rounded-xl border-2 transition-all focus:ring-2 focus:ring-amber-500/50 focus:outline-none ${
+                          theme === 'light'
+                            ? 'bg-white border-gray-300 text-gray-900 focus:border-amber-500'
+                            : 'bg-gray-800 border-gray-700 text-white focus:border-amber-500'
+                        }`}
+                        placeholder={language === 'fi' ? 'esim. Vantaa 01234' : 'e.g. Helsinki 00100'}
+                      />
                     </div>
                   </>
                 )}
