@@ -224,17 +224,17 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
                 <button
                   type="button"
                   onClick={() => setDeliveryMethod('delivery')}
-                  className={`p-6 rounded-xl border-2 transition-all touch-manipulation ${
+                  className={`p-6 rounded-xl transition-all touch-manipulation ${
                     deliveryMethod === 'delivery'
-                      ? 'border-4 border-orange-500 bg-orange-500/20 shadow-xl scale-105'
-                      : 'border-gray-300 active:border-orange-500 active:bg-orange-500/10 active:scale-95'
+                      ? 'border-4 border-orange-500 bg-white shadow-2xl scale-105 ring-4 ring-orange-200'
+                      : 'border-2 border-gray-300 bg-gray-50 active:border-orange-500 active:bg-orange-50'
                   }`}
                 >
-                  <MapPin className={`w-8 h-8 mb-3 mx-auto ${deliveryMethod === 'delivery' ? 'text-blue-500' : 'text-gray-400'}`} />
-                  <div className={`font-bold text-lg mb-1 ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
+                  <MapPin className={`w-8 h-8 mb-3 mx-auto transition-colors ${deliveryMethod === 'delivery' ? 'text-orange-500' : 'text-gray-400'}`} />
+                  <div className={`font-bold text-lg mb-1 ${deliveryMethod === 'delivery' ? 'text-orange-500' : 'text-gray-900'}`}>
                     {language === 'fi' ? 'Kotiinkuljetus' : 'Home Delivery'}
                   </div>
-                  <div className="text-sm text-blue-500 font-semibold">+€5.00</div>
+                  <div className={`text-sm font-semibold ${deliveryMethod === 'delivery' ? 'text-orange-600' : 'text-gray-500'}`}>+€5.00</div>
                   <div className={`text-xs mt-2 ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'}`}>
                     {language === 'fi' ? '30-45 min' : '30-45 min'}
                   </div>
@@ -242,17 +242,17 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
                 <button
                   type="button"
                   onClick={() => setDeliveryMethod('pickup')}
-                  className={`p-6 rounded-xl border-2 transition-all touch-manipulation ${
+                  className={`p-6 rounded-xl transition-all touch-manipulation ${
                     deliveryMethod === 'pickup'
-                      ? 'border-4 border-orange-500 bg-orange-500/20 shadow-xl scale-105'
-                      : 'border-gray-300 active:border-orange-500 active:bg-orange-500/10 active:scale-95'
+                      ? 'border-4 border-orange-500 bg-white shadow-2xl scale-105 ring-4 ring-orange-200'
+                      : 'border-2 border-gray-300 bg-gray-50 active:border-orange-500 active:bg-orange-50'
                   }`}
                 >
-                  <User className={`w-8 h-8 mb-3 mx-auto ${deliveryMethod === 'pickup' ? 'text-blue-500' : 'text-gray-400'}`} />
-                  <div className={`font-bold text-lg mb-1 ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
+                  <User className={`w-8 h-8 mb-3 mx-auto transition-colors ${deliveryMethod === 'pickup' ? 'text-orange-500' : 'text-gray-400'}`} />
+                  <div className={`font-bold text-lg mb-1 ${deliveryMethod === 'pickup' ? 'text-orange-500' : 'text-gray-900'}`}>
                     {language === 'fi' ? 'Nouto ravintolasta' : 'Restaurant Pickup'}
                   </div>
-                  <div className="text-sm text-green-500 font-semibold">{language === 'fi' ? 'Ilmainen' : 'Free'}</div>
+                  <div className={`text-sm font-semibold ${deliveryMethod === 'pickup' ? 'text-green-600' : 'text-gray-500'}`}>{language === 'fi' ? 'Ilmainen' : 'Free'}</div>
                   <div className={`text-xs mt-2 ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'}`}>
                     {language === 'fi' ? '15-20 min' : '15-20 min'}
                   </div>
@@ -406,14 +406,14 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
                   <button
                     type="button"
                     onClick={() => setPaymentMethod('card')}
-                    className={`p-6 rounded-xl border-2 transition-all touch-manipulation ${
+                    className={`p-6 rounded-xl transition-all touch-manipulation ${
                       paymentMethod === 'card'
-                        ? 'border-4 border-orange-500 bg-orange-500/20 shadow-xl scale-105'
-                        : 'border-gray-300 active:border-orange-500 active:bg-orange-500/10 active:scale-95'
+                        ? 'border-4 border-orange-500 bg-white shadow-2xl scale-105 ring-4 ring-orange-200'
+                        : 'border-2 border-gray-300 bg-gray-50 active:border-orange-500 active:bg-orange-50'
                     }`}
                   >
-                    <CreditCard className={`w-8 h-8 mb-3 mx-auto ${paymentMethod === 'card' ? 'text-blue-500' : 'text-gray-400'}`} />
-                    <div className={`font-bold text-lg ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
+                    <CreditCard className={`w-8 h-8 mb-3 mx-auto transition-colors ${paymentMethod === 'card' ? 'text-orange-500' : 'text-gray-400'}`} />
+                    <div className={`font-bold text-lg ${paymentMethod === 'card' ? 'text-orange-500' : 'text-gray-900'}`}>
                       {language === 'fi' ? 'Korttimaksu' : 'Card Payment'}
                     </div>
                     <div className={`text-xs mt-1 ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'}`}>
@@ -423,14 +423,14 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
                   <button
                     type="button"
                     onClick={() => setPaymentMethod('cash')}
-                    className={`p-6 rounded-xl border-2 transition-all touch-manipulation ${
+                    className={`p-6 rounded-xl transition-all touch-manipulation ${
                       paymentMethod === 'cash'
-                        ? 'border-4 border-orange-500 bg-orange-500/20 shadow-xl scale-105'
-                        : 'border-gray-300 active:border-orange-500 active:bg-orange-500/10 active:scale-95'
+                        ? 'border-4 border-orange-500 bg-white shadow-2xl scale-105 ring-4 ring-orange-200'
+                        : 'border-2 border-gray-300 bg-gray-50 active:border-orange-500 active:bg-orange-50'
                     }`}
                   >
-                    <Banknote className={`w-8 h-8 mb-3 mx-auto ${paymentMethod === 'cash' ? 'text-blue-500' : 'text-gray-400'}`} />
-                    <div className={`font-bold text-lg ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
+                    <Banknote className={`w-8 h-8 mb-3 mx-auto transition-colors ${paymentMethod === 'cash' ? 'text-orange-500' : 'text-gray-400'}`} />
+                    <div className={`font-bold text-lg ${paymentMethod === 'cash' ? 'text-orange-500' : 'text-gray-900'}`}>
                       {language === 'fi' ? 'Käteinen' : 'Cash'}
                     </div>
                     <div className={`text-xs mt-1 ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'}`}>
