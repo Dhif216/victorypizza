@@ -1,4 +1,4 @@
-import { Phone, ShoppingBag, Clock } from 'lucide-react';
+﻿import { Phone, ShoppingBag, Clock } from 'lucide-react';
 import heroPizza from './pizza.png';
 
 interface HeroProps {
@@ -42,7 +42,7 @@ export function Hero({ language }: HeroProps) {
                 <Clock size={18} />
               </div>
               <div>
-                <div className="meta-label">{language === 'fi' ? 'Avoinna tänään' : 'Open today'}</div>
+                <div className="meta-label">{language === 'fi' ? 'Avoinna Joka Päivä' : 'Open every day'}</div>
                 <div className="meta-value">09:00 - 23:00</div>
               </div>
             </div>
