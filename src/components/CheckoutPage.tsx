@@ -224,12 +224,10 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
                 <button
                   type="button"
                   onClick={() => setDeliveryMethod('delivery')}
-                  className={`p-6 rounded-xl border-2 transition-all transform hover:scale-[1.02] ${
+                  className={`p-6 rounded-xl border-2 transition-all touch-manipulation ${
                     deliveryMethod === 'delivery'
-                      ? 'border-blue-500 bg-blue-50 shadow-lg'
-                      : theme === 'light'
-                      ? 'border-gray-200 hover:border-blue-300 bg-gray-50'
-                      : 'border-gray-700 hover:border-blue-600 bg-gray-800'
+                      ? 'border-4 border-orange-500 bg-orange-500/20 shadow-xl scale-105'
+                      : 'border-gray-300 active:border-orange-500 active:bg-orange-500/10 active:scale-95'
                   }`}
                 >
                   <MapPin className={`w-8 h-8 mb-3 mx-auto ${deliveryMethod === 'delivery' ? 'text-blue-500' : 'text-gray-400'}`} />
@@ -244,12 +242,10 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
                 <button
                   type="button"
                   onClick={() => setDeliveryMethod('pickup')}
-                  className={`p-6 rounded-xl border-2 transition-all transform hover:scale-[1.02] ${
+                  className={`p-6 rounded-xl border-2 transition-all touch-manipulation ${
                     deliveryMethod === 'pickup'
-                      ? 'border-blue-500 bg-blue-50 shadow-lg'
-                      : theme === 'light'
-                      ? 'border-gray-200 hover:border-blue-300 bg-gray-50'
-                      : 'border-gray-700 hover:border-blue-600 bg-gray-800'
+                      ? 'border-4 border-orange-500 bg-orange-500/20 shadow-xl scale-105'
+                      : 'border-gray-300 active:border-orange-500 active:bg-orange-500/10 active:scale-95'
                   }`}
                 >
                   <User className={`w-8 h-8 mb-3 mx-auto ${deliveryMethod === 'pickup' ? 'text-blue-500' : 'text-gray-400'}`} />
@@ -410,12 +406,10 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
                   <button
                     type="button"
                     onClick={() => setPaymentMethod('card')}
-                    className={`p-6 rounded-xl border-2 transition-all transform hover:scale-[1.02] ${
+                    className={`p-6 rounded-xl border-2 transition-all touch-manipulation ${
                       paymentMethod === 'card'
-                        ? 'border-blue-500 bg-gradient-to-br from-blue-500/20 to-blue-600/10 shadow-lg'
-                        : theme === 'light'
-                        ? 'border-gray-200 hover:border-blue-300 bg-gray-50'
-                        : 'border-gray-700 hover:border-blue-600 bg-gray-800'
+                        ? 'border-4 border-orange-500 bg-orange-500/20 shadow-xl scale-105'
+                        : 'border-gray-300 active:border-orange-500 active:bg-orange-500/10 active:scale-95'
                     }`}
                   >
                     <CreditCard className={`w-8 h-8 mb-3 mx-auto ${paymentMethod === 'card' ? 'text-blue-500' : 'text-gray-400'}`} />
@@ -429,12 +423,10 @@ export function CheckoutPage({ language, theme, cartItems, onBack, onClearCart, 
                   <button
                     type="button"
                     onClick={() => setPaymentMethod('cash')}
-                    className={`p-6 rounded-xl border-2 transition-all transform hover:scale-[1.02] ${
+                    className={`p-6 rounded-xl border-2 transition-all touch-manipulation ${
                       paymentMethod === 'cash'
-                        ? 'border-blue-500 bg-gradient-to-br from-blue-500/20 to-blue-600/10 shadow-lg'
-                        : theme === 'light'
-                        ? 'border-gray-200 hover:border-blue-300 bg-gray-50'
-                        : 'border-gray-700 hover:border-blue-600 bg-gray-800'
+                        ? 'border-4 border-orange-500 bg-orange-500/20 shadow-xl scale-105'
+                        : 'border-gray-300 active:border-orange-500 active:bg-orange-500/10 active:scale-95'
                     }`}
                   >
                     <Banknote className={`w-8 h-8 mb-3 mx-auto ${paymentMethod === 'cash' ? 'text-blue-500' : 'text-gray-400'}`} />
