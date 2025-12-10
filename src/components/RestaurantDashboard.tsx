@@ -515,7 +515,7 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
       <div className={`min-h-screen ${theme === 'light' ? 'bg-gray-50' : 'bg-black'}`}>
       {/* Header */}
       <div className={`border-b ${theme === 'light' ? 'bg-white border-gray-200' : 'bg-gray-900 border-gray-800'}`}>
-        <div className="max-w-7xl mx-auto px-4 py-4">
+        <div className="navbar-container px-4 py-4">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
             <div>
               <h1 className={`text-2xl font-bold ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
@@ -611,8 +611,7 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
           </div>
 
           {/* Status Filter Tabs */}
-          <div className="overflow-x-auto -mx-4 px-4">
-            <div className="flex gap-2 mt-4 pb-2 min-w-max">{[
+          <div className="flex flex-wrap gap-2 mt-4">{[
               { key: 'all', label: language === 'fi' ? 'Kaikki' : 'All', count: orderCounts.all },
               { key: 'pending', label: language === 'fi' ? 'Odottaa' : 'Pending', count: orderCounts.pending },
               { key: 'confirmed', label: language === 'fi' ? 'Vahvistettu' : 'Confirmed', count: orderCounts.confirmed },
@@ -635,13 +634,12 @@ export function RestaurantDashboard({ language, theme, onClose }: DashboardProps
                 {filter.label} ({filter.count})
               </button>
             ))}
-            </div>
           </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-6">
+      <div className="navbar-container px-4 py-6">
         {/* Loading State */}
         {loading && (
           <div className="text-center py-12">

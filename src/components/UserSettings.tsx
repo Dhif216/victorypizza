@@ -78,21 +78,23 @@ export function UserSettings({ language, theme, onClose, currentUser }: UserSett
       <div className={`w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl ${
         theme === 'light' ? 'bg-white' : 'bg-gray-900 border border-gray-800'
       }`}>
+        {/* Close button - Fixed position */}
+        <button
+          onClick={onClose}
+          className={`fixed top-4 right-4 z-50 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors shadow-lg ${
+            theme === 'light' ? 'text-gray-600 bg-white' : 'text-gray-400 bg-gray-900'
+          }`}
+        >
+          <X className="w-6 h-6" />
+        </button>
+
         {/* Header */}
-        <div className={`sticky top-0 p-6 border-b flex justify-between items-center ${
+        <div className={`sticky top-0 p-6 border-b ${
           theme === 'light' ? 'bg-white border-gray-200' : 'bg-gray-900 border-gray-800'
         }`}>
           <h2 className={`text-2xl font-bold ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
             {language === 'fi' ? 'Asetukset' : 'Settings'}
           </h2>
-          <button
-            onClick={onClose}
-            className={`p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors ${
-              theme === 'light' ? 'text-gray-600' : 'text-gray-400'
-            }`}
-          >
-            <X className="w-6 h-6" />
-          </button>
         </div>
 
         <div className="p-6 space-y-6">
