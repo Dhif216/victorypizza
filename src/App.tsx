@@ -190,10 +190,10 @@ export default function App() {
           <div className="relative">
             {/* Pulsing ring animation */}
             <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-75"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
+            <div className="absolute inset-0 bg-green-500 rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
             
             {/* Main button */}
-            <div className="relative flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-green-500 via-green-600 to-emerald-600 hover:from-green-600 hover:via-green-700 hover:to-emerald-700 rounded-full shadow-2xl shadow-green-500/50 transition-all transform group-hover:scale-110">
+            <div className="relative flex items-center gap-3 px-6 py-4 bg-green-600 hover:bg-green-700 rounded-full shadow-2xl shadow-green-500/50 transition-all transform group-hover:scale-110">
               <svg className="w-6 h-6 text-white animate-pulse" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
               </svg>
