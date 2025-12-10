@@ -39,7 +39,7 @@ export const menuData = {
       nameEn: "Hawaiian",
       ingredients: "Kinkku, Ananas",
       ingredientsEn: "Ham, Pineapple",
-      imageUrl: "https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=400&h=300&fit=crop",
+      imageUrl: "https://www.schaer.com/sites/default/files/styles/panoramic_xxl/public/2023-10/1798_pizza-havaiana.jpg.webp",
       prices: { norm: 9, perhe: 13.5, pannu: 13 }
     },
     {
