@@ -41,8 +41,8 @@
 .bg-amber-600,
 .from-amber-600,
 .to-amber-600,
-  --tw-gradient-to: #ea580c !important;
-  background-image: linear-gradient(to right, #f97316, #ea580c) !important;
+.hover\:from-amber-600:hover,
+.hover\:to-amber-600:hover {
   background-color: #16A34A !important;
 }
 
