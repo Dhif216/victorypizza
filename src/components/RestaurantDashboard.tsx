@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Package, Clock, User, Phone, MapPin, Mail, CreditCard, Banknote, X, RefreshCw, Filter, Lock, Settings, Trash2, Star } from 'lucide-react';
+import { Package, Clock, User, Phone, MapPin, Mail, CreditCard, Banknote, X, RefreshCw, Filter, Lock, Star } from 'lucide-react';
 import { orderAPI, authAPI } from '../services/api';
 import { socketService } from '../services/socket';
 import { UserSettings } from './UserSettings';
