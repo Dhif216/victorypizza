@@ -43,7 +43,7 @@ export function Hero({ language }: HeroProps) {
               </div>
               <div>
                 <div className="meta-label">{language === 'fi' ? 'Avoinna tänään' : 'Open today'}</div>
-                <div className="meta-value">11:00 - 22:00</div>
+                <div className="meta-value">09:00 - 23:00</div>
               </div>
             </div>
           </div>

@@ -67,7 +67,7 @@ export function Contact({ language, onShowPolicy }: ContactProps) {
                 <div className="flex flex-col pt-1">
                   <div className="text-xs uppercase mb-1 text-gray-500">{language === 'fi' ? 'Aukioloajat' : 'Opening Hours'}</div>
                   <div>{language === 'fi' ? 'Maanantai - Sunnuntai' : 'Monday - Sunday'}</div>
-                  <div className="text-green-600 font-bold">11:00 - 22:00</div>
+                  <div className="text-green-600 font-bold">09:00 - 23:00</div>
                 </div>
               </div>
             </div>
