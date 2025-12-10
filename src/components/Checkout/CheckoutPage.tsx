@@ -59,6 +59,7 @@ export function CheckoutPage({ language, theme, onBack }: CheckoutPageProps) {
           email: customerInfo.email,
           address: customerInfo.address,
           city: customerInfo.city,
+          postalCode: customerInfo.postalCode,
           notes: customerInfo.notes,
         },
         items: cartItems.map(item => ({
