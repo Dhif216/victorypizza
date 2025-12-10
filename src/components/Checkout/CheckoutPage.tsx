@@ -328,15 +328,15 @@ export function CheckoutPage({ language, theme, onBack }: CheckoutPageProps) {
                 <button
                   type="button"
                   onClick={() => setPaymentMethod('card')}
-                  className={`p-4 rounded-lg border-2 transition-all ${
+                  className={`p-4 rounded-lg border-2 transition-all active:scale-95 ${
                     paymentMethod === 'card'
-                      ? 'border-amber-500 bg-amber-500/10'
+                      ? 'border-blue-500 bg-blue-500/20 shadow-lg scale-105'
                       : theme === 'light'
-                        ? 'border-gray-300 hover:border-amber-500/50'
-                        : 'border-neutral-700 hover:border-amber-500/50'
+                        ? 'border-gray-300 hover:border-blue-500/50 active:bg-blue-500/10'
+                        : 'border-neutral-700 hover:border-blue-500/50 active:bg-blue-500/10'
                   }`}
                 >
-                  <CreditCard className="w-6 h-6 mx-auto mb-2 text-amber-500" />
+                  <CreditCard className={`w-6 h-6 mx-auto mb-2 ${paymentMethod === 'card' ? 'text-blue-600' : 'text-gray-400'}`} />
                   <div className={`font-medium ${theme === 'light' ? 'text-black' : 'text-white'}`}>
                     {language === 'fi' ? 'Kortti' : 'Card'}
                   </div>
@@ -344,12 +344,12 @@ export function CheckoutPage({ language, theme, onBack }: CheckoutPageProps) {
                 <button
                   type="button"
                   onClick={() => setPaymentMethod('cash')}
-                  className={`p-4 rounded-lg border-2 transition-all ${
+                  className={`p-4 rounded-lg border-2 transition-all active:scale-95 ${
                     paymentMethod === 'cash'
-                      ? 'border-amber-500 bg-amber-500/10'
+                      ? 'border-blue-500 bg-blue-500/20 shadow-lg scale-105'
                       : theme === 'light'
-                        ? 'border-gray-300 hover:border-amber-500/50'
-                        : 'border-neutral-700 hover:border-amber-500/50'
+                        ? 'border-gray-300 hover:border-blue-500/50 active:bg-blue-500/10'
+                        : 'border-neutral-700 hover:border-blue-500/50 active:bg-blue-500/10'
                   }`}
                 >
                   <div className="text-2xl mb-2">💵</div>
@@ -425,7 +425,7 @@ export function CheckoutPage({ language, theme, onBack }: CheckoutPageProps) {
               <button
                 type="submit"
                 disabled={!isFormValid() || isSubmitting}
-                className={`w-full py-4 px-6 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-black font-bold rounded-lg transition-all shadow-lg shadow-amber-500/30 hover:shadow-amber-500/50 ${
+                className={`w-full py-4 px-6 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-red-600 font-bold rounded-lg transition-all shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 ${
                   isSubmitting ? 'opacity-75' : ''
                 }`}
               >

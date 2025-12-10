@@ -6,7 +6,7 @@ interface ContactProps {
   onShowPolicy?: () => void;
 }
 
-export function Contact({ language, theme, onShowPolicy }: ContactProps) {
+export function Contact({ language, onShowPolicy }: ContactProps) {
   return (
     <section id="contact" className="relative py-32 border-t bg-white border-gray-200">
 
