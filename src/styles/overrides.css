@@ -112,6 +112,15 @@ button.fixed.top-24 {
   justify-content: center !important;
 }
 
+/* Close button in top-left corner */
+button.fixed.top-4.left-4 {
+  position: fixed !important;
+  top: 1rem !important;
+  left: 1rem !important;
+  right: auto !important;
+  z-index: 10000 !important;
+}
+
 button.fixed.top-24:hover {
   transform: scale(1.1) rotate(90deg) !important;
   box-shadow: 0 12px 32px rgba(220, 38, 38, 0.6) !important;
