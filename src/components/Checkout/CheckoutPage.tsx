@@ -59,7 +59,6 @@ export function CheckoutPage({ language, theme, onBack }: CheckoutPageProps) {
           email: customerInfo.email,
           address: customerInfo.address,
           city: customerInfo.city,
-          postalCode: customerInfo.postalCode,
           notes: customerInfo.notes,
         },
         items: cartItems.map(item => ({
@@ -281,38 +280,22 @@ export function CheckoutPage({ language, theme, onBack }: CheckoutPageProps) {
                       />
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <label className={`block text-sm font-medium mb-2 ${theme === 'light' ? 'text-black' : 'text-white'}`}>
-                          {language === 'fi' ? 'Kaupunki' : 'City'} *
-                        </label>
-                        <input
-                          type="text"
-                          required
-                          value={customerInfo.city}
-                          onChange={(e) => handleInputChange('city', e.target.value)}
-                          className={`w-full px-4 py-3 rounded-lg border transition-colors ${
-                            theme === 'light'
-                              ? 'bg-white border-gray-300 text-black focus:border-amber-500'
-                              : 'bg-neutral-800 border-neutral-700 text-white focus:border-amber-500'
-                          } focus:outline-none focus:ring-2 focus:ring-amber-500/20`}
-                        />
-                      </div>
-                      <div>
-                        <label className={`block text-sm font-medium mb-2 ${theme === 'light' ? 'text-black' : 'text-white'}`}>
-                          {language === 'fi' ? 'Postinumero' : 'Postal Code'}
-                        </label>
-                        <input
-                          type="text"
-                          value={customerInfo.postalCode}
-                          onChange={(e) => handleInputChange('postalCode', e.target.value)}
-                          className={`w-full px-4 py-3 rounded-lg border transition-colors ${
-                            theme === 'light'
-                              ? 'bg-white border-gray-300 text-black focus:border-amber-500'
-                              : 'bg-neutral-800 border-neutral-700 text-white focus:border-amber-500'
-                          } focus:outline-none focus:ring-2 focus:ring-amber-500/20`}
-                        />
-                      </div>
+                    <div>
+                      <label className={`block text-sm font-medium mb-2 ${theme === 'light' ? 'text-black' : 'text-white'}`}>
+                        {language === 'fi' ? 'Kaupunki/Postinumero' : 'City/Postal Code'} *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={customerInfo.city}
+                        onChange={(e) => handleInputChange('city', e.target.value)}
+                        placeholder={language === 'fi' ? 'esim. Vantaa 01234' : 'e.g. Vantaa 01234'}
+                        className={`w-full px-4 py-3 rounded-lg border transition-colors ${
+                          theme === 'light'
+                            ? 'bg-white border-gray-300 text-black focus:border-amber-500'
+                            : 'bg-neutral-800 border-neutral-700 text-white focus:border-amber-500'
+                        } focus:outline-none focus:ring-2 focus:ring-amber-500/20`}
+                      />
                     </div>
                   </>
                 )}
